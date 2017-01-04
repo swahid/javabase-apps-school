@@ -65,7 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   |               | sidebar-mini                            |
   |---------------------------------------------------------|
   -->
-<body class="hold-transition skin-black fixed">
+<body class="hold-transition skin-black sidebar-mini">
     <c:url var="index" value="/" />
     <div class="wrapper">
 
@@ -135,14 +135,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
             <li ><a href="${index}"><i class="fa fa-home"></i> <span>Home</span></a></li>
-            <li class="active"><a href="${index}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
-              <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href="#"><i class="fa fa-link"></i> <span>Student</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
+                <li><a href="#">Admit Student</a></li>
+                <li><a href="#">Student Information</a></li>
+                <li><a href="#">Student Promotion</a></li>
               </ul>
             </li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Teacher</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Parents</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Class</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Subject</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Routine</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Exam</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Manage Marks</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Holiday</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Library</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Noticeboard</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Messaging</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Transport</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Account</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Settings</span></a></li>
+            
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
