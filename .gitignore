@@ -1,0 +1,13 @@
+############# STS settings File ##########
+
+.classpath
+.springBeans
+.project
+.settings/
+target/
+build/
+
+
+
+
+############# STS settings File ##########

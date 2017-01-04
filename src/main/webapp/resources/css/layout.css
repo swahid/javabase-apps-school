@@ -1,0 +1,45 @@
+/**
+ * @author  Saurav Wahid<saurav1161@gmail.com>
+ * @version 1.0.1
+ * @since   1.0.0
+ */
+
+#container{
+    width: auto;
+    height: 100%;
+}
+
+#pageheader{
+    background-color: #0080c0;
+    width: 100%;
+    height: 50px;
+    clear: both;
+}
+
+#bodyContainer{
+    background-color: #c0c0c0;
+    clear: both;
+    width: auto;
+    height: 90%;
+}
+
+#leftsidebar{
+    background-color: #008080;
+    float: left;
+    width: 200px;
+    margin: 0 10 0 0;
+}
+
+#content{
+    background-color: #8080c0;
+    float: none;
+    width: auto;
+    margin: 0 0 0 10;
+    
+}
+#pagefooter{
+    background-color: #aac1d9;
+    width: 100%;
+    height: 50px;
+    clear: both;
+}
