@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>404 Page no found</title>
 	<meta name="viewport" content="width=device-width">
-	<link href="<c:url value='/resources/css/error.css' />" rel="stylesheet"></link>
+	<link href="resources/css/error.css" rel="stylesheet"></link>
 </head>
 <body>
 	<div class="error-page-wrap">

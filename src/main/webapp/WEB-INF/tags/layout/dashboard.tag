@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- REQUIRED JS SCRIPTS -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="resources/jquery/2.1.4/jquery.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="resources/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
