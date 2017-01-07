@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class DashboardController {
 	
-	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger log = LoggerFactory.getLogger(DashboardController.class);
 	
 	@Autowired
     UserService userservice;
@@ -31,7 +31,7 @@ public class HomeController {
     HttpSession response;
 	
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String dashboard(Locale locale, Model model) {
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -41,7 +41,7 @@ public class HomeController {
     	    response.setAttribute("user", user);
     	}
 		log.info("Welcome home! ");
-		return "home";
+		return "dashboard";
 	}
 	
 }
