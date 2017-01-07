@@ -1,0 +1,73 @@
+ /* Here declare our custom design css */
+ 
+ .info-box.student {
+	background: url(./../images/student.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.info-box.student .info-box-stats {
+	position: relative;
+	padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+    
+}
+.info-box.student .info-box-stats p {
+    color: #22baa0;
+    font-size: 28px;
+    height: 50%;
+    width: 50%;
+}
+.info-box.student .info-box-stats span.info-box-title {
+    color: #22baa0;
+}
+.info-box.teacher {
+	background: url(./../images/teacher.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.info-box.teacher .info-box-stats {
+   	position: relative;
+	padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+}
+.info-box.teacher .info-box-stats p {
+    color: #12AFCB;
+    font-size: 28px;
+}
+.info-box.teacher .info-box-stats span.info-box-title {
+    color: #12AFCB;
+}
+.info-box.parent {
+	background: url(./../images/parent.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.info-box.parent .info-box-stats {
+    position: relative;
+	padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+}
+.info-box.parent .info-box-stats p {
+    color: #6A5FAC;
+    font-size: 28px;
+}
+.info-box.parent .info-box-stats span.info-box-title {
+    color: #6A5FAC;
+}
+.info-box.attendence {
+	background: url(./../images/attendence.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.info-box.attendence .info-box-stats {
+	position: relative;
+	padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+}
+.info-box.attendence .info-box-stats p {
+    color: #F25656;
+    font-size: 28px;
+}
+.info-box.attendence .info-box-stats span.info-box-title {
+    color: #F25656;
+}
