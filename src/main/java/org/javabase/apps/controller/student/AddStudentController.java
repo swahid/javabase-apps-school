@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value = "/student")
-public class StudentController {
+public class AddStudentController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
     public String studentPage() {
-        return "student/students";
+        return "student/addStudent";
     }
 	
 }

@@ -16,34 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>School Management System</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/jschool.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="resources/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
-    <link rel="stylesheet" href="resources/css/skins/skin-black.min.css">
-    <!-- REQUIRED JS SCRIPTS -->
-
-    <!-- jQuery 2.1.4 -->
-    <script src="resources/jquery/2.1.4/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="resources/js/bootstrap.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="resources/js/app.min.js"></script>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <%@ include file="/WEB-INF/tags/layout/includeHeader.jsp"%>
     <jsp:invoke fragment="header"/>
   </head>
   <!--
@@ -96,14 +69,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="resources/images/avatar.png" class="user-image" alt="User Image">
+                  <img src='<c:url value="/resources/images/avatar.png"/>' class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">${user.username}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="resources/images/avatar.png" class="img-circle" alt="User Image">
+                    <img src="<c:url value="/resources/images/avatar.png"/>" class="img-circle" alt="User Image">
                     <p>
                       ${user.firstName} ${user.lastName} - ${user.role.rolename}
                       <small>Member since ${user.regdate}</small>
@@ -140,8 +113,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Student</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="student">Admit Student</a></li>
-                <li><a href="#">Student Information</a></li>
+                <li><a href='<c:url value="/student/add"/>'>Admit Student</a></li>
+                <li><a href='<c:url value="/student"/>'>Student Information</a></li>
                 <li><a href="#">Student Promotion</a></li>
               </ul>
             </li>
