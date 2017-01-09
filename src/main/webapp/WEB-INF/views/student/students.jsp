@@ -7,24 +7,23 @@
 	<jsp:body>
 	<div class="row">
 	<div class="col-md-12">
-		<div class="panel" data-collapsed="0">
-        	<div class="panel-heading">
-            	<div class="panel-title">
-            		<i class="entypo-plus-circled"></i>
+		<div class="box box-default" data-collapsed="0">
+        	<div class="box-header with-border">
+            	<div class="box-title">
+            		<i class="fa fa-plus"></i>
 					All Students            	
 				</div>
             </div>
  <!-- =========================== Search Combo Section Start ======================== -->
- <div class="panel-body"> 
+ <div class="box-body"> 
         <form method="post">  
-	<div class="form-group col-md-3">
+	    <div class="form-group col-md-3">
 			<label for="class_id">Select Class</label>			
-			                 
-                    <select name="class_id" id="class_list" class="form-control ">
-                        <option value=" ">Select class Name</option>
-                        <option value="1">Five</option>
-                        <option value="2">Six</option>
-                    </select>
+            <select name="class_id" id="class_list" class="form-control select2">
+                <option value=" ">Select class Name</option>
+                <option value="1">Five</option>
+                <option value="2">Six</option>
+            </select>
 			
 		</div>
 		<div class="form-group col-md-3">
@@ -35,7 +34,7 @@
 		</div>
 	<div class="form-group col-md-3 button-possition">
     	<label for="subject_id">&nbsp;</label>
-      	<input type="submit" value="Search" name="filter_class" class="button-possition">
+      	<input type="submit" value="Search" name="subject_id" class="button-possition">
     </div>
        
           </form>
@@ -44,7 +43,7 @@
  
  
  <!-- =========================== Search Datatable Section Start ======================== -->
- <div class="panel-body">
+ <div class="box-body">
 		<div class="table-responsive">
         <div id="students_list_wrapper" class="dataTables_wrapper">
         <div class="dataTables_length" id="students_list_length">

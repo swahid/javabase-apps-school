@@ -7,14 +7,14 @@
 	<jsp:body>
 	<div class="row">
 	<div class="col-md-12">
-		<div class="panel" data-collapsed="0">
-        	<div class="panel-heading">
-            	<div class="panel-title">
-            		<i class="entypo-plus-circled"></i>
-					Addmission Form            	
+		<div class="box box-default" data-collapsed="0">
+        	<div class="box-header with-border">
+            	<div class="box-title">
+            		<span><i class="fa fa-plus"></i>
+					Addmission Form</span>            	
 				</div>
             </div>
-            <div class="panel-body">
+            <div class="box-body">
         <form name="student_form" action="" method="post" class="form-horizontal" id="student_form" enctype="multipart/form-data">
          		<input type="hidden" name="action" value="insert">
 		<input type="hidden" name="role" value="student">
