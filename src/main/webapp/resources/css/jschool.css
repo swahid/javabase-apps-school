@@ -89,3 +89,12 @@
     margin-bottom: 5px;
     overflow: hidden;
 }
+.button-possition input, button {
+    margin-top: 25px;
+    background-color: #12AFCB;
+    color: #fff;
+    border: 1px solid transparent;
+    display: inline-block;
+    padding: 6px 12px;
+}
+

@@ -7,7 +7,7 @@
 	<jsp:body>
 	<div class="row">
 	<div class="col-md-12">
-		<div class="panel panel-default" data-collapsed="0">
+		<div class="panel" data-collapsed="0">
         	<div class="panel-heading">
             	<div class="panel-title">
             		<i class="entypo-plus-circled"></i>
@@ -21,19 +21,21 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="class_name">Class<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				                        <select name="class_name" class="form-control validate[required]" id="class_name">
-                        	<option value="">Select Class</option>
-                            								 <option value="1">Five</option>
-															 <option value="2">Six</option>
-							                        </select>
+				<select name="class_name" class="form-control validate[required]" id="class_name">
+                	<option value="">Select Class</option>
+        			<option value="1">One</option>
+				 	<option value="2">Two</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="class_name">Class Section</label>
 			<div class="col-sm-8">
-				                        						<select name="class_section" class="form-control" id="class_section">
-                        	<option value="">Select Class Section</option>
-                                                    </select>
+        		<select name="class_section" class="form-control" id="class_section">
+                 	<option value="">Select Class Section</option>
+                 	<option value="sectionA">Section A</option>
+                	<option value="sectionB">Section B</option>
+                </select>
 			</div>
 		</div>
 		<div class="form-group">

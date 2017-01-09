@@ -1,0 +1,31 @@
+/** Pop up Box Style **/
+
+
+.popup-bg {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height:100%;
+	width: 100%;
+	cursor: pointer;
+	z-index: 1000; /* high z-index */
+	background: #000; /* fallback */
+	background: rgba(0,0,0,0.75);
+}
+.overlay-content {
+	background: #fff;
+	padding: 1%;
+	width: 60%;
+	position: relative;
+	top: 2%;
+	left: 40%;
+	margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+	cursor: default;
+	border-radius: 4px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	padding: 10px 10px 30px 10px;
+	float:left;
+}
+
+

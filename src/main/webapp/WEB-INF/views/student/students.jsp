@@ -7,190 +7,155 @@
 	<jsp:body>
 	<div class="row">
 	<div class="col-md-12">
-		<div class="panel panel-default" data-collapsed="0">
+		<div class="panel" data-collapsed="0">
         	<div class="panel-heading">
             	<div class="panel-title">
             		<i class="entypo-plus-circled"></i>
 					All Students            	
 				</div>
             </div>
-            <div class="panel-body">
-        <form name="student_form" action="" method="post" class="form-horizontal" id="student_form" enctype="multipart/form-data">
-         		<input type="hidden" name="action" value="insert">
-		<input type="hidden" name="role" value="student">
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="class_name">Class<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				                        <select name="class_name" class="form-control validate[required]" id="class_name">
-                        	<option value="">Select Class</option>
-                            								 <option value="1">Five</option>
-															 <option value="2">Six</option>
-							                        </select>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="class_name">Class Section</label>
-			<div class="col-sm-8">
-				                        						<select name="class_section" class="form-control" id="class_section">
-                        	<option value="">Select Class Section</option>
-                                                    </select>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="roll_id">Roll Number<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="roll_id" class="form-control validate[required]" type="text" value="" name="roll_id">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="first_name">First Name<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="first_name" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="first_name">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="middle_name">Middle Name</label>
-			<div class="col-sm-8">
-				<input id="middle_name" class="form-control " type="text" value="" name="middle_name">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="last_name">Last Name<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="last_name" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="last_name">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="gender">Gender<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-							<label class="radio-inline">
-			     <input type="radio" value="male" class="tog validate[required]" name="gender" checked="checked">Male			    </label>
-			    <label class="radio-inline">
-			      <input type="radio" value="female" class="tog validate[required]" name="gender">Female 
-			    </label>
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="birth_date">Date of birth<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="birth_date" class="form-control validate[required] hasDatepicker" type="text" name="birth_date" value="">
-			</div>
-		</div>		
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="address">Address<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="address" class="form-control validate[required]" type="text" name="address" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="city_name">City<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="city_name" class="form-control validate[required]" type="text" name="city_name" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="state_name">State</label>
-			<div class="col-sm-8">
-				<input id="state_name" class="form-control" type="text" name="state_name" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="zip_code">Zip Code<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="zip_code" class="form-control  validate[required,custom[onlyLetterNumber]]" type="text" name="zip_code" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="mobile_number">Mobile Number</label>
-			<div class="col-sm-2">
+ <!-- =========================== Search Combo Section Start ======================== -->
+ <div class="panel-body"> 
+        <form method="post">  
+	<div class="form-group col-md-3">
+			<label for="class_id">Select Class</label>			
+			                 
+                    <select name="class_id" id="class_list" class="form-control ">
+                        <option value=" ">Select class Name</option>
+                        <option value="1">Five</option>
+                        <option value="2">Six</option>
+                    </select>
 			
-			<input type="text" readonly value="+880" class="form-control text-input" name="phonecode">
-			</div>
-			<div class="col-sm-6">
-				<input id="mobile_number" class="form-control text-input" type="text" name="mobile_number" value="">
-			</div>
 		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="mobile_number">Alternet Mobile Number</label>
-			<div class="col-sm-2">
-			
-			<input type="text" readonly value="+880" class="form-control text-input" name="alter_mobile_number">
-			</div>
-			<div class="col-sm-6">
-				<input id="alternet_mobile_number" class="form-control text-input" type="text" name="alternet_mobile_number" maxlength="10" value="">
-			</div>
+		<div class="form-group col-md-3">
+			<label for="class_id">Select Class Section</label>			
+			<select name="class_section" class="form-control validate[required]" id="class_section">
+               	<option value="">Select Class Section</option>
+			</select>
 		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label " for="phone">Phone<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="phone" class="form-control validate[,custom[phone]] text-input" type="text" name="phone" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label " for="email">Email<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="email" class="form-control validate[required,custom[email]] text-input" type="text" name="email" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="username">User Name<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="username" class="form-control validate[required]" type="text" name="username" value="">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="password">Password<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<input id="password" class="form-control validate[required]" type="password" name="password" value="">
-			</div>
-		</div>
-		<!--<div class="form-group">
-			<label class="col-sm-2 control-label" for="photo">Image</label>
-			<div class="col-sm-2">
-				
-				<input type="text" id="smgt_user_avatar_url" class="form-control" name="smgt_user_avatar"  
-				value="" />
-				
-			</div>	
-				<div class="col-sm-3">
-       				 <input id="upload_user_avatar_button" type="button" class="button" value="Upload image" />
-       				 <span class="description">Upload image</span>
-       		
-			</div>
-			<div class="clearfix"></div>
-			
-			<div class="col-sm-offset-2 col-sm-8">
-                     <div id="upload_user_avatar_preview" >
-	                     					        	<img alt="" src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/plugins/school-management/assets/images/finel-logo6.png">
-					        	    				</div>
-   		 </div>
-		</div>-->
-		
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="photo">Image</label>
-			<div class="col-sm-2">
-				<input type="text" id="amgt_user_avatar_url" class="form-control" name="smgt_user_avatar" value="">
-				<input type="hidden" class="form-control" name="hidden_upload_user_avatar_image" value="">
-			</div>	
-				<div class="col-sm-3">
-       				 <input id="upload_user_avatar" name="upload_user_avatar_image" type="file">
-       		</div>
-			<div class="clearfix"></div>
-			
-			<div class="col-sm-offset-2 col-sm-8">
-                     <div id="upload_user_avatar_preview">
-	                     					        	<img alt="" src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/plugins/school-management/assets/images/finel-logo6.png">
-					        	    				</div>
-   		 </div>
-		</div>
-		<div class="col-sm-offset-2 col-sm-8">
-        	
-        	<input type="submit" value="Add Student" name="save_student" class="btn btn-success">
-        </div>
-          	
+	<div class="form-group col-md-3 button-possition">
+    	<label for="subject_id">&nbsp;</label>
+      	<input type="submit" value="Search" name="filter_class" class="button-possition">
+    </div>
+       
+          </form>
+		  </div>
+ <!-- =========================== Search Combo Section END ========================== -->
+ 
+ 
+ <!-- =========================== Search Datatable Section Start ======================== -->
+ <div class="panel-body">
+		<div class="table-responsive">
+        <div id="students_list_wrapper" class="dataTables_wrapper">
+        <div class="dataTables_length" id="students_list_length">
+        <label>Show <select name="students_list_length" aria-controls="students_list" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="students_list_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="students_list"></label></div><table id="students_list" class="display dataTable dtr-inline collapsed" cellspacing="0" width="100%" role="grid" aria-describedby="students_list_info" style="width: 100%;">
+        <thead>
+        	<tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Photo" style="width: 70px;">Photo</th><th class="sorting_asc" tabindex="0" aria-controls="students_list" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Student Name: activate to sort column descending" style="width: 141px;">Student Name</th><th class="sorting" tabindex="0" aria-controls="students_list" rowspan="1" colspan="1" aria-label=" Roll No.: activate to sort column ascending" style="width: 114px;"> Roll No.</th><th class="sorting" tabindex="0" aria-controls="students_list" rowspan="1" colspan="1" aria-label=" Student Email: activate to sort column ascending" style="width: 167px;"> Student Email</th><th class="sorting" tabindex="0" aria-controls="students_list" rowspan="1" colspan="1" aria-label=" Class: activate to sort column ascending" style="width: 50px;"> Class</th><th class="sorting" tabindex="0" aria-controls="students_list" rowspan="1" colspan="1" aria-label=" Section: activate to sort column ascending" style="width: 63px;"> Section</th></tr>
+        </thead>
+ 
+        <tfoot>
+            <tr><th rowspan="1" colspan="1">Photo</th><th rowspan="1" colspan="1">Student Name</th><th rowspan="1" colspan="1"> Roll No.</th><th rowspan="1" colspan="1"> Student Email</th><th rowspan="1" colspan="1"> Class</th><th rowspan="1" colspan="1"> Section</th></tr>
+        </tfoot>
+ 
+        <tbody>
+        <tr role="row" class="odd">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/uploads/school_assets/1477162269-pimg-in.png" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">ABCTCET Kanojia</td>
+				<td class="roll_no">68465</td>
+				<td class="email">idiplomads@gmail.com</td>
+				<td class="name">Five</td>
+				<td class="name"></td>
+                
+                              	 
+			               </tr><tr role="row" class="even">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/uploads/school_assets/1478854732-pimg-in.jpg" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">Abhi Singh</td>
+				<td class="roll_no">066</td>
+				<td class="email">abhijeetpsingh@hotmail.com</td>
+				<td class="name">Five</td>
+				<td class="name">No Section</td>
+                
+                              	 
+			               </tr><tr role="row" class="odd">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/uploads/school_assets/1467568803-pimg-in.jpg" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">Abhishek Mishra</td>
+				<td class="roll_no">FIVE3456</td>
+				<td class="email">abhijee00@gmail.com</td>
+				<td class="name">Five</td>
+				<td class="name">Section A</td>
+                
+                              	 
+			               </tr><tr role="row" class="even">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/plugins/school-management/assets/images/finel-logo6.png" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">Adam Bilal</td>
+				<td class="roll_no">438934</td>
+				<td class="email">adamc@itm247.com</td>
+				<td class="name">Six</td>
+				<td class="name">No Section</td>
+                
+                              	 
+			               </tr><tr role="row" class="odd">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/uploads/school_assets/1469472690-pimg-in.jpg" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">Adolf buneri</td>
+				<td class="roll_no">2012677664</td>
+				<td class="email">mda@yashoo.com</td>
+				<td class="name">Five</td>
+				<td class="name">No Section</td>
+                
+                              	 
+			               </tr><tr role="row" class="even">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/plugins/school-management/assets/images/finel-logo6.png" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">ahsan Gujjar</td>
+				<td class="roll_no">1548</td>
+				<td class="email">malik@gmail.com</td>
+				<td class="name">Six</td>
+				<td class="name">No Section</td>
+                
+                              	 
+			    </tr><tr role="row" class="odd">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/uploads/school_assets/1467145563-pimg-in.jpg" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">Andy Olmedo</td>
+				<td class="roll_no">2014</td>
+				<td class="email">ingo@msn.com</td>
+				<td class="name">Five</td>
+				<td class="name">No Section</td>
+                
+                              	 
+			    </tr><tr role="row" class="even">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/plugins/school-management/assets/images/finel-logo6.png" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">asdgfsdfg sdfgsdfgsdfgsdfg</td>
+				<td class="roll_no">23</td>
+				<td class="email">agenciaclave@gmail.com</td>
+				<td class="name">Six</td>
+				<td class="name">No Section</td>
+                
+                              	 
+			    </tr><tr role="row" class="odd">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/plugins/school-management/assets/images/finel-logo6.png" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">asim g</td>
+				<td class="roll_no">12345</td>
+				<td class="email">asimjutt78@gmail.com</td>
+				<td class="name">Five</td>
+				<td class="name">No Section</td>
+                
+                              	 
+                </tr><tr role="row" class="even">
+				<td class="user_image text-center"><img src="http://www.mobilewebs.net/mojoomla/extend/wordpress/school/wp-content/uploads/school_assets/1476121496-pimg-in.JPG" height="50px" width="50px" class="img-circle"></td>
+                <td class="name sorting_1">Avnish Suryavanshi</td>
+				<td class="roll_no">0011</td>
+				<td class="email">avnishtest@gmail.com</td>
+				<td class="name">Five</td>
+				<td class="name">No Section</td>
+                
+                              	 
+               </tr>
+               </tbody>
         
-        </form>
+        </table><div class="dataTables_info" id="students_list_info" role="status" aria-live="polite">Showing 1 to 10 of 83 entries</div><div class="dataTables_paginate paging_simple_numbers" id="students_list_paginate"><a class="paginate_button previous disabled" aria-controls="students_list" data-dt-idx="0" tabindex="0" id="students_list_previous">Previous</a><span><a class="paginate_button current" aria-controls="students_list" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="students_list" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="students_list" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="students_list" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="students_list" data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button " aria-controls="students_list" data-dt-idx="6" tabindex="0">9</a></span><a class="paginate_button next" aria-controls="students_list" data-dt-idx="7" tabindex="0" id="students_list_next">Next</a></div></div>
         </div>
+       
+	</div>
+ <!-- =========================== Search Datatable Section END ========================== -->
         </div>
     </div>
     </div>

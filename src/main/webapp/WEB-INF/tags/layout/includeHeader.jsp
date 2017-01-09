@@ -15,6 +15,14 @@
     -->
     <link rel='stylesheet' href='<c:url value="/resources/css/skins/skin-black.min.css"/>'>
     
+    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.editor.min.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.responsive.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.tableTools.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/popup.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/white.css"/>'>
+    
     <!-- ======================= REQUIRED CSS END ========================= -->
     <!-- ======================= REQUIRED JS SCRIPTS ========================= -->
 
