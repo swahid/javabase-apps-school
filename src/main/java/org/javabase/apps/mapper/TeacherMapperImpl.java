@@ -6,7 +6,7 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
-import org.javabase.apps.entity.AcaSession;
+import org.javabase.apps.entity.Teacher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @SuppressWarnings("unchecked")
-public class TeacherMapperImpl implements AcaSessionMapper{
+public class TeacherMapperImpl implements TeacherMapper{
 
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
@@ -29,27 +29,27 @@ public class TeacherMapperImpl implements AcaSessionMapper{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<AcaSession> getAllAcaSessions() {
-		String hql = "FROM AcaSession";
-		return (List<AcaSession>) hibernateTemplate.find(hql);
+	public List<Teacher> getAllTeachers() {
+		String hql = "FROM Teacher";
+		return (List<Teacher>) hibernateTemplate.find(hql);
 	}
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<AcaSession> getAllAcaSessionsByParam(Map<String, Object> params) {
-		String hql = "FROM AcaSession";
-		return (List<AcaSession>) hibernateTemplate.find(hql);
+	public List<Teacher> getAllTeachersByParam(Map<String, Object> params) {
+		String hql = "FROM Teacher";
+		return (List<Teacher>) hibernateTemplate.find(hql);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public AcaSession getAcaSessionById(int teacherId) {
-		return hibernateTemplate.get(AcaSession.class, teacherId);
+	public Teacher getTeacherById(int teacherId) {
+		return hibernateTemplate.get(Teacher.class, teacherId);
 	}
 
 	@Override
 	@Transactional
-	public boolean addAcaSession(AcaSession teacher) {
+	public boolean addTeacher(Teacher teacher) {
 		try {
 			hibernateTemplate.save(teacher);
 			
@@ -62,7 +62,7 @@ public class TeacherMapperImpl implements AcaSessionMapper{
 
 	@Override
 	@Transactional
-	public boolean updateAcaSession(AcaSession teacher) {
+	public boolean updateTeacher(Teacher teacher) {
 		try {
 			hibernateTemplate.update(teacher);
 			
@@ -75,7 +75,7 @@ public class TeacherMapperImpl implements AcaSessionMapper{
 
 	@Override
 	@Transactional
-	public boolean deleteAcaSession(int teacherId) {
+	public boolean deleteTeacher(int teacherId) {
 		try {
 			hibernateTemplate.delete(teacherId);
 			
