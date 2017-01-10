@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class GivenRole implements java.io.Serializable {
 
-    private Integer givenRoleId;
+	private static final long serialVersionUID = -8096810439541361394L;
+	private Integer givenRoleId;
     private Integer insSysRoelId;
     private Integer roleId;
     private Integer userId;

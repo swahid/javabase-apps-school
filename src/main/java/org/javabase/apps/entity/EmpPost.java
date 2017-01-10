@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class EmpPost implements java.io.Serializable {
 
-    private Integer empPostId;
+	private static final long serialVersionUID = 6117370898970120679L;
+	private Integer empPostId;
     private Integer insId;
     private String postName;
     private String activity;

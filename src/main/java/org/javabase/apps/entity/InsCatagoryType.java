@@ -16,7 +16,8 @@ import javax.persistence.Table;
 )
 public class InsCatagoryType implements java.io.Serializable {
 
-    private Integer nsCatagoryTypeIdi;
+	private static final long serialVersionUID = -7940768181909375360L;
+	private Integer nsCatagoryTypeIdi;
     private String catagoryName;
     private String catagoryCode;
     private String comments;

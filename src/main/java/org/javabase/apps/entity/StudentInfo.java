@@ -16,7 +16,8 @@ import javax.persistence.Table;
 )
 public class StudentInfo implements java.io.Serializable {
 
-    private Integer studentId;
+	private static final long serialVersionUID = -8811792990225593944L;
+	private Integer studentId;
     private String userInfoId;
     private String session;
     private Integer classId;

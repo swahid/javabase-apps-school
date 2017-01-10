@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class TeacherPost implements java.io.Serializable {
 
-    private Integer teaPostId;
+	private static final long serialVersionUID = -3670465799534855391L;
+	private Integer teaPostId;
     private Integer insId;
     private String subName;
     private String degignation;

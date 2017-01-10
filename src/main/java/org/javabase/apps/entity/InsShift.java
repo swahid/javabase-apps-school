@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class InsShift implements java.io.Serializable {
 
-    private Integer insShiftId;
+	private static final long serialVersionUID = -7851383013691127044L;
+	private Integer insShiftId;
     private String insId;
     private String shiftName;
     private String startTime;

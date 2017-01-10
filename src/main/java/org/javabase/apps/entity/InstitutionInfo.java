@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class InstitutionInfo implements java.io.Serializable {
 
-    private Integer insId;
+	private static final long serialVersionUID = -5440237415943326862L;
+	private Integer insId;
     private Integer categoryId;
     private String insName;
     private String insCode;

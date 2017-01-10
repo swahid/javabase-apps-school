@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class Subject implements java.io.Serializable {
 
-    private Integer subId;
+	private static final long serialVersionUID = 9041113632700520034L;
+	private Integer subId;
     private Integer classId;
     private String subTitle;
     private String subCode;

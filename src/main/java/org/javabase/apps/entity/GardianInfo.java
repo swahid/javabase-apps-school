@@ -16,7 +16,8 @@ import javax.persistence.Table;
 )
 public class GardianInfo implements java.io.Serializable {
 
-    private Integer gardianInfoId;
+	private static final long serialVersionUID = -5860616562476643459L;
+	private Integer gardianInfoId;
     private Integer userInfoId;
     private Integer studentId;
     private String relation;

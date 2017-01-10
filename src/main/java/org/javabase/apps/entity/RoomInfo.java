@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class RoomInfo implements java.io.Serializable {
 
-    private Integer ioomId;
+	private static final long serialVersionUID = 4135325435377052390L;
+	private Integer ioomId;
     private Integer buildingId;
     private String roomName;
     private String roomNo;

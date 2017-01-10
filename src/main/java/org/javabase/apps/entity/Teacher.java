@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class Teacher implements java.io.Serializable {
 
-    private Integer teacherId;
+	private static final long serialVersionUID = -1267830114097788130L;
+	private Integer teacherId;
     private String firstname;
     private String lastname;
     private String phoneno;

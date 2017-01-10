@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class TeaAcademicInfo implements java.io.Serializable {
 
-    private Integer teaAcaInfoId;
+	private static final long serialVersionUID = 4987785524993652227L;
+	private Integer teaAcaInfoId;
     private Integer teacherId;
     private String degreeName;
     private String titile;

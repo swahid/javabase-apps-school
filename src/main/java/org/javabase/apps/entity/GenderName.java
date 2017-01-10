@@ -16,7 +16,8 @@ import javax.persistence.Table;
 )
 public class GenderName implements java.io.Serializable {
 
-    private Integer genderId;
+	private static final long serialVersionUID = -549598643119349098L;
+	private Integer genderId;
     private String genderName;
     private String genderCode;
 

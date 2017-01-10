@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class ClassSection implements java.io.Serializable {
 
-    private Integer secId;
+	private static final long serialVersionUID = 6759632239272891147L;
+	private Integer secId;
     private int classId;
     private String secName;
     private String details;

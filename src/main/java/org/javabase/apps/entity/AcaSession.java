@@ -21,7 +21,8 @@ import javax.persistence.TemporalType;
 )
 public class AcaSession implements java.io.Serializable {
 
-    private Integer acaSessionId;
+	private static final long serialVersionUID = -1842842974444045951L;
+	private Integer acaSessionId;
     private Integer insId;
     private String session;
     private String duration;

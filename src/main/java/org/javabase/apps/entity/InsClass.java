@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class InsClass implements java.io.Serializable {
 
-    private Integer classId;
+	private static final long serialVersionUID = 5752897246938401293L;
+	private Integer classId;
     private Integer insShiftId;
     private String className;
     private String details;

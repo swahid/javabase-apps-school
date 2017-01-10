@@ -19,7 +19,8 @@ import javax.persistence.TemporalType;
 )
 public class UserInfo implements java.io.Serializable {
 
-    private Integer userInfoId;
+	private static final long serialVersionUID = 7227691709411331103L;
+	private Integer userInfoId;
     private Integer insId;
     private Integer userType;
     private String userName;
