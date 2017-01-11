@@ -1,19 +1,9 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	<!-- DATA TABLES -->
-        <link href=<c:url value="/resources/css/datatables/dataTables.bootstrap.css"/> rel="stylesheet" type="text/css" />
-        
-	<!-- DATA TABES SCRIPT -->
-        <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.js"/> type="text/javascript"></script>
-        <script src=<c:url value="/resources/plugins/datatables/dataTables.bootstrap.js"/> type="text/javascript"></script>
-        
-        <!-- page script -->
-        <script type="text/javascript">
-            $(function() {
-                $("#studentTable").dataTable();
-            });
-        </script>
+	
+       <!-- DATA TABES SCRIPT -->
+    <script src=<c:url value="/resources/js/funtions/students.js"/> type="text/javascript"></script>
 	</jsp:attribute>
 
 	<jsp:body>
@@ -33,7 +23,7 @@
 			<label for="class_id">Select Class</label>			
             <select name="class_id" id="class_list"
 									class="form-control select2">
-                <option value=" ">Select class Name</option>
+                <option value="">Select class Name</option>
                 <option value="1">Five</option>
                 <option value="2">Six</option>
             </select>

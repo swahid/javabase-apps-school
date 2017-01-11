@@ -23,6 +23,9 @@
     <link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>'>
     <link rel='stylesheet' href='<c:url value="/resources/css/white.css"/>'>
     
+    <!-- DATA TABLES -->
+     <link href=<c:url value="/resources/css/datatables/dataTables.bootstrap.css"/> rel="stylesheet" type="text/css" />
+        
     <!-- ======================= REQUIRED CSS END ========================= -->
     <!-- ======================= REQUIRED JS SCRIPTS ========================= -->
 
@@ -38,5 +41,9 @@
         <script src='https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'></script>
         <script src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js'></script>
     <![endif]-->
+    
+    <!-- DATA TABES SCRIPT -->
+    <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/plugins/datatables/dataTables.bootstrap.js"/> type="text/javascript"></script>
     
      <!-- ======================= REQUIRED JS SCRIPTS END========================= -->
