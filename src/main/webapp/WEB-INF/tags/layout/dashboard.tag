@@ -118,21 +118,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="#">Student Promotion</a></li>
               </ul>
             </li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Teacher</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Parents</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Class</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Subject</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Routine</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Attendance</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Exam</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Manage Marks</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Holiday</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Library</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Noticeboard</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Messaging</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Transport</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Account</span></a></li>
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Settings</span></a></li>
+            <li class="active"><a href='<c:url value="/teacher"/>'><i class="fa fa-link"></i> <span>Teacher</span></a></li>
+            <li class="active"><a href='<c:url value="/parents"/>'><i class="fa fa-link"></i> <span>Parents</span></a></li>
+            <li class="active"><a href='<c:url value="/class"/>'><i class="fa fa-link"></i> <span>Class</span></a></li>
+            <li class="active"><a href='<c:url value="/subject"/>'><i class="fa fa-link"></i> <span>Subject</span></a></li>
+            <li class="active"><a href='<c:url value="/routine"/>'><i class="fa fa-link"></i> <span>Routine</span></a></li>
+            <li class="active"><a href='<c:url value="/attendence"/>'><i class="fa fa-link"></i> <span>Attendance</span></a></li>
+            <li class="active"><a href='<c:url value="/exam"/>'><i class="fa fa-link"></i> <span>Exam</span></a></li>
+            <li class="active"><a href='<c:url value="/marks"/>'><i class="fa fa-link"></i> <span>Manage Marks</span></a></li>
+            <li class="active"><a href='<c:url value="/holiday"/>'><i class="fa fa-link"></i> <span>Holiday</span></a></li>
+            <li class="active"><a href='<c:url value="/library"/>'><i class="fa fa-link"></i> <span>Library</span></a></li>
+            <li class="active"><a href='<c:url value="/notice"/>'><i class="fa fa-link"></i> <span>Notice Board</span></a></li>
+            <li class="active"><a href='<c:url value="/message"/>'><i class="fa fa-link"></i> <span>Messaging</span></a></li>
+            <li class="active"><a href='<c:url value="/transport"/>'><i class="fa fa-link"></i> <span>Transport</span></a></li>
+            <li class="active"><a href='<c:url value="/account"/>'><i class="fa fa-link"></i> <span>Account</span></a></li>
+            <li class="active"><a href='<c:url value="/settings"/>'><i class="fa fa-link"></i> <span>Settings</span></a></li>
             
           </ul><!-- /.sidebar-menu -->
         </section>
