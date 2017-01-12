@@ -1,8 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	
-       <!-- DATA TABES SCRIPT -->
+    <!-- DATA TABES SCRIPT -->
     <script src=<c:url value="/resources/js/funtions/students.js"/> type="text/javascript"></script>
 	</jsp:attribute>
 
@@ -12,7 +11,7 @@
 		<div class="box box-default" data-collapsed="0">
         	<div class="box-header with-border">
             	<div class="box-title">
-            		<i class="fa fa-plus"></i>
+            		<i class="fa fa-group"></i>
 					All Students            	
 				</div>
             </div>

@@ -3,7 +3,9 @@
 	<jsp:attribute name="header">
 	
 	</jsp:attribute>
+	<jsp:attribute name="contentHeader">
 
+	</jsp:attribute>
 	<jsp:body>
 	<div class="row">
 	<div class="col-md-12">
@@ -11,7 +13,7 @@
         	<div class="box-header with-border">
             	<div class="box-title">
             		<span><i class="fa fa-plus"></i>
-					Addmission Form</span>            	
+					Admission Form</span>            	
 				</div>
             </div>
             <div class="box-body">
