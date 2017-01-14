@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="class_name">Institution Type<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="categoryId" class="form-control validate[required]" id="categoryId">
+				<select name="classId" class="form-control validate[required]" id="classId">
                 	<option value="">Select Class</option>
         			<option value="1">Primary</option>
         			<option value="2">High School</option>
