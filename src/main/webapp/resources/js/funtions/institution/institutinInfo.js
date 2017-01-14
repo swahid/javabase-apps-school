@@ -26,7 +26,7 @@ $(document).ready(function($) {
 		var token = $('#csrfToken').val();
 		var header = $('#csrfHeader').val();
 		/*	
-		 * if in spring aplication csrf enable
+		 * if in spring application csrf enable
 		 * send csrf parameter in header otherwise 405 error
 		 */
 		$.ajax({
@@ -62,24 +62,4 @@ $(document).ready(function($) {
 		
 	});
 	
-//	class initialized data
-	function getClass(){
-		$.ajax({
-			type 	 : "GET",
-			url      : "class",
-			success  : function(resonse) {
-				var data = resonse.data;
-				$('#classId').empty();
-				for (var i = 0; i < data.length; i++) {
-					$('#classId').append('<option value=' + data[i].classId + '>' + data[i].className + '</option>');
-				}
-				console.log("Ajax is success.....");
-			},
-			error 	 : function(e) {
-				console.log("ERROR: ",e);
-				
-				console.log("Ajax is failed.....");
-			}
-		});
-	}
 });

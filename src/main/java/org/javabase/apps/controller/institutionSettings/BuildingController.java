@@ -1,6 +1,7 @@
 package org.javabase.apps.controller.institutionSettings;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.BuildingInfo;
@@ -24,6 +25,18 @@ public class BuildingController {
         return "institution/building";
     }
 	
+	@ResponseBody
+	@RequestMapping(value = "/load",method = RequestMethod.GET)
+	public Map<String, Object> classInfo() {
+		Map<String, Object> response= new HashMap<String, Object>();
+		
+		List<BuildingInfo> buildingList = buildingInfoService.getAllBuildingInfos();
+		
+		response.put("success", true);
+		response.put("data", buildingList);
+		return response;
+		
+	}
 	@ResponseBody
 	@RequestMapping(value="addNewbuilding", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody BuildingInfo buildingInfo) {

@@ -3,6 +3,8 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
+//	call building info initialized method
+	getBildingInfo();
 	$("#addNewRoomForm").submit(function(event) {
 		
 		event.preventDefault();

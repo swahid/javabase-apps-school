@@ -44,5 +44,6 @@
     <!-- DATA TABES SCRIPT -->
     <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.js"/> type="text/javascript"></script>
     <script src=<c:url value="/resources/plugins/datatables/dataTables.bootstrap.js"/> type="text/javascript"></script>
+	<script type="text/javascript" src="<c:url value='/resources/js/funtions/institution/initialized.js' />"></script> 
     
      <!-- ======================= REQUIRED JS SCRIPTS END========================= -->

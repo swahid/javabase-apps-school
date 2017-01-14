@@ -19,7 +19,7 @@ $(document).ready(function($) {
 		var token = $('#csrfToken').val();
 		var header = $('#csrfHeader').val();
 		/*	
-		 * if in spring aplication csrf enable
+		 * if in spring application csrf enable
 		 * send csrf parameter in header otherwise 405 error
 		 */
 		$.ajax({
