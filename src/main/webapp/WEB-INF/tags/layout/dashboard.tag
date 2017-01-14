@@ -134,7 +134,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
              <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Institution</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href='<c:url value="/institution"/>'>Institution Info</a></li>
+                <li><a href='<c:url value="/institution"/>'>Add Institution</a></li>
+                <li><a href='<c:url value="/building"/>'>Building </a></li>
                 <li><a href="#">Student Promotion</a></li>
               </ul>
             </li>

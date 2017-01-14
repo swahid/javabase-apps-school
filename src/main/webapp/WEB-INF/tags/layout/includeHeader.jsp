@@ -20,8 +20,7 @@
     <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.responsive.css"/>'>
     <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.tableTools.css"/>'>
     <link rel='stylesheet' href='<c:url value="/resources/css/popup.css"/>'>
-    <link rel='stylesheet' href='<c:url value="/resources/css/style.css"/>'>
-    <link rel='stylesheet' href='<c:url value="/resources/css/white.css"/>'>
+    
     
     <!-- DATA TABLES -->
      <link href=<c:url value="/resources/css/datatables/dataTables.bootstrap.css"/> rel="stylesheet" type="text/css" />
