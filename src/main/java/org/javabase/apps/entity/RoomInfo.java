@@ -22,6 +22,7 @@ public class RoomInfo implements java.io.Serializable {
 	private static final long serialVersionUID = 4135325435377052390L;
 	private Integer ioomId;
     private Integer buildingId;
+    private Integer roomUsedId;
     private String roomName;
     private String roomNo;
     private Integer totalSeat;
@@ -31,7 +32,6 @@ public class RoomInfo implements java.io.Serializable {
     private Date updateDate;
     private Integer entryUser;
     private Integer updateUser;
-    private Integer roomUsedId;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
