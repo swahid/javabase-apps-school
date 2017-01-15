@@ -16,6 +16,24 @@
 		});
 	}
 	
+//	get all roomUsed data
+	function getRoomUsedData(){
+		$.ajax({
+			type 	 : "GET",
+			url      : "roomUsed/load",
+			success  : function(resonse) {
+				var data = resonse.data;
+				$('#roomUsedId').empty();
+				for (var i = 0; i < data.length; i++) {
+					$('#roomUsedId').append('<option value=' + data[i].roomUsedId + '>' + data[i].usedName + '</option>');
+				}
+			},
+			error 	 : function(e) {
+				console.log("ERROR: ",e);
+			}
+		});
+	}
+	
 //	class initialized data
 	function getClass(){
 		$.ajax({

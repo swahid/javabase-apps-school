@@ -136,6 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="treeview-menu">
                 <li><a href='<c:url value="/institution"/>'>Add Institution</a></li>
                 <li><a href='<c:url value="/building"/>'>Building </a></li>
+                <li><a href='<c:url value="/roomUsed"/>'>Room Used </a></li>
                 <li><a href='<c:url value="/room"/>'>Room </a></li>
               </ul>
             </li>

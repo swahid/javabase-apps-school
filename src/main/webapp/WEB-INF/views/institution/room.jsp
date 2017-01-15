@@ -23,11 +23,11 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="buildingId">Building Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="buildingId" class="form-control validate[required]" id="buildingId">
+				<select name="buildingId" class="form-control validate[required]" id="buildingId"><!-- 
                 	<option value="">Select Building</option>
         			<option value="1">Science</option>
         			<option value="2">North Bhaban</option>
-				 	<option value="3">Middle Bhaban</option>
+				 	<option value="3">Middle Bhaban</option> -->
 				</select>
 			</div>
 		</div>
@@ -35,11 +35,11 @@
 			<label class="col-sm-2 control-label" for="roomUsedId">Used For<span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<select name="roomUsedId" class="form-control validate[required]" id="roomUsedId">
-                	<option value="">Select Building</option>
+                	<!-- <option value="">Select Building</option>
         			<option value="1">Library</option>
         			<option value="2">Class Room</option>
 				 	<option value="3">LAB</option>
-				 	<option value="4">Teachers Room</option>
+				 	<option value="4">Teachers Room</option> -->
 				</select>
 			</div>
 		</div>

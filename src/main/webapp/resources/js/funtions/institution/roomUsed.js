@@ -4,20 +4,13 @@
  */
 $(document).ready(function($) {
 //	call building info initialized method
-	getBildingInfo();
-	getRoomUsedData();
-	$("#addNewRoomForm").submit(function(event) {
+	$("#addNewRoomUsedForm").submit(function(event) {
 		
 		event.preventDefault();
 		var data = {}
-		data["buildingId"]       = $("#buildingId").val(),
-		data["roomUsedId"] 	     = $("#roomUsedId").val(),
-		data["roomName"]         = $("#roomName").val(),
-		data["roomNo"] 	         = $("#roomNo").val(),
-		data["totalSeat"]  		 = $("#totalSeat").val(),
-		data["size"] 	         = $("#size").val(),
-		data["usedFor"] 	     = $("#usedFor").val(),
-		url = "room/addNewRoom";
+		data["usedName"]       = $("#usedName").val(),
+		data["details"] 	    = $("#details").val(),
+		url = "roomUsed/addNewRoomUsed";
 		
 		
 		var token = $('#csrfToken').val();
@@ -43,7 +36,7 @@ $(document).ready(function($) {
 				alert(resonse.message);
 				data = null;
 				
-				document.getElementById("addNewRoomForm").reset()
+				document.getElementById("addNewRoomUsedForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
@@ -51,7 +44,7 @@ $(document).ready(function($) {
 //						$("#msg").html(e.message);
 				
 				data = null;
-				document.getElementById("addNewRoomForm").reset()
+				document.getElementById("addNewRoomUsedForm").reset()
 			}
 		});
 		

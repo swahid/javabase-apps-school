@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.javabase.apps.entity.BuildingInfo;
-import org.javabase.apps.service.BuildingInfoService;
+import org.javabase.apps.entity.RoomUsedType;
+import org.javabase.apps.service.RoomUsedTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,35 +14,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/building")
-public class BuildingController {
+@RequestMapping(value = "/roomUsed")
+public class RoomUsedController {
 	
 	@Autowired
-	BuildingInfoService buildingInfoService;
+	RoomUsedTypeService roomUsedTypeService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-    public String buildingPage() {
-        return "institution/building";
+    public String roomPage() {
+        return "institution/roomUsed";
     }
 	
 	@ResponseBody
-	@RequestMapping(value = "/load",method = RequestMethod.GET)
-	public Map<String, Object> classInfo() {
+	@RequestMapping(value = "load",method = RequestMethod.GET)
+	public Map<String, Object> allRoomUsed() {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
-		List<BuildingInfo> buildingList = buildingInfoService.getAllBuildingInfos();
+		List<RoomUsedType> roomUsedList = roomUsedTypeService.getAllRoomUsedTypes(); 
+			
+		System.out.println("Calling...................");
 		
 		response.put("success", true);
-		response.put("data", buildingList);
+		response.put("data", roomUsedList);
 		return response;
 		
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="addNewbuilding", method = RequestMethod.POST)
-	public Map<String, Object> save(@RequestBody BuildingInfo buildingInfo) {
+	@RequestMapping(value="addNewRoomUsed", method = RequestMethod.POST)
+	public Map<String, Object> save(@RequestBody RoomUsedType roomUsedType) {
 		Map<String, Object> response= new HashMap<String, Object>();
-		Boolean save = buildingInfoService.addBuildingInfo(buildingInfo);
+		Boolean save = roomUsedTypeService.addRoomUsedType(roomUsedType);
 		
 		if (save) {
 			response.put("suceess", true);
