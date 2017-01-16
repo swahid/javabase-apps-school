@@ -41,7 +41,7 @@ public class ClassSection implements java.io.Serializable {
         this.secId = secId;
     }
 
-    @Column(name = "class_id", nullable = false)
+    @Column(name = "class_id")
     public int getClassId() {
         return this.classId;
     }
@@ -50,7 +50,7 @@ public class ClassSection implements java.io.Serializable {
         this.classId = classId;
     }
 
-    @Column(name = "sec_name", nullable = false, length = 45)
+    @Column(name = "sec_name", length = 45)
     public String getSecName() {
         return this.secName;
     }
@@ -59,7 +59,7 @@ public class ClassSection implements java.io.Serializable {
         this.secName = secName;
     }
 
-    @Column(name = "details", nullable = false, length = 100)
+    @Column(name = "details",  length = 100)
     public String getDetails() {
         return this.details;
     }
@@ -69,7 +69,7 @@ public class ClassSection implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "entry_date", nullable = false, length = 19)
+    @Column(name = "entry_date", length = 19)
     public Date getEntryDate() {
         return this.entryDate;
     }
@@ -78,7 +78,7 @@ public class ClassSection implements java.io.Serializable {
         this.entryDate = entryDate;
     }
 
-    @Column(name = "entry_user", nullable = false)
+    @Column(name = "entry_user")
     public int getEntryUser() {
         return this.entryUser;
     }
@@ -88,7 +88,7 @@ public class ClassSection implements java.io.Serializable {
     }
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "update_date", nullable = false, length = 19)
+    @Column(name = "update_date",  length = 19)
     public Date getUpdateDate() {
         return this.updateDate;
     }
@@ -97,7 +97,7 @@ public class ClassSection implements java.io.Serializable {
         this.updateDate = updateDate;
     }
 
-    @Column(name = "update_user", nullable = false)
+    @Column(name = "update_user")
     public int getUpdateUser() {
         return this.updateUser;
     }

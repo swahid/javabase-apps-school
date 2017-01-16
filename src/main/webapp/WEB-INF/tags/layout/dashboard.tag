@@ -140,6 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href='<c:url value="/room"/>'>Room </a></li>
                 <li><a href='<c:url value="/insShift"/>'>Shift </a></li>
                 <li><a href='<c:url value="/insClass"/>'>Class </a></li>
+                <li><a href='<c:url value="/classSection"/>'>Class Section</a></li>
               </ul>
             </li>
             <li class="active"><a href='<c:url value="/transport"/>'><i class="fa fa-link"></i> <span>Transport</span></a></li>
