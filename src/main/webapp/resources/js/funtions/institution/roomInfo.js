@@ -6,6 +6,39 @@ $(document).ready(function($) {
 //	call building info initialized method
 	getBildingInfo();
 	getRoomUsedData();
+	
+	/*
+	 * Room datatable
+	 * 
+	 */
+	
+	
+    $("#roomTable").dataTable({
+        "ajax": "room/load",
+        "serverSide": true,
+        columns		: [{
+	        	title	: 'Room Id',
+	        	data	: 'ioomId'
+			},{
+				title	: 'Room Name',
+				data	: 'roomName'
+			},{
+				title	: 'Room No',
+				data	: 'roomNo'
+			},{
+				title	: 'Seat',
+				data	: 'totalSeat'
+	    	},{
+	    		title	: 'Room Used',
+	    		data	: 'usedFor'
+	    	},{
+	    		title	: 'Date',
+	    		data	: 'entryDate'
+	    	}
+        ]
+    });
+	
+	//insert room info data
 	$("#addNewRoomForm").submit(function(event) {
 		
 		event.preventDefault();
