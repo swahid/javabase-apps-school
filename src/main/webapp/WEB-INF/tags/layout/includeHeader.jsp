@@ -15,10 +15,10 @@
     -->
     <link rel='stylesheet' href='<c:url value="/resources/css/skins/skin-black.min.css"/>'>
     
-    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.css"/>'>
-    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.editor.min.css"/>'>
-    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.responsive.css"/>'>
-    <link rel='stylesheet' href='<c:url value="/resources/css/dataTables.tableTools.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/datatables/dataTables.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/datatables/dataTables.editor.min.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/datatables/dataTables.responsive.css"/>'>
+    <link rel='stylesheet' href='<c:url value="/resources/css/datatables/dataTables.tableTools.css"/>'>
     <link rel='stylesheet' href='<c:url value="/resources/css/popup.css"/>'>
     
     
@@ -42,8 +42,10 @@
     <![endif]-->
     
     <!-- DATA TABES SCRIPT -->
-    <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.js"/> type="text/javascript"></script>
-    <script src=<c:url value="/resources/plugins/datatables/dataTables.bootstrap.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/plugins/datatables/dataTables.bootstrap.min.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/plugins/datatables/dataTables.responsive.min.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/plugins/datatables/dataTables.tableTools.min.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/> type="text/javascript"></script>
 	<script type="text/javascript" src="<c:url value='/resources/js/funtions/institution/initialized.js' />"></script> 
     
      <!-- ======================= REQUIRED JS SCRIPTS END========================= -->

@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 public class RoomInfo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 4135325435377052390L;
-	private Integer ioomId;
+	private Integer roomId;
     private Integer buildingId;
     private Integer roomUsedId;
     private String floorNo;
@@ -39,11 +39,11 @@ public class RoomInfo implements java.io.Serializable {
 
     @Column(name = "ioom_id", unique = true, nullable = false)
     public Integer getIoomId() {
-        return this.ioomId;
+        return this.roomId;
     }
 
     public void setIoomId(Integer ioomId) {
-        this.ioomId = ioomId;
+        this.roomId = ioomId;
     }
 
     @Column(name = "building_id")

@@ -79,6 +79,17 @@
         </div>
         </form>
         </div>
+        <!-- =========================== Search Datatable Room Start ======================== -->
+ 		<div class="box-body">
+		<div class="box-body table-responsive">
+             <table id="roomTable" class="table table-bordered table-striped">
+                <!-- table body part dynamically call from databases function
+                server side processing -->
+              </table>
+          </div><!-- /.box-body -->
+       
+	</div>
+ <!-- =========================== Search Datatable Room END ========================== -->
         </div>
     </div>
     </div>
