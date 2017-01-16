@@ -44,6 +44,12 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label class="col-sm-2 control-label" for="floorNo"> Floor No<span class="require-field">*</span></label>
+			<div class="col-sm-8">
+				<input id="floorNo" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="floorNo">
+			</div>
+		</div>
+		<div class="form-group">
 			<label class="col-sm-2 control-label" for="roomName"> Room Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<input id="roomName" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="roomName">

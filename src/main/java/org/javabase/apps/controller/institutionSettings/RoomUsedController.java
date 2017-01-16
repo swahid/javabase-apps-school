@@ -32,8 +32,6 @@ public class RoomUsedController {
 		
 		List<RoomUsedType> roomUsedList = roomUsedTypeService.getAllRoomUsedTypes(); 
 			
-		System.out.println("Calling...................");
-		
 		response.put("success", true);
 		response.put("data", roomUsedList);
 		return response;

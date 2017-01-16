@@ -23,6 +23,7 @@ public class RoomInfo implements java.io.Serializable {
 	private Integer ioomId;
     private Integer buildingId;
     private Integer roomUsedId;
+    private String floorNo;
     private String roomName;
     private String roomNo;
     private Integer totalSeat;
@@ -61,6 +62,15 @@ public class RoomInfo implements java.io.Serializable {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+    
+    @Column(name = "floor_no", length = 45)
+    public String getFloorNo() {
+    	return this.floorNo;
+    }
+    
+    public void setFloorNo(String floorNo) {
+    	this.floorNo = floorNo;
     }
 
     @Column(name = "room_no", length = 45)

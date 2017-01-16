@@ -12,6 +12,7 @@ $(document).ready(function($) {
 		var data = {}
 		data["buildingId"]       = $("#buildingId").val(),
 		data["roomUsedId"] 	     = $("#roomUsedId").val(),
+		data["floorNo"] 	     = $("#floorNo").val(),
 		data["roomName"]         = $("#roomName").val(),
 		data["roomNo"] 	         = $("#roomNo").val(),
 		data["totalSeat"]  		 = $("#totalSeat").val(),
