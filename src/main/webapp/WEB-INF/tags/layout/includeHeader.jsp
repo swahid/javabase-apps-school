@@ -46,6 +46,9 @@
     <script src=<c:url value="/resources/plugins/datatables/dataTables.responsive.min.js"/> type="text/javascript"></script>
     <script src=<c:url value="/resources/plugins/datatables/dataTables.tableTools.min.js"/> type="text/javascript"></script>
     <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/> type="text/javascript"></script>
-	<script type="text/javascript" src="<c:url value='/resources/js/funtions/institution/initialized.js' />"></script> 
+    <!-- Notification SCRIPT -->
+    <script src=<c:url value="/resources/plugins/notification/notify.min.js"/> type="text/javascript"></script>
+    
+	<script src="<c:url value='/resources/js/funtions/initialized.js' />" type="text/javascript"></script> 
     
      <!-- ======================= REQUIRED JS SCRIPTS END========================= -->

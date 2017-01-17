@@ -14,7 +14,7 @@
 				console.log("ERROR: ",e);
 			}
 		});
-	}
+	};
 	
 //	get all roomUsed data
 	function getRoomUsedData(){
@@ -32,7 +32,7 @@
 				console.log("ERROR: ",e);
 			}
 		});
-	}
+	};
 	
 //	get all insShift data
 	function getInsShiftData(){
@@ -50,7 +50,7 @@
 				console.log("ERROR: ",e);
 			}
 		});
-	}
+	};
 	
 //	get all insShift data
 	function getInsClassData(){
@@ -68,7 +68,7 @@
 				console.log("ERROR: ",e);
 			}
 		});
-	}
+	};
 	
 //	class initialized data
 	function getClass(){
@@ -86,4 +86,20 @@
 				console.log("ERROR: ",e);
 			}
 		});
+	};
+	
+	/*======================= Notification Functions =========================*/
+	
+	function success(message) {
+		$.notify(message, "success");
 	}
+	function info(message) {
+		$.notify(message, "info");
+	}
+	function warn(message) {
+		$.notify(message, "warn");
+	}
+	function error(message) {
+		$.notify(message, "error");
+	}
+	/*======================= Notification Functions =========================*/

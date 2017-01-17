@@ -11,32 +11,7 @@ $(document).ready(function($) {
 	 * Room datatable
 	 * 
 	 */
-	
-	
-    $("#roomTable").dataTable({
-        "ajax": "room/load",
-        "serverSide": true,
-        columns		: [{
-	        	title	: 'Room Id',
-	        	data	: 'ioomId'
-			},{
-				title	: 'Room Name',
-				data	: 'roomName'
-			},{
-				title	: 'Room No',
-				data	: 'roomNo'
-			},{
-				title	: 'Seat',
-				data	: 'totalSeat'
-	    	},{
-	    		title	: 'Room Used',
-	    		data	: 'usedFor'
-	    	},{
-	    		title	: 'Date',
-	    		data	: 'entryDate'
-	    	}
-        ]
-    });
+	roomDatatable();
 	
 	//insert room info data
 	$("#addNewRoomForm").submit(function(event) {
@@ -71,23 +46,57 @@ $(document).ready(function($) {
 		        xhr.setRequestHeader(header, token);
 		    },
 			success  : function(resonse) {
-				var message = "Add Success";
-				//				$("#msg").html(data.message);
-				console.log(resonse.data);
-				alert(resonse.message);
-				data = null;
-				
+				success(resonse.message);
+				roomDatatable();
 				document.getElementById("addNewRoomForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
-				alert("Add falied");
-//						$("#msg").html(e.message);
-				
-				data = null;
+				alert("Insert falied");
 				document.getElementById("addNewRoomForm").reset()
 			}
 		});
 		
 	});
+	
+	/*
+	 * Datable get room function
+	 */
+	function roomDatatable() {
+		$.ajax({
+			type 	 : "GET",
+			url      : "room/load",
+			success  : function(resonse) {
+				var data = resonse.data;
+				
+				$("#roomTable").dataTable({
+					destroy	: true,
+			        "data"	: data,
+			        columns	: [{
+				        	title	: 'Room Id',
+				        	data	: 'ioomId'
+						},{
+							title	: 'Room Name',
+							data	: 'roomName'
+						},{
+							title	: 'Room No',
+							data	: 'roomNo'
+						},{
+							title	: 'Seat',
+							data	: 'totalSeat'
+				    	},{
+				    		title	: 'Room Used',
+				    		data	: 'usedFor'
+				    	},{
+				    		title	: 'Date',
+				    		data	: 'entryDate'
+				    	}
+			        ]
+			    });
+			},
+			error 	 : function(e) {
+				console.log(e);
+			}
+		});
+	};
 });
