@@ -3,16 +3,15 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
-//	call insShift info initialized method
-	$("#addInsShiftForm").submit(function(event) {
+//	call empPost info initialized method
+	$("#addempPostForm").submit(function(event) {
 		
 		event.preventDefault();
 		var data = {}
-		data["shiftName"]    = $("#shiftName").val(),
-		data["startTime"]    = $("#startTime").val(),
-		data["entTme"]       = $("#entTme").val(),
-		data["details"] 	 = $("#details").val(),
-		url = "insShift/addInsShift";
+		data["postName"]    = $("#postName").val(),
+		data["activity"]    = $("#activity").val(),
+		data["details"]     = $("#details").val(),
+		url = "empPost/addEmpPost";
 		
 		
 		var token = $('#csrfToken').val();
@@ -38,7 +37,7 @@ $(document).ready(function($) {
 				alert(resonse.message);
 				data = null;
 				
-				document.getElementById("addInsShiftForm").reset()
+				document.getElementById("addempPostForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
@@ -46,7 +45,7 @@ $(document).ready(function($) {
 //						$("#msg").html(e.message);
 				
 				data = null;
-				document.getElementById("addInsShiftForm").reset()
+				document.getElementById("addempPostForm").reset()
 			}
 		});
 		

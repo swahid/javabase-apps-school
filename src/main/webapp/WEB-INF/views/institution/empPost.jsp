@@ -21,21 +21,15 @@
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
 						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="postName"> Role Name<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="postName"> Post Name <span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<input id="postName" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="postName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="activity">Activity</label>
+			<label class="col-sm-2 control-label" for="activity">Work </label>
 			<div class="col-sm-8">
 				<input id="activity" class="form-control " type="text" value="" name="activity">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="details">Role Code</label>
-			<div class="col-sm-8">
-				<input id="details" class="form-control " type="text" value="" name="details">
 			</div>
 		</div>
 		<div class="form-group">
