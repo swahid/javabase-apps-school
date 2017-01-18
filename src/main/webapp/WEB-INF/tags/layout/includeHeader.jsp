@@ -21,15 +21,22 @@
     <link rel='stylesheet' href='<c:url value="/resources/css/datatables/dataTables.tableTools.css"/>'>
     <link rel='stylesheet' href='<c:url value="/resources/css/popup.css"/>'>
     
-    
     <!-- DATA TABLES -->
      <link href=<c:url value="/resources/css/datatables/dataTables.bootstrap.css"/> rel="stylesheet" type="text/css" />
+     
+     <!-- jquery-Ui -->
+     <link href=<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.css"/> rel="stylesheet" type="text/css" />
+     <link href=<c:url value="/resources/plugins/jquery-ui/jquery-ui.structure.min.css"/> rel="stylesheet" type="text/css" />
+     <link href=<c:url value="/resources/plugins/jquery-ui/jquery-ui.theme.min.css"/> rel="stylesheet" type="text/css" />
         
     <!-- ======================= REQUIRED CSS END ========================= -->
     <!-- ======================= REQUIRED JS SCRIPTS ========================= -->
 
     <!-- jQuery 2.1.4 -->
     <script src='<c:url value="/resources/jquery/2.1.4/jquery.min.js"/>'></script>
+    <!-- JQUERY-UI SCRIPT 1.12.1-->
+    <script src=<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.js"/> type="text/javascript"></script>
+    
     <!-- Bootstrap 3.3.5 -->
     <script src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
     <!-- AdminLTE App -->
@@ -42,9 +49,6 @@
     <![endif]-->
     
     <!-- DATA TABES SCRIPT -->
-    <script src=<c:url value="/resources/plugins/datatables/dataTables.bootstrap.min.js"/> type="text/javascript"></script>
-    <script src=<c:url value="/resources/plugins/datatables/dataTables.responsive.min.js"/> type="text/javascript"></script>
-    <script src=<c:url value="/resources/plugins/datatables/dataTables.tableTools.min.js"/> type="text/javascript"></script>
     <script src=<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/> type="text/javascript"></script>
     <!-- Notification SCRIPT -->
     <script src=<c:url value="/resources/plugins/notification/notify.min.js"/> type="text/javascript"></script>

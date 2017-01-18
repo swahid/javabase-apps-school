@@ -1,5 +1,6 @@
 package org.javabase.apps.controller.institutionSettings;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +45,8 @@ public class RoomController {
 	@RequestMapping(value="addNewRoom", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody RoomInfo roomInfo) {
 		Map<String, Object> response= new HashMap<String, Object>();
+		
+		roomInfo.setEntryDate(new Date());
 		Boolean save = roomInfoService.addRoomInfo(roomInfo);
 		
 		if (save) {

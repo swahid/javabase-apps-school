@@ -15,6 +15,8 @@
 					All Students            	
 				</div>
             </div>
+            
+ <!-- =========================== End Header ======================== -->
  <!-- =========================== Search Combo Section Start ======================== -->
  	<div class="box-body"> 
         <form method="post">  

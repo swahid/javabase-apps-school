@@ -12,22 +12,45 @@
 		<div class="box box-default" data-collapsed="0">
         	<div class="box-header with-border">
             	<div class="box-title">
-            		<span><i class="fa fa-plus"></i>
-					Room Info Form</span>            	
+            		<span><i class="fa fa-room"></i>
+					Class Rooms</span>            	
 				</div>
-            </div>
-            <div class="box-body">
-        <form name="addNewRoomForm" action="#" method="post" class="form-horizontal" id="addNewRoomForm" enctype="multipart/form-data">
+				<!-- Button trigger modal -->
+				<input type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal" value="Add Class Rooms" />
+			</div>
+	<!-- =========================== End Header ======================== -->
+	<!-- =========================== Start body Content ======================== -->
+ 		
+        <!-- =========================== Search Datatable Room Start ======================== -->
+ 		<div class="box-body">
+		<div class="box-body table-responsive">
+             <table id="roomTable" class="table table-bordered table-striped">
+                <!-- table body part dynamically call from databases function
+                server side processing -->
+              </table>
+          </div><!-- /.box-body -->
+       
+	</div>
+ <!-- =========================== Search Datatable Room END ========================== -->
+        </div>
+        <!-- ==================================./ box body end ==================================== -->
+<!-- =================================== Modal ========================================= -->
+<div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"> <span><i class="fa fa-plus"></i></span> Add Class Room</h4>
+      </div>
+      <div class="modal-body">
+      <form name="addNewRoomForm" action="#" method="post" class="form-horizontal" id="addNewRoomForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="entryUser" value="${user.userid}"/>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="buildingId">Building Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="buildingId" class="form-control validate[required]" id="buildingId"><!-- 
-                	<option value="">Select Building</option>
-        			<option value="1">Science</option>
-        			<option value="2">North Bhaban</option>
-				 	<option value="3">Middle Bhaban</option> -->
+				<select name="buildingId" class="form-control validate[required]" id="buildingId">
 				</select>
 			</div>
 		</div>
@@ -35,11 +58,6 @@
 			<label class="col-sm-2 control-label" for="roomUsedId">Used For<span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<select name="roomUsedId" class="form-control validate[required]" id="roomUsedId">
-                	<!-- <option value="">Select Building</option>
-        			<option value="1">Library</option>
-        			<option value="2">Class Room</option>
-				 	<option value="3">LAB</option>
-				 	<option value="4">Teachers Room</option> -->
 				</select>
 			</div>
 		</div>
@@ -74,23 +92,18 @@
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">
-        	
-        	<input type="submit" value="Save" name="save_ins_information" class="btn btn-success">
         </div>
-        </form>
-        </div>
-        <!-- =========================== Search Datatable Room Start ======================== -->
- 		<div class="box-body">
-		<div class="box-body table-responsive">
-             <table id="roomTable" class="table table-bordered table-striped">
-                <!-- table body part dynamically call from databases function
-                server side processing -->
-              </table>
-          </div><!-- /.box-body -->
-       
-	</div>
- <!-- =========================== Search Datatable Room END ========================== -->
-        </div>
+      </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" id="roomSubmit">submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- =================================== Modal ========================================= -->
     </div>
     </div>
 	</jsp:body>

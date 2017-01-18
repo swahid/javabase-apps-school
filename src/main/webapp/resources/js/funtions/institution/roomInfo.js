@@ -14,8 +14,7 @@ $(document).ready(function($) {
 	roomDatatable();
 	
 	//insert room info data
-	$("#addNewRoomForm").submit(function(event) {
-		
+	$("button#roomSubmit").click(function(event) {
 		event.preventDefault();
 		var data = {}
 		data["buildingId"]       = $("#buildingId").val(),
@@ -25,7 +24,9 @@ $(document).ready(function($) {
 		data["roomNo"] 	         = $("#roomNo").val(),
 		data["totalSeat"]  		 = $("#totalSeat").val(),
 		data["size"] 	         = $("#size").val(),
-		data["usedFor"] 	     = $("#usedFor").val(),
+		data["entryUser"] 	     = $("#entryUser").val(),
+		data["usedFor"] 	     = $("#roomUsedId option:selected").text();
+
 		url = "room/addNewRoom";
 		
 		
@@ -48,7 +49,8 @@ $(document).ready(function($) {
 			success  : function(resonse) {
 				success(resonse.message);
 				roomDatatable();
-				document.getElementById("addNewRoomForm").reset()
+				document.getElementById("addNewRoomForm").reset();
+				 $("#roomModal").modal('hide'); 
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
