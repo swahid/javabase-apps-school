@@ -36,22 +36,21 @@ public class RoomInfo implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "room_id", unique = true, nullable = false)
+    public Integer getRoomId() {
+		return roomId;
+	}
 
-    @Column(name = "ioom_id", unique = true, nullable = false)
-    public Integer getIoomId() {
-        return this.roomId;
-    }
-
-    public void setIoomId(Integer ioomId) {
-        this.roomId = ioomId;
-    }
+	public void setRoomId(Integer roomId) {
+		this.roomId = roomId;
+	}
 
     @Column(name = "building_id")
     public Integer getBuildingId() {
         return this.buildingId;
     }
 
-    public void setBuildingId(Integer buildingId) {
+	public void setBuildingId(Integer buildingId) {
         this.buildingId = buildingId;
     }
 

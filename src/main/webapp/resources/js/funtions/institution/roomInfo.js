@@ -74,7 +74,7 @@ $(document).ready(function($) {
 			        "data"	: data,
 			        columns	: [{
 				        	title	: 'Room Id',
-				        	data	: 'ioomId'
+				        	data	: 'roomId'
 						},{
 							title	: 'Room Name',
 							data	: 'roomName'
@@ -96,6 +96,7 @@ $(document).ready(function($) {
 			},
 			error 	 : function(e) {
 				console.log(e);
+				error("Room Not Load");
 			}
 		});
 	};
