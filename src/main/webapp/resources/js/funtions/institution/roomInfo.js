@@ -69,11 +69,11 @@ $(document).ready(function($) {
 			type 	 : "GET",
 			url      : "room/load",
 			success  : function(resonse) {
-				var data = resonse.data;
+				var value = resonse.data;
 				
 				$("#roomTable").dataTable({
 					destroy	: true,
-			        "data"	: data,
+			        data	: value,
 			        columns	: [{
 				        	title	: 'Room Id',
 				        	data	: 'roomId'
@@ -100,7 +100,10 @@ $(document).ready(function($) {
 								}
 				    		}
 				    	}
-			        ]
+			        ],
+			        columnDefs	: [
+	                   {"className": "dt-center", "targets": "_all"}
+	                ]
 			    });
 			},
 			error 	 : function(e) {
