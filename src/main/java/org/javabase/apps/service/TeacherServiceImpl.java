@@ -6,8 +6,8 @@ package org.javabase.apps.service;
 import java.util.List;
 import java.util.Map;
 
-import org.javabase.apps.entity.AcaSession;
-import org.javabase.apps.mapper.AcaSessionMapper;
+import org.javabase.apps.entity.Teacher;
+import org.javabase.apps.mapper.TeacherMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,38 +17,38 @@ import org.springframework.stereotype.Service;
  * @since	1.0.0
  */
 @Service
-public class TeacherServiceImpl implements AcaSessionService{
+public class TeacherServiceImpl implements TeacherService{
 
 	@Autowired
-	AcaSessionMapper acaSessionMapper;
+	TeacherMapper TeacherMapper;
 
 	@Override
-	public List<AcaSession> getAllAcaSessions() {
-		return acaSessionMapper.getAllAcaSessions();
+	public List<Teacher> getAllTeachers() {
+		return TeacherMapper.getAllTeachers();
 	}
 
 	@Override
-	public List<AcaSession> getAllAcaSessionsByParam(Map<String, Object> params) {
-		return acaSessionMapper.getAllAcaSessionsByParam(params);
+	public List<Teacher> getAllTeachersByParam(Map<String, Object> params) {
+		return TeacherMapper.getAllTeachersByParam(params);
 	}
 
 	@Override
-	public AcaSession getAcaSessionById(int acaSessionId) {
-		return acaSessionMapper.getAcaSessionById(acaSessionId);
+	public Teacher getTeacherById(int TeacherId) {
+		return TeacherMapper.getTeacherById(TeacherId);
 	}
 
 	@Override
-	public boolean addAcaSession(AcaSession acaSession) {
-		return acaSessionMapper.addAcaSession(acaSession);
+	public boolean addTeacher(Teacher Teacher) {
+		return TeacherMapper.addTeacher(Teacher);
 	}
 
 	@Override
-	public boolean updateAcaSession(AcaSession acaSession) {
-		return acaSessionMapper.updateAcaSession(acaSession);
+	public boolean updateTeacher(Teacher Teacher) {
+		return TeacherMapper.updateTeacher(Teacher);
 	}
 
 	@Override
-	public boolean deleteAcaSession(int acaSessionId) {
-		return acaSessionMapper.deleteAcaSession(acaSessionId);
+	public boolean deleteTeacher(int TeacherId) {
+		return TeacherMapper.deleteTeacher(TeacherId);
 	}
 }

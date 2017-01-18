@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.InsShift;
-import org.javabase.apps.entity.RoomUsedType;
 import org.javabase.apps.service.InsShiftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
