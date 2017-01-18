@@ -49,7 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="http://javabase.info" class="logo" target="_blank">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>Logo</b></span>
+          <span class="logo-mini"><b><img src="<c:url value="/resources/images/schoolLogo.png"/>" class="img-circle" alt="School Logo"></b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg">School Managemant </span>
         </a>
