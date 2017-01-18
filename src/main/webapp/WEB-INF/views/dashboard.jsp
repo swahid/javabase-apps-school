@@ -1,11 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	<!-- fullCalendar 2.2.5-->
-	  <link rel="stylesheet" href="resources/plugins/fullcalendar/fullcalendar.min.css">
-	  <link rel="stylesheet" href="resources/plugins/fullcalendar/fullcalendar.print.css" media="print">
 	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 	<script src="resources/plugins/fullcalendar/fullcalendar.min.js"></script>
 <!-- Page specific script -->
 <script>

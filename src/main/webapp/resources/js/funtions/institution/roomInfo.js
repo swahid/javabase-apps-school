@@ -91,7 +91,14 @@ $(document).ready(function($) {
 				    		data	: 'usedFor'
 				    	},{
 				    		title	: 'Date',
-				    		data	: 'entryDate'
+				    		data	: 'entryDate',
+				    		render  : function (date) {
+				    			if (date) {
+				    				return moment(date).format("DD MMM YYYY");
+								}else{
+									return "";
+								}
+				    		}
 				    	}
 			        ]
 			    });
