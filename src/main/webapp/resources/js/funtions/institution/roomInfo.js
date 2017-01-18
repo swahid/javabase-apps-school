@@ -5,17 +5,22 @@
 $(document).ready(function($) {
 //	call building info initialized method
 	getBildingInfo();
+	
+//	call roomused info initialized method
 	getRoomUsedData();
 	
-	/*
-	 * Room datatable
-	 * 
-	 */
+	// call roomDatabase function for initialized datatable
 	roomDatatable();
 	
 	//insert room info data
 	$("button#roomSubmit").click(function(event) {
 		event.preventDefault();
+		
+		javascript: $('#addNewRoomForm').validationEngine('attach');
+        if (!$('#addNewRoomForm').validationEngine('validate')) {
+            return;
+        }
+		
 		var data = {}
 		data["buildingId"]       = $("#buildingId").val(),
 		data["roomUsedId"] 	     = $("#roomUsedId").val(),

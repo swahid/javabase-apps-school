@@ -43,7 +43,7 @@
         <h4 class="modal-title" id="myModalLabel"> <span><i class="fa fa-plus"></i></span> Add Class Room</h4>
       </div>
       <div class="modal-body">
-      <form name="addNewRoomForm" action="#" method="post" class="form-horizontal" id="addNewRoomForm" enctype="multipart/form-data">
+      <form action="#" method="post" class="form-horizontal" id="addNewRoomForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
 				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 				<input type="hidden" id="entryUser" value="${user.userid}"/>
@@ -57,20 +57,20 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="roomUsedId">Used For<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="roomUsedId" class="form-control validate[required]" id="roomUsedId">
+				<select name="roomUsedId" class="form-control  validate[required]" id="roomUsedId">
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="floorNo"> Floor No<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="floorNo" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="floorNo">
+				<input id="floorNo" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" name="floorNo">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="roomName"> Room Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="roomName" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="roomName">
+				<input id="roomName" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" name="roomName">
 			</div>
 		</div>
 		<div class="form-group">
@@ -82,7 +82,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="totalSeat">Total Seat<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="totalSeat" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="totalSeat">
+				<input id="totalSeat" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" name="totalSeat">
 			</div>
 		</div>
 		<div class="form-group">
