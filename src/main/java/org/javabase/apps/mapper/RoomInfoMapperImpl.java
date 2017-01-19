@@ -6,6 +6,8 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.javabase.apps.entity.RoomInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +25,13 @@ import org.springframework.transaction.annotation.Transactional;
 @SuppressWarnings("unchecked")
 public class RoomInfoMapperImpl implements RoomInfoMapper{
 
+	private static final Logger log = LoggerFactory.getLogger(RoomInfoMapperImpl.class);
+	
 	@Autowired
 	private HibernateTemplate  hibernateTemplate;
-	private static final Logger log = LoggerFactory.getLogger(RoomInfoMapperImpl.class);
+	
+	@Autowired
+	SessionFactory session;
 	
 	@Override
 	@Transactional(readOnly=true)
@@ -37,8 +43,22 @@ public class RoomInfoMapperImpl implements RoomInfoMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<RoomInfo> getAllRoomInfosByParam(Map<String, Object> params) {
-		String hql = "FROM RoomInfo";
-		return (List<RoomInfo>) hibernateTemplate.find(hql);
+		String hql=null;
+		String building = params.get("buildingId").toString();
+		String roomUsedId = params.get("roomUsedId").toString();
+		if (params.isEmpty()) {
+			hql = "FROM RoomInfo";
+			return (List<RoomInfo>) hibernateTemplate.find(hql);
+		}else {
+			hql = "FROM RoomInfo r where r.buildingId = :buildingId and roomUsedId =:roomUsedId";
+			Query query = session.getCurrentSession().createQuery(hql);
+			query.setParameter("buildingId", Integer.valueOf(roomUsedId) );
+			query.setParameter("roomUsedId", Integer.valueOf(roomUsedId));
+			
+			List<RoomInfo> roomList = query.list();
+			
+			return roomList;
+		}
 	}
 
 	@Override

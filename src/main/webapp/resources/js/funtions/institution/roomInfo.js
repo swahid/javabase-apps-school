@@ -11,7 +11,7 @@ $(document).ready(function($) {
 	jbf.init.getRoomUsedData('.roomUsedId','');
 	
 	// call roomDatabase function for initialized datatable
-	roomDatatable();
+	roomDatatable("#roomTable", 'room/load','' );
 	
 	//insert room info data
 	$("button#roomSubmit").click(function(event) {
@@ -54,7 +54,7 @@ $(document).ready(function($) {
 		    },
 			success  : function(resonse) {
 				success(resonse.message);
-				roomDatatable();
+				roomDatatable("#roomTable", 'room/load','' );
 				document.getElementById("addNewRoomForm").reset();
 				 $("#roomModal").modal('hide'); 
 			},
@@ -100,11 +100,11 @@ $(document).ready(function($) {
 	/*
 	 * Datable get room function
 	 */
-	function roomDatatable() {
+	function roomDatatable(id, url, value) {
 		
-		$("#roomTable").dataTable({
+		$(id).dataTable({
 			destroy	: true,
-	        data	: jbf.ajax.getLoadData('room/load', ''),
+	        data	: jbf.ajax.getLoadData(url, value),
 	        columns	: [{
 		        	title	: 'Room Id',
 		        	data	: 'roomId'
@@ -137,4 +137,22 @@ $(document).ready(function($) {
             ]
 	    });
 	};
+	
+	//	 building select onChange Method
+	$( "#buildingId" ).change(function() {
+		var comboValues={};
+		comboValues['buildingId']= $("#buildingId").val();
+		comboValues['roomUsedId']= $("#roomUsedId").val();
+		
+		roomDatatable("#roomTable", 'room/load', comboValues);
+	});
+	
+	//	 roomused select onChange Method
+	$( "#roomUsedId" ).change(function() {
+		var comboValues={};
+		comboValues['buildingId']= $("#buildingId").val();
+		comboValues['roomUsedId']= $("#roomUsedId").val();
+		
+		roomDatatable("#roomTable", 'room/load', comboValues);
+	});
 });

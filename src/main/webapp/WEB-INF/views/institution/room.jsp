@@ -73,14 +73,14 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="buildingId">Building Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="buildingId" class="form-control validate[required] buildingId" id="buildingId">
+				<select name="buildingModal" class="form-control validate[required] buildingId" id="buildingModal">
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="roomUsedId">Used For<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="roomUsedId" class="form-control  validate[required] roomUsedId" id="roomUsedId">
+				<select name="roomUsedModal" class="form-control  validate[required] roomUsedId" id="roomUsedModal">
 				</select>
 			</div>
 		</div>
