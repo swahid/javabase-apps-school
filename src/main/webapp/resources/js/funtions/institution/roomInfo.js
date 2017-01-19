@@ -3,11 +3,12 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
+	
 //	call building info initialized method
-	getBildingInfo();
+	jbf.init.getBildingInfo('.buildingId','');
 	
 //	call roomused info initialized method
-	getRoomUsedData();
+	jbf.init.getRoomUsedData('.roomUsedId','');
 	
 	// call roomDatabase function for initialized datatable
 	roomDatatable();
@@ -65,56 +66,75 @@ $(document).ready(function($) {
 		});
 		
 	});
+	$("button#roomSubmit").click(function(event) {
+		event.preventDefault();
+		
+		jbf.form.validate('#addNewRoomForm');
+		
+		var data = {},
+		    url = "room/addNewRoom";
+		
+		data["buildingId"]	= $("#buildingId").val();
+		data["roomUsedId"] 	= $("#roomUsedId").val();
+		data["floorNo"] 	= $("#floorNo").val();
+		data["roomName"]    = $("#roomName").val();
+		data["roomNo"] 	    = $("#roomNo").val();
+		data["totalSeat"]  	= $("#totalSeat").val();
+		data["size"] 	    = $("#size").val();
+		data["entryUser"]	= $("#entryUser").val();
+		data["usedFor"] 	= $("#roomUsedId option:selected").text();
+		data["token"] 	    = $("#csrfToken").text();
+		data["header"] 	    = $("#csrfHeader").text();
+		
+		var status = jbf.ajax.post(url, data);
+		if (status) {
+			roomDatatable();
+			$("addNewRoomForm").reset();
+			$("#roomModal").modal('hide'); 
+		}else {
+			$("addNewRoomForm").reset();
+		}
+		
+	});
 	
 	/*
 	 * Datable get room function
 	 */
 	function roomDatatable() {
-		$.ajax({
-			type 	 : "GET",
-			url      : "room/load",
-			success  : function(resonse) {
-				var value = resonse.data;
-				
-				$("#roomTable").dataTable({
-					destroy	: true,
-			        data	: value,
-			        columns	: [{
-				        	title	: 'Room Id',
-				        	data	: 'roomId'
-						},{
-							title	: 'Room Name',
-							data	: 'roomName'
-						},{
-							title	: 'Room No',
-							data	: 'roomNo'
-						},{
-							title	: 'Seat',
-							data	: 'totalSeat'
-				    	},{
-				    		title	: 'Room Used',
-				    		data	: 'usedFor'
-				    	},{
-				    		title	: 'Date',
-				    		data	: 'entryDate',
-				    		render  : function (date) {
-				    			if (date) {
-				    				return moment(date).format("DD MMM YYYY");
-								}else{
-									return "";
-								}
-				    		}
-				    	}
-			        ],
-			        columnDefs	: [
-	                   {"className": "dt-center", "targets": "_all"}
-	                ]
-			    });
-			},
-			error 	 : function(e) {
-				console.log(e);
-				error("Room Not Load");
-			}
-		});
+		
+		$("#roomTable").dataTable({
+			destroy	: true,
+	        data	: jbf.ajax.getLoadData('room/load', ''),
+	        columns	: [{
+		        	title	: 'Room Id',
+		        	data	: 'roomId'
+				},{
+					title	: 'Room Name',
+					data	: 'roomName'
+				},{
+					title	: 'Room No',
+					data	: 'roomNo'
+				},{
+					title	: 'Seat',
+					data	: 'totalSeat'
+		    	},{
+		    		title	: 'Room Used',
+		    		data	: 'usedFor'
+		    	},{
+		    		title	: 'Date',
+		    		data	: 'entryDate',
+		    		render  : function (date) {
+		    			if (date) {
+		    				return moment(date).format("DD MMM YYYY");
+						}else{
+							return "";
+						}
+		    		}
+		    	}
+	        ],
+	        columnDefs	: [
+               {"className": "dt-center", "targets": "_all"}
+            ]
+	    });
 	};
 });

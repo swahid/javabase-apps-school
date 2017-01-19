@@ -1,38 +1,34 @@
-//	class initialized data
-	function getBildingInfo(){
-		$.ajax({
-			type 	 : "GET",
-			url      : "building/load",
-			success  : function(resonse) {
-				var data = resonse.data;
-				$('#buildingId').empty();
-				for (var i = 0; i < data.length; i++) {
-					$('#buildingId').append('<option value=' + data[i].buildingId + '>' + data[i].buildName + '</option>');
-				}
-			},
-			error 	 : function(e) {
-				console.log("ERROR: ",e);
+/*
+ * this file used to make initialization preLoad data method call dynamic;
+ */
+jbf.init||(function(e){
+    var init = {
+    		
+//        	buildingInfo initialized data
+        getBildingInfo	: function(id,value){
+        	var url  = "building/load",
+        	    data = jbf.ajax.getLoadData(url, '');
+			$(id).empty();
+			for (var i = 0; i < data.length; i++) {
+				$(id).append('<option value=' + data[i].buildingId + '>' + data[i].buildName + '</option>');
 			}
-		});
-	};
-	
-//	get all roomUsed data
-	function getRoomUsedData(){
-		$.ajax({
-			type 	 : "GET",
-			url      : "roomUsed/load",
-			success  : function(resonse) {
-				var data = resonse.data;
-				$('#roomUsedId').empty();
-				for (var i = 0; i < data.length; i++) {
-					$('#roomUsedId').append('<option value=' + data[i].roomUsedId + '>' + data[i].usedName + '</option>');
-				}
-			},
-			error 	 : function(e) {
-				console.log("ERROR: ",e);
+        },
+        
+//        	roomUsed initialized data
+       getRoomUsedData	: function(id,value){
+    	   var url  = "roomUsed/load",
+   	    	   data = jbf.ajax.getLoadData(url, '');
+    	   $(id).empty();
+			for (var i = 0; i < data.length; i++) {
+				$(id).append('<option value=' + data[i].roomUsedId + '>' + data[i].usedName + '</option>');
 			}
-		});
-	};
+       }	
+		
+        
+    };
+    e.init = init;
+}(jbf));
+
 	
 //	get all insShift data
 	function getInsShiftData(){

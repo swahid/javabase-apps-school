@@ -20,7 +20,30 @@
 			</div>
 	<!-- =========================== End Header ======================== -->
 	<!-- =========================== Start body Content ======================== -->
- 		
+	
+	
+	
+ 		<!-- =========================== Search Combo Section Start ======================== -->
+ 	<div class="box-body"> 
+	    <div class="form-group col-md-3">
+			<label for="buildingId">Select Class</label>			
+            <select name="buildingId" id="buildingId" class="form-control buildingId">
+            </select>
+			
+		</div>
+		<div class="form-group col-md-3">
+			<label for="roomUsedId">Select Class Section</label>			
+			<select name="roomUsedId" class="form-control roomUsedId" id="roomUsedId">
+			</select>
+		</div>
+	<div class="form-group col-md-3">
+    	<label for="roomSearch">&nbsp;</label>
+      	<button type="submit" id="roomSearch" class="btn btn-success">Search</button>
+    </div>
+		  </div>
+ <!-- =========================== Search Combo Section END ========================== -->
+ 
+ 
         <!-- =========================== Search Datatable Room Start ======================== -->
  		<div class="box-body">
 		<div class="box-body table-responsive">
@@ -50,14 +73,14 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="buildingId">Building Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="buildingId" class="form-control validate[required]" id="buildingId">
+				<select name="buildingId" class="form-control validate[required] buildingId" id="buildingId">
 				</select>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="roomUsedId">Used For<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="roomUsedId" class="form-control  validate[required]" id="roomUsedId">
+				<select name="roomUsedId" class="form-control  validate[required] roomUsedId" id="roomUsedId">
 				</select>
 			</div>
 		</div>

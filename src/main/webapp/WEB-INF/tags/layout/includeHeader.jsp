@@ -119,7 +119,9 @@
     
     			<!-- ===================== CUSTOM JS ======================-->
     <!-- initialized custom js script -->
-    <script src="<c:url value='/resources/js/funtions/initialized.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/funtions/jbf/ajax.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/funtions/jbf/date.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/funtions/jbf/initialized.js' />" type="text/javascript"></script>
     
     
     
