@@ -44,15 +44,15 @@ public class RoomInfoMapperImpl implements RoomInfoMapper{
 	@Transactional(readOnly=true)
 	public List<RoomInfo> getAllRoomInfosByParam(Map<String, Object> params) {
 		String hql=null;
-		String building = params.get("buildingId").toString();
-		String roomUsedId = params.get("roomUsedId").toString();
 		if (params.isEmpty()) {
 			hql = "FROM RoomInfo";
 			return (List<RoomInfo>) hibernateTemplate.find(hql);
 		}else {
+			String building = params.get("buildingId").toString();
+			String roomUsedId = params.get("roomUsedId").toString();
 			hql = "FROM RoomInfo r where r.buildingId = :buildingId and roomUsedId =:roomUsedId";
 			Query query = session.getCurrentSession().createQuery(hql);
-			query.setParameter("buildingId", Integer.valueOf(roomUsedId) );
+			query.setParameter("buildingId", Integer.valueOf(building) );
 			query.setParameter("roomUsedId", Integer.valueOf(roomUsedId));
 			
 			List<RoomInfo> roomList = query.list();

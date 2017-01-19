@@ -1,7 +1,6 @@
 /*
  * in this javascript file declare all common script method
  */
-var jbf ={};
 jbf.ajax||(function(e){
     var ajax = {
         
@@ -22,7 +21,7 @@ jbf.ajax||(function(e){
 			});
 			return data
         },
-        post	: function(url, data){
+        post	: function(url, data, header){
         	var isPost='';
         	$.ajax({
     			type 	 : "POST",
@@ -32,7 +31,7 @@ jbf.ajax||(function(e){
     			beforeSend: function(xhr) {
     				xhr.setRequestHeader("Accept", "application/json");
     				xhr.setRequestHeader("Content-Type", "application/json");
-    				xhr.setRequestHeader(data.header, data.token);
+    				xhr.setRequestHeader(header.csrfToken, header.csrfHeader);
     			},
     			success  : function(resonse) {
     				isPost = true;
@@ -41,7 +40,7 @@ jbf.ajax||(function(e){
     			error 	 : function(e) {
     				isPost = false;
     				console.log("ERROR: ",e);
-    				alert("Unable to perform");
+    				error("Unable to perform");
     			}
     		});
         	return isPost;

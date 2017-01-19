@@ -22,22 +22,23 @@ $(document).ready(function($) {
             return;
         }
 		
-		var data = {}
-		data["buildingId"]       = $("#buildingId").val(),
-		data["roomUsedId"] 	     = $("#roomUsedId").val(),
-		data["floorNo"] 	     = $("#floorNo").val(),
-		data["roomName"]         = $("#roomName").val(),
-		data["roomNo"] 	         = $("#roomNo").val(),
-		data["totalSeat"]  		 = $("#totalSeat").val(),
-		data["size"] 	         = $("#size").val(),
-		data["entryUser"] 	     = $("#entryUser").val(),
-		data["usedFor"] 	     = $("#roomUsedId option:selected").text();
+		var data 	= {},
+			header 	= {},
+			url 	= "room/addNewRoom";
+		
+		data["buildingId"]       = $("#buildingModal").val();
+		data["roomUsedId"] 	     = $("#roomUsedModal").val();
+		data["floorNo"] 	     = $("#floorNo").val();
+		data["roomName"]         = $("#roomName").val();
+		data["roomNo"] 	         = $("#roomNo").val();
+		data["totalSeat"]  		 = $("#totalSeat").val();
+		data["size"] 	         = $("#size").val();
+		data["entryUser"] 	     = $("#entryUser").val();
+		data["usedFor"] 	     = $("#roomUsedModal option:selected").text();
 
-		url = "room/addNewRoom";
 		
-		
-		var token = $('#csrfToken').val();
-		var header = $('#csrfHeader').val();
+		header.csrfToken = $('#csrfToken').val();
+		header.csrfHeader = $('#csrfHeader').val();
 		/*	
 		 * if in spring aplication csrf enable
 		 * send csrf parameter in header otherwise 405 error
@@ -50,7 +51,7 @@ $(document).ready(function($) {
 			beforeSend: function(xhr) {
 		        xhr.setRequestHeader("Accept", "application/json");
 		        xhr.setRequestHeader("Content-Type", "application/json");
-		        xhr.setRequestHeader(header, token);
+		        xhr.setRequestHeader(header.csrfHeader, header.csrfToken);
 		    },
 			success  : function(resonse) {
 				success(resonse.message);
@@ -66,7 +67,7 @@ $(document).ready(function($) {
 		});
 		
 	});
-	$("button#roomSubmit").click(function(event) {
+	/*$("button#roomSubmit").click(function(event) {
 		event.preventDefault();
 		
 		jbf.form.validate('#addNewRoomForm');
@@ -95,7 +96,7 @@ $(document).ready(function($) {
 			$("addNewRoomForm").reset();
 		}
 		
-	});
+	});*/
 	
 	/*
 	 * Datable get room function

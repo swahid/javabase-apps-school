@@ -60,19 +60,21 @@ public class RoomController {
 	@RequestMapping(value="addNewRoom", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody RoomInfo roomInfo) {
 		Map<String, Object> response= new HashMap<String, Object>();
-		
-		roomInfo.setEntryDate(new Date());
-		Boolean save = roomInfoService.addRoomInfo(roomInfo);
-		
-		if (save) {
-			response.put("suceess", true);
-	        response.put("message", "Add Building Sucess");
-			return response;
-		}else {
-			response.put("error", true);
-	        response.put("message", "Add Building Failed");
-			return response;
+		try {
+			roomInfo.setEntryDate(new Date());
+			Boolean save = roomInfoService.addRoomInfo(roomInfo);
+			
+			if (save) {
+				response.put("suceess", true);
+				response.put("message", "Add Building Sucess");
+			}else {
+				response.put("error", true);
+				response.put("message", "Add Building Failed");
+			}
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
 		}
+		return response;
 		
 	}
 	

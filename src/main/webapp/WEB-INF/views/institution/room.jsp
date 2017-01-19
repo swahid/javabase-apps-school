@@ -36,22 +36,18 @@
 			<select name="roomUsedId" class="form-control roomUsedId" id="roomUsedId">
 			</select>
 		</div>
-	<div class="form-group col-md-3">
-    	<label for="roomSearch">&nbsp;</label>
-      	<button type="submit" id="roomSearch" class="btn btn-success">Search</button>
-    </div>
-		  </div>
- <!-- =========================== Search Combo Section END ========================== -->
+  	</div>
+ 	<!-- =========================== Search Combo Section END ========================== -->
  
  
-        <!-- =========================== Search Datatable Room Start ======================== -->
- 		<div class="box-body">
+    <!-- =========================== Search Datatable Room Start ======================== -->
+	<div class="box-body">
 		<div class="box-body table-responsive">
-             <table id="roomTable" class="table table-bordered table-striped">
-                <!-- table body part dynamically call from databases function
-                server side processing -->
-              </table>
-          </div><!-- /.box-body -->
+            <table id="roomTable" class="table table-bordered table-striped">
+               <!-- table body part dynamically call from databases function
+               server side processing -->
+            </table>
+        </div><!-- /.box-body -->
        
 	</div>
  <!-- =========================== Search Datatable Room END ========================== -->
@@ -106,12 +102,6 @@
 			<label class="col-sm-2 control-label" for="totalSeat">Total Seat<span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<input id="totalSeat" class="form-control validate[required,custom[number]] text-input" type="text" name="totalSeat">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="size">Size</label>
-			<div class="col-sm-8">
-				<input id="size" class="form-control" type="text" value="" name="size">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">

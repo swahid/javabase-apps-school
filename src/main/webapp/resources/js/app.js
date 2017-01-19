@@ -26,7 +26,7 @@ if (typeof jQuery === "undefined") {
  *              way to organize our code.
  */
 $.AdminLTE = {};
-
+var jbf ={};
 /* --------------------
  * - AdminLTE Options -
  * --------------------

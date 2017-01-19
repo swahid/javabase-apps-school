@@ -32,7 +32,7 @@
           apply the skin class to the body tag so the changes take effect.
      -->
     <!-- Admin LTE APP JS -->
-   	<script src='<c:url value="/resources/js/app.min.js"/>'></script>
+   	<script src='<c:url value="/resources/js/app.js"/>'></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -89,7 +89,7 @@
    
    
     <!-- SELECT2 -->
-	<link rel="stylesheet" href="resources/plugins/select2r/select2.min.css">
+	<link rel="stylesheet" href="resources/plugins/select2/select2.min.css">
     <script src=<c:url value="/resources/plugins/select2/select2.full.min.js"/> type="text/javascript"></script>
    
    	<!-- SLIMSCROLL -->
@@ -120,8 +120,9 @@
     			<!-- ===================== CUSTOM JS ======================-->
     <!-- initialized custom js script -->
     <script src="<c:url value='/resources/js/funtions/jbf/ajax.js' />" type="text/javascript"></script>
-    <script src="<c:url value='/resources/js/funtions/jbf/date.js' />" type="text/javascript"></script>
     <script src="<c:url value='/resources/js/funtions/jbf/initialized.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/funtions/jbf/date.js' />" type="text/javascript"></script>
+    <script src="<c:url value='/resources/js/funtions/jbf/form.js' />" type="text/javascript"></script>
     
     
     

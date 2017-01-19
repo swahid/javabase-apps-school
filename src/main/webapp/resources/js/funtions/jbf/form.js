@@ -1,16 +1,18 @@
-jbf.form||(function($){
+
+
+
+jbf.form||(function(e){
     var form = {
-        $package            : 'Msc',
-        $class              : 'Msc.form',
-        show                : 'd-m-Y',
-        write               : 'Y-m-d\\TH:i:s',
-        
+    		
         validate	: function(id){
         	javascript: $(id).validationEngine('attach');
 			if (!$(id).validationEngine('validate')) {
-				return;
+				return true;
+			}else {
+				return false;
 			}
+			return true;
         }
     };
-    $.form = form;
+    e.form = form;
 }(jbf));
