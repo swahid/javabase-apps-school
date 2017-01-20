@@ -32,7 +32,9 @@ public class RoomController {
 	
 	@Autowired
     UserService userservice;
+	
 	public User user;
+	
 	@RequestMapping(method = RequestMethod.GET)
     public String roomPage() {
         return "institution/room";
@@ -42,6 +44,7 @@ public class RoomController {
 	@RequestMapping(value = "/load",method = RequestMethod.GET)
 	public Map<String, Object> roomInfo(@RequestParam Map<String, Object> param) {
 		Map<String, Object> response= new HashMap<String, Object>();
+		
 		try {
 			System.out.println(param.get("buildingId"));
 			System.out.println(param.get("roomUsedId"));

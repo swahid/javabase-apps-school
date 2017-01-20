@@ -6,7 +6,11 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.javabase.apps.entity.BuildingInfo;
+import org.javabase.apps.entity.RoomInfo;
+import org.javabase.apps.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +28,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class BuildingInfoMapperImpl implements BuildingInfoMapper{
 
 	@Autowired
+	SessionFactory session;
+	
+	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	private static final Logger log = LoggerFactory.getLogger(BuildingInfoMapperImpl.class);
 	
@@ -37,8 +44,14 @@ public class BuildingInfoMapperImpl implements BuildingInfoMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<BuildingInfo> getAllBuildingInfosByParam(Map<String, Object> params) {
-		String hql = "FROM BuildingInfo";
-		return (List<BuildingInfo>) hibernateTemplate.find(hql);
+			String entryUser = params.get("entryUser").toString();
+			String	hql = "FROM BuildingInfo r where r.entryUser = :entryUser";
+			Query query = session.getCurrentSession().createQuery(hql);
+			query.setParameter("entryUser", Integer.valueOf(entryUser) );
+			
+			List<BuildingInfo> buildingList = query.list();
+			
+			return buildingList;
 	}
 
 	@Override
