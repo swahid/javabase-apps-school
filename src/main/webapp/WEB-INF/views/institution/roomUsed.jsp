@@ -19,7 +19,8 @@
             <div class="box-body">
         <form name="addNewRoomUsedForm" action="#" method="post" class="form-horizontal" id="addNewRoomUsedForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="entryUser" value="${user.userid}"/>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="usedName"> Used Type<span class="require-field">*</span></label>
 			<div class="col-sm-8">

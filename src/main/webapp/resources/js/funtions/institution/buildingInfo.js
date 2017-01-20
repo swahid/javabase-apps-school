@@ -12,6 +12,7 @@ $(document).ready(function($) {
 		data["floor"] 	           = $("#floor").val(),
 		data["constructionType"]   = $("#constructionType").val(),
 		data["details"] 	       = $("#details").val(),
+		data["entryUser"] 	       = $("#entryUser").val(),
 		url = "building/addNewbuilding";
 		
 		

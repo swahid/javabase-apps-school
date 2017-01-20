@@ -8,8 +8,9 @@ $(document).ready(function($) {
 		
 		event.preventDefault();
 		var data = {}
-		data["usedName"]       = $("#usedName").val(),
+		data["usedName"]        = $("#usedName").val(),
 		data["details"] 	    = $("#details").val(),
+		data["entryUser"] 	    = $("#entryUser").val(),
 		url = "roomUsed/addNewRoomUsed";
 		
 		

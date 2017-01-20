@@ -6,10 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.RoomInfo;
+import org.javabase.apps.entity.User;
 import org.javabase.apps.service.RoomInfoService;
+import org.javabase.apps.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +30,9 @@ public class RoomController {
 	@Autowired
 	RoomInfoService roomInfoService;
 	
+	@Autowired
+    UserService userservice;
+	public User user;
 	@RequestMapping(method = RequestMethod.GET)
     public String roomPage() {
         return "institution/room";
@@ -61,9 +68,18 @@ public class RoomController {
 	public Map<String, Object> save(@RequestBody RoomInfo roomInfo) {
 		Map<String, Object> response= new HashMap<String, Object>();
 		try {
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			
+			if (principal instanceof UserDetails) {
+				String username = ((UserDetails) principal).getUsername();
+				 user = userservice.getUserByUsername(username);
+			}
+			
+//			roomInfo.setEntryUser(user.getUserid());
 			roomInfo.setEntryDate(new Date());
 			Boolean save = roomInfoService.addRoomInfo(roomInfo);
 			
+	    	
 			if (save) {
 				response.put("suceess", true);
 				response.put("message", "Add Building Sucess");
