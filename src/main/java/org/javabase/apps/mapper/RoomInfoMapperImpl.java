@@ -44,9 +44,27 @@ public class RoomInfoMapperImpl implements RoomInfoMapper{
 	@Transactional(readOnly=true)
 	public List<RoomInfo> getAllRoomInfosByParam(Map<String, Object> params) {
 		String hql=null;
-		if (params.isEmpty()) {
-			hql = "FROM RoomInfo";
-			return (List<RoomInfo>) hibernateTemplate.find(hql);
+		String entryUser = params.get("entryUser").toString();
+		
+		if (params.get("buildingId") == null) {
+			hql =   "FROM RoomInfo as r where r.buildingId in (select b.buildingId From BuildingInfo b " +
+					" where b.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser))";
+			/*
+			"FROM RoomInfo as r where r.buildingId in (select b.buildingId From BuildingInfo b " +
+			" where b.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser))";
+			*/
+			
+			/*hql =   "FROM RoomInfo as r "+
+					"join fetch r.BuildingInfo as b "+
+					"join fetch b.InstitutionInfo as i";*/
+			 
+			Query query = session.getCurrentSession().createQuery(hql);
+			query.setParameter("entryUser", Integer.valueOf(entryUser) );
+			
+			List<RoomInfo> roomList = query.list();
+			
+			return roomList;
+			
 		}else {
 			String building = params.get("buildingId").toString();
 			String roomUsedId = params.get("roomUsedId").toString();

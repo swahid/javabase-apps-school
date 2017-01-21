@@ -45,8 +45,7 @@ public class BuildingInfoMapperImpl implements BuildingInfoMapper{
 	@Transactional(readOnly=true)
 	public List<BuildingInfo> getAllBuildingInfosByParam(Map<String, Object> params) {
 			String entryUser = params.get("entryUser").toString();
-			String joinhql = 
-					"From BuildingInfo b " +
+			String joinhql = "From BuildingInfo b " +
 							" where b.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser)";
 			
 			Query query = session.getCurrentSession().createQuery(joinhql);
