@@ -21,7 +21,7 @@ public class RoomUsedType implements java.io.Serializable {
 
 	private static final long serialVersionUID = -8333692961138855101L;
 	private Integer roomUsedId;
-    private String insId;
+    private Integer insId;
     private String usedName;
     private String details;
     private Date entryDate;
@@ -42,11 +42,11 @@ public class RoomUsedType implements java.io.Serializable {
     }
 
     @Column(name = "ins_id", length = 45)
-    public String getInsId() {
+    public Integer getInsId() {
         return this.insId;
     }
 
-    public void setInsId(String insId) {
+    public void setInsId(Integer insId) {
         this.insId = insId;
     }
 
