@@ -21,7 +21,7 @@ public class InsShift implements java.io.Serializable {
 
 	private static final long serialVersionUID = -7851383013691127044L;
 	private Integer insShiftId;
-    private String insId;
+    private Integer insId;
     private String shiftName;
     private String startTime;
     private String entTme;
@@ -43,12 +43,12 @@ public class InsShift implements java.io.Serializable {
         this.insShiftId = insShiftId;
     }
 
-    @Column(name = "ins_id", length = 45)
-    public String getInsId() {
+    @Column(name = "ins_id")
+    public Integer getInsId() {
         return this.insId;
     }
 
-    public void setInsId(String insId) {
+    public void setInsId(Integer insId) {
         this.insId = insId;
     }
 

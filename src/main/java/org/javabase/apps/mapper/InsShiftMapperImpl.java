@@ -6,6 +6,9 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.javabase.apps.entity.BuildingInfo;
 import org.javabase.apps.entity.InsShift;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +27,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class InsShiftMapperImpl implements InsShiftMapper{
 
 	@Autowired
+	SessionFactory session;
+	
+	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	private static final Logger log = LoggerFactory.getLogger(InsShiftMapperImpl.class);
 	
@@ -37,8 +43,16 @@ public class InsShiftMapperImpl implements InsShiftMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<InsShift> getAllInsShiftsByParam(Map<String, Object> params) {
-		String hql = "FROM InsShift";
-		return (List<InsShift>) hibernateTemplate.find(hql);
+		String entryUser = params.get("entryUser").toString();
+		String joinhql = "From InsShift s " +
+						" where s.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser)";
+		
+		Query query = session.getCurrentSession().createQuery(joinhql);
+		query.setParameter("entryUser", Integer.valueOf(entryUser) );
+		
+		List<InsShift> shiftList = query.list();
+		
+		return shiftList;
 	}
 
 	@Override
