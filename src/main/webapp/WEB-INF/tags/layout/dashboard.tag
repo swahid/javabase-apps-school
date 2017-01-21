@@ -141,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href='<c:url value="/insShift"/>'>Shift </a></li>
                 <li><a href='<c:url value="/insClass"/>'>Class </a></li>
                 <li><a href='<c:url value="/classSection"/>'>Class Section</a></li>
-                <li><a href='<c:url value="/acaSession"/>'>Class Section</a></li>
+                <li><a href='<c:url value="/acaSession"/>'>Academic Session</a></li>
                 <li><a href='<c:url value="/insSystemRole"/>'>Role Names</a></li>
                 <li><a href='<c:url value="/empPost"/>'>Employee Post</a></li>
               </ul>
