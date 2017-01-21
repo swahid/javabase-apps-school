@@ -58,6 +58,17 @@
         </div>
     </div>
     </div>
+    	<!-- =========================== Search Combo Section Start ======================== -->
+	<div class="box-body"> 
+		<div class="form-group col-md-3">
+			<label for="classId"> Used For</label>			
+			<select name="classId" class="form-control roomUsedId" id="classId">
+			</select>
+		</div>
+  	</div>
+ 	<!-- =========================== Search Combo Section END ========================== -->
+ 
+    
     
         <div class="box-body">
 		<div class="box-body table-responsive">

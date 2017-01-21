@@ -6,6 +6,9 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.javabase.apps.entity.BuildingInfo;
 import org.javabase.apps.entity.ClassSection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +27,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class ClassSectionMapperImpl implements ClassSectionMapper{
 
 	@Autowired
+	SessionFactory session;
+	
+	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	private static final Logger log = LoggerFactory.getLogger(ClassSectionMapperImpl.class);
 	
@@ -37,8 +43,16 @@ public class ClassSectionMapperImpl implements ClassSectionMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<ClassSection> getAllClassSectionsByParam(Map<String, Object> params) {
-		String hql = "FROM ClassSection";
-		return (List<ClassSection>) hibernateTemplate.find(hql);
+		String classId = params.get("classId").toString();
+		String innerHql = "From ClassSection cs " +
+						" where cs.classId in (select c.classId from InsClass c where c.classId = :classId)";
+		
+		Query query = session.getCurrentSession().createQuery(innerHql);
+		query.setParameter("classId", Integer.valueOf(classId) );
+		
+		List<ClassSection> sectionList = query.list();
+		
+		return sectionList;
 	}
 
 	@Override

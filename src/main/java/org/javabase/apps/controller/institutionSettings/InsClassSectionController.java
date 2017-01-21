@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -27,10 +28,11 @@ public class InsClassSectionController {
 	
 	@ResponseBody
 	@RequestMapping(value = "load",method = RequestMethod.GET)
-	public Map<String, Object> allClassSection() {
+	public Map<String, Object> allClassSection(@RequestParam Map<String, Object> param) {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
-		List<ClassSection> classSectionList = classSectionService.getAllClassSections(); 
+		List<ClassSection> classSectionList = classSectionService.getAllClassSections();
+//		List<ClassSection> classSectionList = classSectionService.getAllClassSectionsByParam(param);
 			
 		response.put("success", true);
 		response.put("data", classSectionList);
