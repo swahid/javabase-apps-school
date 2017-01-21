@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.javabase.apps.entity.BuildingInfo;
 import org.javabase.apps.entity.InsShift;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
