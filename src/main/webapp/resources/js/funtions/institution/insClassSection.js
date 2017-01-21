@@ -94,4 +94,12 @@ $(document).ready(function($) {
             ]
 	    });
 	};
+	
+	//	 building select onChange Method
+	$( "#classId" ).change(function() {
+		var comboValues={};
+		comboValues['classId']= $("#classId").val();
+		
+		roomDatatable("#classSectionTable", 'classSection/load', comboValues);
+	});
 });
