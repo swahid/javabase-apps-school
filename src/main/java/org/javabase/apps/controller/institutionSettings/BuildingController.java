@@ -52,14 +52,7 @@ public class BuildingController {
 			 user = userservice.getUserByUsername(username);
 		}
 		
-		
 		param.put("entryUser", user.getUserid());
-		
-		List<InstitutionInfo> instituteList = institutionInfoService.getAllInstitutionInfosByParam(param);
-						
-		if(instituteList.size()>0){
-			param.put("insId", instituteList.get(0).getInsId());
-		}
 		
 		List<BuildingInfo> buildingListOnInstitute = buildingInfoService.getAllBuildingInfosByParam(param);
 		

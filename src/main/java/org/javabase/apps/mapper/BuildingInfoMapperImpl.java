@@ -44,10 +44,13 @@ public class BuildingInfoMapperImpl implements BuildingInfoMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<BuildingInfo> getAllBuildingInfosByParam(Map<String, Object> params) {
-			String insId = params.get("insId").toString();
-			String	hql = "FROM BuildingInfo r where r.insId = :insId";
-			Query query = session.getCurrentSession().createQuery(hql);
-			query.setParameter("insId", Integer.valueOf(insId) );
+			String entryUser = params.get("entryUser").toString();
+			String joinhql = 
+					"From BuildingInfo b " +
+							" where b.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser)";
+			
+			Query query = session.getCurrentSession().createQuery(joinhql);
+			query.setParameter("entryUser", Integer.valueOf(entryUser) );
 			
 			List<BuildingInfo> buildingList = query.list();
 			
