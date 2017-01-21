@@ -34,6 +34,7 @@ $(document).ready(function($) {
 			success  : function(resonse) {
 				var message = "Add Success";
 				//				$("#msg").html(data.message);
+				shiftDatatable("#shiftTable", 'insShift/load','' );
 				console.log(resonse.data);
 				alert(resonse.message);
 				data = null;
@@ -51,4 +52,50 @@ $(document).ready(function($) {
 		});
 		
 	});
+	
+
+	// call bshiftDatabase function for initialized datatable
+	shiftDatatable("#shiftTable", 'insShift/load','' );
+	
+	/*
+	 * Datable get building function
+	 */
+	function shiftDatatable(id, url, value) {
+		
+		$(id).dataTable({
+			destroy	: true,
+	        data	: jbf.ajax.getLoadData(url, value),
+	        columns	: [{
+		        	title	: 'Shift Id',
+		        	data	: 'insShiftId'
+				},{
+					title	: 'Shift Name',
+					data	: 'shiftName'
+				},{
+					title	: 'Start Time',
+					data	: 'startTime'
+				},{
+					title	: 'End Time',
+					data	: 'entTme'
+		    	},{
+		    		title	: 'Note',
+		    		data	: 'details'
+		    	},{
+		    		title	: 'Date',
+		    		data	: 'entryDate',
+		    		render  : function (date) {
+		    			if (date) {
+		    				return moment(date).format("DD MMM YYYY");
+						}else{
+							return "";
+						}
+		    		}
+		    	}
+	        ],
+	        columnDefs	: [
+               {"className": "dt-center", "targets": "_all"}
+            ]
+	    });
+	};
+	
 });

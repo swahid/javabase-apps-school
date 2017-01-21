@@ -35,6 +35,7 @@ $(document).ready(function($) {
 			success  : function(resonse) {
 				var message = "Add Success";
 				//				$("#msg").html(data.message);
+				classDatatable("#classTable", 'insClass/load','' );				
 				console.log(resonse.data);
 				alert(resonse.message);
 				data = null;
@@ -52,4 +53,46 @@ $(document).ready(function($) {
 		});
 		
 	});
+	
+
+	// call classDatabase function for initialized datatable
+	classDatatable("#classTable", 'insClass/load','' );
+	
+	/*
+	 * Datable get building function
+	 */
+	function classDatatable(id, url, value) {
+		
+		$(id).dataTable({
+			destroy	: true,
+	        data	: jbf.ajax.getLoadData(url, value),
+	        columns	: [{
+		        	title	: 'Class Id',
+		        	data	: 'classId'
+				},{
+					title	: 'Shift ',
+					data	: 'insShiftId'
+				},{
+					title	: 'Class Name',
+					data	: 'className'
+				},{
+					title	: 'Note',
+					data	: 'details'
+		    	},{
+		    		title	: 'Date',
+		    		data	: 'entryDate',
+		    		render  : function (date) {
+		    			if (date) {
+		    				return moment(date).format("DD MMM YYYY");
+						}else{
+							return "";
+						}
+		    		}
+		    	}
+	        ],
+	        columnDefs	: [
+               {"className": "dt-center", "targets": "_all"}
+            ]
+	    });
+	};
 });
