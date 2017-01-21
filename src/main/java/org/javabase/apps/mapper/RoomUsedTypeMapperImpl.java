@@ -6,6 +6,8 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
 import org.javabase.apps.entity.RoomUsedType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,9 @@ public class RoomUsedTypeMapperImpl implements RoomUsedTypeMapper{
 	private HibernateTemplate  hibernateTemplate;
 	private static final Logger log = LoggerFactory.getLogger(RoomUsedTypeMapperImpl.class);
 	
+	@Autowired
+	SessionFactory session;
+	
 	@Override
 	@Transactional(readOnly=true)
 	public List<RoomUsedType> getAllRoomUsedTypes() {
@@ -37,8 +42,16 @@ public class RoomUsedTypeMapperImpl implements RoomUsedTypeMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<RoomUsedType> getAllRoomUsedTypesByParam(Map<String, Object> params) {
-		String hql = "FROM RoomUsedType";
-		return (List<RoomUsedType>) hibernateTemplate.find(hql);
+		String entryUser = params.get("entryUser").toString();
+		String joinhql = "From RoomUsedType r " +
+						" where r.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser)";
+		
+		Query query = session.getCurrentSession().createQuery(joinhql);
+		query.setParameter("entryUser", Integer.valueOf(entryUser) );
+		
+		List<RoomUsedType> usedList = query.list();
+		
+		return usedList;
 	}
 
 	@Override

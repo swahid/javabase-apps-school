@@ -5,8 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.RoomUsedType;
+import org.javabase.apps.entity.User;
 import org.javabase.apps.service.RoomUsedTypeService;
+import org.javabase.apps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +24,12 @@ public class RoomUsedController {
 	@Autowired
 	RoomUsedTypeService roomUsedTypeService;
 	
+	@Autowired
+    UserService userservice;
+	
+	public User user;
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
     public String roomPage() {
         return "institution/roomUsed";
@@ -30,7 +40,18 @@ public class RoomUsedController {
 	public Map<String, Object> allRoomUsed() {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
-		List<RoomUsedType> roomUsedList = roomUsedTypeService.getAllRoomUsedTypes(); 
+		Map<String, Object> param= new HashMap<String, Object>();
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if (principal instanceof UserDetails) {
+			String username = ((UserDetails) principal).getUsername();
+			 user = userservice.getUserByUsername(username);
+		}
+		
+		param.put("entryUser", user.getUserid());
+		
+		List<RoomUsedType> roomUsedList = roomUsedTypeService.getAllRoomUsedTypesByParam(param);
 			
 		response.put("success", true);
 		response.put("data", roomUsedList);

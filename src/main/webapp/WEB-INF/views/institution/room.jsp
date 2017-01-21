@@ -26,13 +26,13 @@
  		<!-- =========================== Search Combo Section Start ======================== -->
  	<div class="box-body"> 
 	    <div class="form-group col-md-3">
-			<label for="buildingId">Select Class</label>			
+			<label for="buildingId"> BUilding</label>			
             <select name="buildingId" id="buildingId" class="form-control buildingId">
             </select>
 			
 		</div>
 		<div class="form-group col-md-3">
-			<label for="roomUsedId">Select Class Section</label>			
+			<label for="roomUsedId"> Used For</label>			
 			<select name="roomUsedId" class="form-control roomUsedId" id="roomUsedId">
 			</select>
 		</div>
