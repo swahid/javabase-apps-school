@@ -36,6 +36,7 @@ $(document).ready(function($) {
 			success  : function(resonse) {
 				var message = "Add Success";
 				//				$("#msg").html(data.message);
+				classSectionDatatable("#classSectionTable", 'classSection/load','' );
 				console.log(resonse.data);
 				alert(resonse.message);
 				data = null;
@@ -53,4 +54,44 @@ $(document).ready(function($) {
 		});
 		
 	});
+	
+	
+
+	// call classDatabase function for initialized datatable
+	classSectionDatatable("#classSectionTable", 'classSection/load','' );
+	
+	/*
+	 * Datable get building function
+	 */
+	function classSectionDatatable(id, url, value) {
+		
+		$(id).dataTable({
+			destroy	: true,
+	        data	: jbf.ajax.getLoadData(url, value),
+	        columns	: [{
+		        	title	: 'Id',
+		        	data	: 'secId'
+				},{
+					title	: 'Section ',
+					data	: 'secName'
+				},{
+					title	: 'Note',
+					data	: 'details'
+		    	},{
+		    		title	: 'Date',
+		    		data	: 'entryDate',
+		    		render  : function (date) {
+		    			if (date) {
+		    				return moment(date).format("DD MMM YYYY");
+						}else{
+							return "";
+						}
+		    		}
+		    	}
+	        ],
+	        columnDefs	: [
+               {"className": "dt-center", "targets": "_all"}
+            ]
+	    });
+	};
 });

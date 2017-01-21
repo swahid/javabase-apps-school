@@ -47,5 +47,13 @@
         </div>
     </div>
     </div>
+      <div class="box-body">
+		<div class="box-body table-responsive">
+            <table id="acaSessionTable" class="table table-bordered table-striped">
+               <!-- table body part dynamically call from databases function
+               server side processing -->
+            </table>
+        </div>
+	</div>
 	</jsp:body>
 </t:dashboard>
