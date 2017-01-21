@@ -6,6 +6,9 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.javabase.apps.entity.BuildingInfo;
 import org.javabase.apps.entity.InstitutionInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +27,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class InstitutionInfoMapperImpl implements InstitutionInfoMapper{
 
 	@Autowired
+	SessionFactory session;
+	
+	@Autowired
 	private HibernateTemplate  hibernateTemplate;
 	private static final Logger log = LoggerFactory.getLogger(InstitutionInfoMapperImpl.class);
 	
@@ -37,8 +43,19 @@ public class InstitutionInfoMapperImpl implements InstitutionInfoMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<InstitutionInfo> getAllInstitutionInfosByParam(Map<String, Object> params) {
-		String hql = "FROM InstitutionInfo";
+		/*String hql = "FROM InstitutionInfo";
 		return (List<InstitutionInfo>) hibernateTemplate.find(hql);
+		
+		*/
+		
+		String entryUser = params.get("entryUser").toString();
+		String	hql = "FROM InstitutionInfo i where i.entryUser = :entryUser";
+		Query query = session.getCurrentSession().createQuery(hql);
+		query.setParameter("entryUser", Integer.valueOf(entryUser) );
+		
+		List<InstitutionInfo> institutionList = query.list();
+		
+		return institutionList;
 	}
 
 	@Override

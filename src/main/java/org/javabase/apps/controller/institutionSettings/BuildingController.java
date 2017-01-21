@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.BuildingInfo;
+import org.javabase.apps.entity.InstitutionInfo;
 import org.javabase.apps.entity.User;
 import org.javabase.apps.service.BuildingInfoService;
+import org.javabase.apps.service.InstitutionInfoService;
 import org.javabase.apps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +25,9 @@ public class BuildingController {
 	
 	@Autowired
 	BuildingInfoService buildingInfoService;
+	
+	@Autowired
+	InstitutionInfoService institutionInfoService;
 	
 	@Autowired
     UserService userservice;
@@ -47,21 +52,45 @@ public class BuildingController {
 			 user = userservice.getUserByUsername(username);
 		}
 		
-//		roomInfo.setEntryUser(user.getUserid());.
+		
 		param.put("entryUser", user.getUserid());
-		List<BuildingInfo> buildingList = buildingInfoService.getAllBuildingInfos();
+		
+		List<InstitutionInfo> instituteList = institutionInfoService.getAllInstitutionInfosByParam(param);
+						
+		if(instituteList.size()>0){
+			param.put("insId", instituteList.get(0).getInsId());
+		}
+		
 		List<BuildingInfo> buildingListOnInstitute = buildingInfoService.getAllBuildingInfosByParam(param);
 		
 		response.put("success", true);
 		response.put("data", buildingListOnInstitute);
-		return response;
 		
+		return response;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="addNewbuilding", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody BuildingInfo buildingInfo) {
 		Map<String, Object> response= new HashMap<String, Object>();
+		Map<String, Object> param= new HashMap<String, Object>();
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if (principal instanceof UserDetails) {
+			String username = ((UserDetails) principal).getUsername();
+			 user = userservice.getUserByUsername(username);
+		}
+		
+		param.put("entryUser", user.getUserid());
+		
+		List<InstitutionInfo> instituteList = institutionInfoService.getAllInstitutionInfosByParam(param);
+						
+		if(instituteList.size()>0){
+			buildingInfo.setInsId(instituteList.get(0).getInsId());
+		}
+		
+						
 		Boolean save = buildingInfoService.addBuildingInfo(buildingInfo);
 		
 		if (save) {
