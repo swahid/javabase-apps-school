@@ -82,9 +82,15 @@
 		                  </div>
 		                </div>
 		                 <div class="form-group">
+		                  <label for="classSection" class="col-sm-2 control-label">Class Section</label>
+		                  <div class="col-sm-6">
+		                    <input type="text" class="form-control" id="classSection" placeholder="Class Section">
+		                  </div>
+		                </div>
+		                 <div class="form-group">
 		                  <label for="classDescription" class="col-sm-2 control-label">Class Description</label>
 		                  <div class="col-sm-6">
-		                    <input type="text" class="form-control" id="classDescription" placeholder="classDescription">
+		                    <input type="text" class="form-control" id="classDescription" placeholder="Class Description">
 		                  </div>
 		                </div>
 		                <div class="form-group">
