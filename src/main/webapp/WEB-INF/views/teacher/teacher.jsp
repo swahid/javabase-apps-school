@@ -2,7 +2,7 @@
 <t:dashboard>
 	<jsp:attribute name="header">
 	<!-- DATA TABES SCRIPT -->
-    <script src=<c:url value="/resources/js/funtions/teacher.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/js/jschool/teacher.js"/> type="text/javascript"></script>
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 
@@ -54,7 +54,8 @@
                          <td>5</td>
                          <td>C</td>
                      </tr>
-                 </table>
+                  <tbody>
+             </table>
           </div><!-- /.box-body -->
        
 	</div>

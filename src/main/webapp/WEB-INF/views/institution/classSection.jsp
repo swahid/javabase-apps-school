@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	        <script type="text/javascript" src="<c:url value='/resources/js/funtions/institution/insClassSection.js' />"></script> 
+	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/insClassSection.js' />"></script> 
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 

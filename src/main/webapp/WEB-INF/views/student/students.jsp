@@ -2,12 +2,12 @@
 <t:dashboard>
 	<jsp:attribute name="header">
     <!-- DATA TABES SCRIPT -->
-    <script src=<c:url value="/resources/js/funtions/students.js"/> type="text/javascript"></script>
+    <script src=<c:url value="/resources/js/jschool/students.js"/> type="text/javascript"></script>
 	</jsp:attribute>
 
 	<jsp:body>
-	<div class="row">
-	<div class="col-md-12">
+      <div class="row">
+       <div class="col-xs-12">
 		<div class="box box-default" data-collapsed="0">
         	<div class="box-header with-border">
             	<div class="box-title">

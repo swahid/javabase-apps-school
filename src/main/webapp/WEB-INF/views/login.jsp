@@ -6,7 +6,7 @@
         <title>Sign in Login</title>
         <link href="<c:url value='/resources/css/login.css' />" rel="stylesheet"></link>
         <script src="resources/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="<c:url value='/resources/js/funtions/login.js' />"></script>
+        <script type="text/javascript" src="<c:url value='/resources/js/jschool/login.js' />"></script>
     </head>
  
     <body>

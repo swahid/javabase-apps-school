@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.javabase.apps.controller.institutionSettings;
+package org.javabase.apps.controller.classes;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,9 +26,13 @@ public class ClassController {
 	@Autowired
 	InsClassService insClassService;
 	
+	@RequestMapping(value="manage",method = RequestMethod.GET)
+	private String clases(){
+		return "class/class";
+	}
 	
 	@ResponseBody
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "load", method = RequestMethod.GET)
 	public Map<String, Object> classInfo() {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
