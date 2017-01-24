@@ -22,8 +22,13 @@ jbf.ajax||(function(e){
 			return data
         },
         post	: function(url, data, header){
-        	var isPost='';
+        	var data='';
+        	console.log(url);
+        	console.log(data);
+        	console.log(header);
+        	
         	$.ajax({
+        		async	 : false,
     			type 	 : "POST",
     			url      : url,
     			data 	 : JSON.stringify(data),
@@ -39,7 +44,7 @@ jbf.ajax||(function(e){
     			},
     			error 	 : function(e) {
     				isPost = false;
-    				console.log("ERROR: ",e);
+    				console.log("ERROR: ", e);
     				error("Unable to perform");
     			}
     		});

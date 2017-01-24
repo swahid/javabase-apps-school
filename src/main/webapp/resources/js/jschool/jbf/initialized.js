@@ -1,6 +1,15 @@
 /*
  * this file used to make initialization preLoad data method call dynamic;
  */
+
+$(document).ready(function($) {
+		//For All Select Menu Call
+		getCombo();
+		
+		
+});
+
+
 jbf.init||(function(e){
     var init = {
     		
@@ -84,9 +93,23 @@ jbf.init||(function(e){
 	
 	
 	/*======================= Notification Functions =========================*/
-	$(document).ready(function($) {
-		//For All Select Menu Call
-		$(".select2").select2();
+	
+	function getCombo(id, url, param) {
+		var selectId= id != null ? id: ".select2";
+		if (url) {
+			if (param) {
+				$(selectId).select2({
+					data	: jbf.ajax.getLoadData(url, param),
+					delay	: 100
+				});
+			}else {
+				$(selectId).select2({
+					data	: jbf.ajax.getLoadData(url, ''),
+					delay	: 100
+				});
+			}
+		}else {
+			$(selectId).select2();
+		}
 		
-		
-	});
+	}
