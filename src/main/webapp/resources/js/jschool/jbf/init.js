@@ -6,44 +6,13 @@ jbf.init||(function(e){
     var init = {
     		
 		getCombo: function(id, url, param) {
-			var selectId= id != null ? id: ".select2";
-			if (url) {
-				if (param) {
-					$(selectId).select2({
-						data	: jbf.ajax.getLoadData(url, param),
-						delay	: 100
-					});
-				}else {
-					$(selectId).select2({
-						data	: jbf.ajax.getLoadData(url, ''),
-						delay	: 100
-					});
-				}
-			}else {
-				$(selectId).select2();
+			var data = jbf.ajax.getLoadData(url, param);
+			$(id).empty();
+			for (var i = 0; i < data.length; i++) {
+				$(id).append("<option value=''></option>")
+				$(id).append("<option value="+ data[i].classId +">"+data[i].className+"</option>")
 			}
 		}
     };
     e.init = init;
 }(jbf));
-
-	/*======================= Notification Functions =========================*/
-	
-	function success(message) {
-		$.notify(message, "success");
-	}
-	function info(message) {
-		$.notify(message, "info");
-	}
-	function warn(message) {
-		$.notify(message, "warn");
-	}
-	function error(message) {
-		$.notify(message, "error");
-	}
-	/*======================= Notification Functions =========================*/
-	
-	
-	/*======================= Notification Functions =========================*/
-	
-	

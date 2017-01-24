@@ -4,7 +4,10 @@
 
 $(document).ready(function($) {
 		//For All Select Menu Call
-	jbf.init.getCombo();
+	$('.select2').select2({
+		placeholder	: "Select Your Option ....",
+		allowClear	: true
+	});
 		
 		
 });

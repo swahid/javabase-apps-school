@@ -7,5 +7,6 @@ $(document).ready(function($) {
 // sectionDatatable initialized
 $("#sectionDatatable").dataTable();
 
+jbf.init.getCombo('.classCombo', 'load');
 //End documentready funtion
 });
