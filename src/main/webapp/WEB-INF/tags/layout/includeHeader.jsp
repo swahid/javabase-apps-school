@@ -44,7 +44,6 @@
     
     <!-- ==========================EXTERNAL PLUGIN DEPENDENCY START===============================-->
     
-    
     <!-- BOOTSTRAP-SLIDER -->
     <link href='<c:url value="/resources/plugins/bootstrap-slider/slider.css"/>' rel='stylesheet'>
     <script src=<c:url value="/resources/plugins/bootstrap-slider/bootstrap-slider.js"/> type="text/javascript"></script>
@@ -72,16 +71,16 @@
     
     <!-- DATERANGE PICKER -->
     <link  href='<c:url value="/resources/plugins/daterangepicker/daterangepicker.css"/>' rel='stylesheet'>
-    <script src=<c:url value="/resources/plugins/daterangepicker/daterangepicker.js"/> type="text/javascript"></script>
+    <script src='<c:url value="/resources/plugins/daterangepicker/daterangepicker.js"/>' type="text/javascript"></script>
     
     
     <!-- FASTCLICK -->
-    <script src=<c:url value="/resources/plugins/fastclick/fastclick.min.js"/> type="text/javascript"></script>
+    <script src='<c:url value="/resources/plugins/fastclick/fastclick.min.js"/>' type="text/javascript"></script>
     
     
     <!-- fullCalendar 2.2.5-->
-  	<link rel="stylesheet" href="resources/plugins/fullcalendar/fullcalendar.min.css">
- 	<link rel="stylesheet" href="resources/plugins/fullcalendar/fullcalendar.print.css" media="print">
+  	<link rel="stylesheet" href='<c:url value="/resources/plugins/fullcalendar/fullcalendar.min.css"/>'>
+ 	<link rel="stylesheet" href='<c:url value="/resources/plugins/fullcalendar/fullcalendar.print.css"/>' media="print">
     <script src=<c:url value="/resources/plugins/fullcalendar/fullcalendar.min.js"/> type="text/javascript"></script>
 	
     <!-- Notification SCRIPT -->
@@ -89,20 +88,20 @@
    
    
     <!-- SELECT2 -->
-	<link rel="stylesheet" href="resources/plugins/select2/select2.min.css">
+	<link rel="stylesheet" href='<c:url value="/resources/plugins/select2/select2.min.css"/>'>
     <script src=<c:url value="/resources/plugins/select2/select2.full.min.js"/> type="text/javascript"></script>
    
    	<!-- SLIMSCROLL -->
-   	<script src=<c:url value="/resources/plugins/slimScroll/jquery.slimscroll.min.js"/> type="text/javascript"></script>
+   	<script src='<c:url value="/resources/plugins/slimScroll/jquery.slimscroll.min.js"/>' type="text/javascript"></script>
    
    
    	<!-- timepicker -->
-    <link rel="stylesheet" href="resources/plugins/timepicker/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href='<c:url value="/resources/plugins/timepicker/bootstrap-timepicker.min.css"/>'>
     <script src=<c:url value="/resources/plugins/timepicker/bootstrap-timepicker.min.js"/> type="text/javascript"></script>
     
     
    	<!-- VALIDATE -->
-    <link rel="stylesheet" href="resources/plugins/validation/css/validationEngine.jquery.css">
+    <link rel="stylesheet" href='<c:url value="/resources/plugins/validation/css/validationEngine.jquery.css"/>'>
    	<script src=<c:url value="/resources/plugins/validation/js/jquery.validationEngine.js"/> type="text/javascript"></script>
    	<script src=<c:url value="/resources/plugins/validation/js/jquery.validationEngine-en.js"/> type="text/javascript"></script>
     

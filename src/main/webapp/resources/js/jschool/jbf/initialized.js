@@ -48,29 +48,11 @@ jbf.init||(function(e){
 		});
 	};
 	
-//	get all insShift data
-	function getInsClassData(){
-		$.ajax({
-			type 	 : "GET",
-			url      : "insClass/load",
-			success  : function(resonse) {
-				var data = resonse.data;
-				$('#classId').empty();
-				for (var i = 0; i < data.length; i++) {
-					$('#classId').append('<option value=' + data[i].classId + '>' + data[i].className + '</option>');
-				}
-			},
-			error 	 : function(e) {
-				console.log("ERROR: ",e);
-			}
-		});
-	};
-	
 //	class initialized data
 	function getClass(){
 		$.ajax({
 			type 	 : "GET",
-			url      : "class",
+			url      : "class/load",
 			success  : function(resonse) {
 				var data = resonse.data;
 				$('#classId').empty();
@@ -99,3 +81,12 @@ jbf.init||(function(e){
 		$.notify(message, "error");
 	}
 	/*======================= Notification Functions =========================*/
+	
+	
+	/*======================= Notification Functions =========================*/
+	$(document).ready(function($) {
+		//For All Select Menu Call
+		$(".select2").select2();
+		
+		
+	});

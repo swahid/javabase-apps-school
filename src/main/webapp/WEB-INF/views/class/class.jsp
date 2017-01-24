@@ -22,7 +22,7 @@
             <!-- ===================== tab 1 Start =========================== -->
               <div class="tab-pane active" id="tab_1">
                 <!-- =========================== Search Datatable Class Start ======================== -->
-				<div class="box-body table-responsive">
+				<div class="box-body table-responsive box box-primary" >
 			            <table id="classDatatable" class="table table-bordered table-striped">
 			               <!-- table body part dynamically call from databases function
 			               server side processing -->
@@ -64,37 +64,37 @@
               
               <div class="tab-pane" id="tab_2">
                 <!-- Horizontal Form -->
-		          <div class="box box-info">
+		          <div class="box box-primary">
 		            <!-- form start -->
 		            <form class="form-horizontal">
 		              <div class="box-body">
 		                <div class="form-group">
-		                  <label for="className" class="col-sm-2 control-label">Class Name</label>
+		                  <label for="className" class="col-sm-4 control-label">Class Name</label>
 		
 		                  <div class="col-sm-6">
 		                    <input type="text" class="form-control" id="className" placeholder="Class Name">
 		                  </div>
 		                </div>
 		                <div class="form-group">
-		                  <label for="classShift" class="col-sm-2 control-label">Select Shift</label>
+		                  <label for="classShift" class="col-sm-4 control-label">Select Shift</label>
 		                  <div class="col-sm-6">
 		                    <input type="text" class="form-control" id="classShift" placeholder="classShift">
 		                  </div>
 		                </div>
 		                 <div class="form-group">
-		                  <label for="classSection" class="col-sm-2 control-label">Class Section</label>
+		                  <label for="classSection" class="col-sm-4 control-label">Class Section</label>
 		                  <div class="col-sm-6">
 		                    <input type="text" class="form-control" id="classSection" placeholder="Class Section">
 		                  </div>
 		                </div>
 		                 <div class="form-group">
-		                  <label for="classDescription" class="col-sm-2 control-label">Class Description</label>
+		                  <label for="classDescription" class="col-sm-4 control-label">Class Description</label>
 		                  <div class="col-sm-6">
 		                    <input type="text" class="form-control" id="classDescription" placeholder="Class Description">
 		                  </div>
 		                </div>
 		                <div class="form-group">
-		                  <div class="col-sm-6">
+		                  <div class="col-sm-offset-4 col-sm-6">
 		                    <button type="submit" class="btn btn-info">Add Class</button>
 		                  </div>
 		                </div>
