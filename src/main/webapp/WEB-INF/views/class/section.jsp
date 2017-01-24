@@ -28,16 +28,12 @@
 	    <div class="form-group col-md-3">
 			<label for="classCombo"> Select Class </label>			
             <select name="classCombo" class="form-control classCombo select2" id="classCombo">
-            <option>1</option>
-            <option>2</option>
             </select>
 			
 		</div>
 		<div class="form-group col-md-3">
 			<label for="classShiftCombo">Select Shift</label>			
 			<select name="classShiftCombo" class="form-control classShiftCombo select2" id="classShiftCombo">
-			<option>1</option>
-            <option>2</option>
 			</select>
 		</div>
   	</div>
