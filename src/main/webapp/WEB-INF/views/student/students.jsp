@@ -22,8 +22,7 @@
         <form method="post">  
 	    <div class="form-group col-md-3">
 			<label for="class_id">Select Class</label>			
-            <select name="class_id" id="class_list"
-									class="form-control select2">
+            <select name="class_id" id="class_list" class="form-control select2">
                 <option value="">Select class Name</option>
                 <option value="1">Five</option>
                 <option value="2">Six</option>
@@ -31,18 +30,11 @@
 			
 		</div>
 		<div class="form-group col-md-3">
-			<label for="class_id">Select Class Section</label>			
-			<select name="class_section" class="form-control validate[required]"
-									id="class_section">
+			<label for="class_section">Select Class Section</label>			
+			<select name="class_section" class="form-control select2" id="class_section">
                	<option value="">Select Class Section</option>
 			</select>
 		</div>
-	<div class="form-group col-md-3 button-possition">
-    	<label for="subject_id">&nbsp;</label>
-      	<input type="submit" value="Search" name="subject_id"
-									class="button-possition">
-    </div>
-       
           </form>
 		  </div>
  <!-- =========================== Search Combo Section END ========================== -->
