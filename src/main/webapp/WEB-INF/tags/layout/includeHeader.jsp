@@ -10,7 +10,7 @@
     
     
     <!-- JQUERY-UI SCRIPT 1.12.1-->
-    <link href=<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.css"/> rel="stylesheet" type="text/css" />
+    <link href='<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.css"/>' rel="stylesheet" type="text/css" />
     <link href=<c:url value="/resources/plugins/jquery-ui/jquery-ui.structure.min.css"/> rel="stylesheet" type="text/css" />
     <link href=<c:url value="/resources/plugins/jquery-ui/jquery-ui.theme.min.css"/> rel="stylesheet" type="text/css" />
     <script src=<c:url value="/resources/plugins/jquery-ui/jquery-ui.min.js"/> type="text/javascript"></script>

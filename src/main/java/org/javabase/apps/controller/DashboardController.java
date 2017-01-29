@@ -30,7 +30,7 @@ public class DashboardController {
     @Autowired
     HttpSession response;
 	
-	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/dashboard"}, method = RequestMethod.GET)
 	public String dashboard(Locale locale, Model model) {
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
