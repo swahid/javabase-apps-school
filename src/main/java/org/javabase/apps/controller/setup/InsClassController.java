@@ -1,14 +1,12 @@
-package org.javabase.apps.controller.institutionSettings;
+package org.javabase.apps.controller.setup;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.javabase.apps.entity.InstitutionInfo;
-import org.javabase.apps.entity.RoomUsedType;
+import org.javabase.apps.entity.InsClass;
 import org.javabase.apps.entity.User;
-import org.javabase.apps.service.InstitutionInfoService;
-import org.javabase.apps.service.RoomUsedTypeService;
+import org.javabase.apps.service.InsClassService;
 import org.javabase.apps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,31 +18,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/roomUsed")
-public class RoomUsedController {
+@RequestMapping(value = "/insClass")
+public class InsClassController {
 	
 	@Autowired
-	RoomUsedTypeService roomUsedTypeService;
-	
-	@Autowired
-	InstitutionInfoService institutionInfoService;
+	InsClassService insClassService;
 	
 	@Autowired
     UserService userservice;
 	
 	public User user;
 	
-	
 	@RequestMapping(method = RequestMethod.GET)
     public String roomPage() {
-        return "institution/roomUsed";
+        return "institution/insClass";
     }
 	
 	@ResponseBody
 	@RequestMapping(value = "load",method = RequestMethod.GET)
-	public Map<String, Object> allRoomUsed() {
+	public Map<String, Object> allInsClass() {
 		Map<String, Object> response= new HashMap<String, Object>();
-		
 		Map<String, Object> param= new HashMap<String, Object>();
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -53,46 +46,29 @@ public class RoomUsedController {
 			String username = ((UserDetails) principal).getUsername();
 			 user = userservice.getUserByUsername(username);
 		}
-		
 		param.put("entryUser", user.getUserid());
 		
-		List<RoomUsedType> roomUsedList = roomUsedTypeService.getAllRoomUsedTypesByParam(param);
+		List<InsClass> insClassList = insClassService.getAllInsClasssByParam(param);
 			
 		response.put("success", true);
-		response.put("data", roomUsedList);
+		response.put("data", insClassList);
 		return response;
 		
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="addNewRoomUsed", method = RequestMethod.POST)
-	public Map<String, Object> save(@RequestBody RoomUsedType roomUsedType) {
+	@RequestMapping(value="addInsClass", method = RequestMethod.POST)
+	public Map<String, Object> save(@RequestBody InsClass insClass) {
 		Map<String, Object> response= new HashMap<String, Object>();
-		Map<String, Object> param= new HashMap<String, Object>();
-		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		
-		if (principal instanceof UserDetails) {
-			String username = ((UserDetails) principal).getUsername();
-			 user = userservice.getUserByUsername(username);
-		}
-		
-		param.put("entryUser", user.getUserid());
-		
-		List<InstitutionInfo> instituteList = institutionInfoService.getAllInstitutionInfosByParam(param);
-						
-		if(instituteList.size()>0){
-			roomUsedType.setInsId(instituteList.get(0).getInsId());
-		}
-		Boolean save = roomUsedTypeService.addRoomUsedType(roomUsedType);
+		Boolean save = insClassService.addInsClass(insClass);
 		
 		if (save) {
 			response.put("suceess", true);
-	        response.put("message", "Add Building Sucess");
+	        response.put("message", "Add Class Sucess");
 			return response;
 		}else {
 			response.put("error", true);
-	        response.put("message", "Add Building Failed");
+	        response.put("message", "Add Class Failed");
 			return response;
 		}
 		

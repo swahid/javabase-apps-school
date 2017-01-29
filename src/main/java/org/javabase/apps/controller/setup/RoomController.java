@@ -1,4 +1,4 @@
-package org.javabase.apps.controller.institutionSettings;
+package org.javabase.apps.controller.setup;
 
 import java.util.Date;
 import java.util.HashMap;
