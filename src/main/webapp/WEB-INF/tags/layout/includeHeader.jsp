@@ -1,5 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!-- ======================= REQUIRED DEPENDENCY START ========================= -->
+<!-- ***********************************
+------REQUIRED DEPENDENCY START -------
+
+**************************************** -->
 	
 	<!-- JQUERY 2.1.4 -->
     <script src='<c:url value="/resources/jquery/2.1.4/jquery.min.js"/>'></script>
@@ -22,7 +25,9 @@
     <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
     
     
-    <!-- ==========================ADMINLTE THEME DEPENDENCY START===============================-->
+    <!-- =================================
+    --- ADMINLTE THEME DEPENDENCY START---
+    =====================================-->
     <!-- Admin LTE Skin -->
     <link rel='stylesheet' href='<c:url value="/resources/css/skins/skin-black.min.css"/>'>
     <!-- Theme style -->
@@ -42,7 +47,9 @@
     
     <!-- ==========================ADMINLTE THEME DEPENDENCY END===============================-->
     
-    <!-- ==========================EXTERNAL PLUGIN DEPENDENCY START===============================-->
+    <!-- =================================== 
+    --- EXTERNAL PLUGIN DEPENDENCY START ---
+    ======================================== -->
     
     <!-- BOOTSTRAP-SLIDER -->
     <link href='<c:url value="/resources/plugins/bootstrap-slider/slider.css"/>' rel='stylesheet'>
@@ -107,7 +114,9 @@
     
     <!-- ========================== EXTERNAL PLUGIN DEPENDENCY END ===============================-->
     
-    <!-- ========================== SCHOOL MANEGEMENT CUSTOM DEPENDENCY ===============================-->
+    <!-- ========================================
+    ---- SCHOOL MANEGEMENT CUSTOM DEPENDENCY ----
+    =============================================-->
     
     			<!-- ===================== CUSTOM CSS ======================-->
     <!-- POPUP CSS -->
@@ -116,7 +125,9 @@
     <link rel="stylesheet" href='<c:url value="/resources/css/jschool.css"/>'>
     
     
-    			<!-- ===================== CUSTOM JS ======================-->
+   <!-- ==============
+   ---- CUSTOM JS ----
+   =================== -->
     <!-- initialized custom js script -->
     <script src="<c:url value='/resources/js/jschool/jbf/ajax.js' />" type="text/javascript"></script>
     <script src="<c:url value='/resources/js/jschool/jbf/date.js' />" type="text/javascript"></script>
