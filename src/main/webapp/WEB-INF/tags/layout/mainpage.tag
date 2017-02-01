@@ -2,6 +2,7 @@
 <%@attribute name="header" fragment="true" %>
 <%@attribute name="footer" fragment="true" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -88,13 +89,13 @@
               <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
                 <li class="active"><a href="<c:url value='/home'/>">Home</a></li>
                 <c:if test="${loggedIn}">
-                <li><a href="<c:url value='/dashboard'/>">Dashboard</a></li>
+                <li><a href="<c:url value='/dashboard/'/>">Dashboard</a></li>
                 </c:if>
-                <li><a href="<c:url value='/home/course'/>">Course</a></li>
-                <li><a href="<c:url value='/home/scholarship'/>">Scholarship</a></li>
-                <li><a href="<c:url value='/home/events'/>">Events</a></li>
-                <li><a href="<c:url value='/home/gallery'/>">Gallery</a></li>                
-                <li><a href="<c:url value='/home/blog'/>">Blog</a></li>
+                <li><a href="<c:url value='/course'/>">Course</a></li>
+                <li><a href="<c:url value='/scholarship'/>">Scholarship</a></li>
+                <li><a href="<c:url value='/events'/>">Events</a></li>
+                <li><a href="<c:url value='/gallery'/>">Gallery</a></li>                
+                <li><a href="<c:url value='/blog'/>">Blog</a></li>
 <!--                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">

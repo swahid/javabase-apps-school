@@ -1,9 +1,10 @@
-<%@tag description="iTrack Layout" pageEncoding="UTF-8"%>
+<%@tag description="iTrack DashBoard Layout" pageEncoding="UTF-8"%>
 <%@attribute name="header" fragment="true" %>
 <%@attribute name="footer" fragment="true" %>
 <%@attribute name="sidebar" fragment="true" %>
 <%@attribute name="contentHeader" fragment="true" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
