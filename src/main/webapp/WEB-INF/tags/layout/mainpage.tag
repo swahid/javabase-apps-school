@@ -14,7 +14,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title>WpF Degree : Home</title>
+     <title>School Management : Home</title>
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -121,7 +121,7 @@
     </header>
     <!--=========== END HEADER SECTION ================--> 
 
-      
+      <jsp:doBody></jsp:doBody>
     
     <!--=========== BEGIN FOOTER SECTION ================-->
     <footer id="footer">
