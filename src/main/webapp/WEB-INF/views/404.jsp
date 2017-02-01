@@ -1,21 +1,22 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>404 Page no found</title>
-	<meta name="viewport" content="width=device-width">
-	<link href="resources/css/error.css" rel="stylesheet"></link>
-</head>
-<body>
-	<div class="error-page-wrap">
-		<article class="error-page gradient">
-			<hgroup>
-				<h1>404</h1>
-				<h2>oops! page not found</h2>
-			</hgroup>
-			<a href="<c:url value='/' />" title="Back to site" class="error-back">back</a>
-		</article>
-	</div>
-</body>
-</html>
+<%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
+<t:mainpage>
+<jsp:attribute name="header">
+
+</jsp:attribute>
+<jsp:body>   
+    
+    <!--=========== BEGIN GALLERY SECTION ================-->
+    <section id="errorpage">
+      <div class="container">
+        <div class="error_page_content">
+             <h1>404</h1>
+             <h2>Sorry :(</h2>
+             <h3>This page doesn't exist.</h3>
+             <p class="wow fadeInLeftBig animated" style="visibility: visible; animation-name: fadeInLeftBig;">Please, continue to our <a href="index.html">Home page</a></p>
+           </div>
+      </div>
+    </section>
+    <!--=========== END GALLERY SECTION ================-->
+    
+    </jsp:body>
+</t:mainpage>
