@@ -104,7 +104,7 @@
                     <li><a href="#">Link Three</a></li>               
                   </ul>
                 </li>        -->        
-                <li><a href="<c:url value='/home/contact'/>">Contact</a></li>
+                <li><a href="<c:url value='/contact'/>">Contact</a></li>
                 <c:choose>
 				    <c:when test="${loggedIn}">
 		                <li><a href="<c:url value='/logout'/>">Logout</a></li>
