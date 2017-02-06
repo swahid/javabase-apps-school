@@ -12,7 +12,7 @@ public class ErrorController {
 	
 	@RequestMapping(value = "/404", method = RequestMethod.GET)
     public String loginPage() {
-        return "404";
+        return "error404";
     }
 
 }
