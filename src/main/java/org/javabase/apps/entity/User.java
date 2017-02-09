@@ -5,6 +5,8 @@ package org.javabase.apps.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,31 +45,8 @@ public class User implements Serializable{
     private String isnonexpired;
     private String isnonlocked;
     private Date expDate;
+    private Set<Privilege> privilege = new HashSet<Privilege>(0);
 
-   public User() {
-   }
-
-	
-   public User(Role role, String username, String password, String email) {
-       this.role = role;
-       this.username = username;
-       this.password = password;
-       this.email = email;
-   }
-   public User(Role role, String username, String password, String email, String firstName, String lastName, String phone, String isactive, Date regdate, String isnonexpired, String isnonlocked, Date expDate) {
-      this.role = role;
-      this.username = username;
-      this.password = password;
-      this.email = email;
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.phone = phone;
-      this.isactive = isactive;
-      this.regdate = regdate;
-      this.isnonexpired = isnonexpired;
-      this.isnonlocked = isnonlocked;
-      this.expDate = expDate;
-   }
   
    @Id 
    @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -199,6 +179,12 @@ public class User implements Serializable{
        this.expDate = expDate;
    }
 
+   @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+	public Set<Privilege> getPrivilege() {
+		return privilege;
+	}
 	
-
+	public void setPrivilege(Set<Privilege> privilege) {
+		this.privilege = privilege;
+	}
 }
