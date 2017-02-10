@@ -126,7 +126,7 @@
                 <div class="singlecourse_bottom">
                   <h2>Introduction To Matrix</h2>
                   <span class="singlecourse_author">
-                    <img alt="img" src="img/author.jpg">
+                    <img alt="img" src="<c:url value='/resources/images/homepage/author.jpg'/>">
                     Richard Remus, Teacher
                   </span>
                   <span class="singlecourse_price">$20</span>
@@ -187,7 +187,7 @@
                         <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
                       </div>
                       <div class="singCourse_author">
-                        <img alt="img" src="img/author.jpg">
+                        <img alt="img" src="<c:url value='/resources/images/homepage/author.jpg'/>">
                         <p>Richard Remus, Teacher</p>
                       </div>
                     </div>
@@ -206,7 +206,7 @@
                         <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
                       </div>
                       <div class="singCourse_author">
-                        <img alt="img" src="img/author.jpg">
+                        <img alt="img" src="<c:url value='/resources/images/homepage/author.jpg'/>">
                         <p>Richard Remus, Teacher</p>
                       </div>
                     </div>
@@ -229,7 +229,7 @@
                     <div class="media">
                       <div class="media-left">
                         <a href="#" class="news_img">
-                          <img alt="img" src="img/news.jpg" class="media-object">
+                          <img alt="img" src="<c:url value='/resources/images/homepage/news.jpg'/>" class="media-object">
                         </a>
                       </div>
                       <div class="media-body">
@@ -242,7 +242,7 @@
                     <div class="media">
                       <div class="media-left">
                         <a href="#" class="news_img">
-                          <img alt="img" src="img/news.jpg" class="media-object">
+                          <img alt="img" src="<c:url value='/resources/images/homepage/news.jpg'/>" class="media-object">
                         </a>
                       </div>
                       <div class="media-body">
@@ -255,7 +255,7 @@
                     <div class="media">
                       <div class="media-left">
                         <a href="#" class="news_img">
-                          <img alt="img" src="img/news.jpg" class="media-object">
+                          <img alt="img" src="<c:url value='/resources/images/homepage/news.jpg'/>" class="media-object">
                         </a>
                       </div>
                       <div class="media-body">
@@ -282,7 +282,7 @@
               <!-- start single sidebar -->
               <div class="single_sidebar">
                 <h2>Sponsor Add <span class="fa fa-angle-double-right"></span></h2>
-                <a class="side_add" href="#"><img src="img/side-add.jpg" alt="img"></a>
+                <a class="side_add" href="#"><img src="<c:url value='/resources/images/homepage/side-add.jpg'/>" alt="img"></a>
               </div>
               <!-- End single sidebar -->
             </div>
