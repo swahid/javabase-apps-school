@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/parents")
+@RequestMapping(value = "dashboard/parents")
 public class ParentsController {
 	
 	@RequestMapping(method = RequestMethod.GET)

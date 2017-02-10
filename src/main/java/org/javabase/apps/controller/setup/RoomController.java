@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/room")
+@RequestMapping(value = "dashboard/room")
 public class RoomController {
 	
 	private static final Logger log = LoggerFactory.getLogger(RoomController.class);

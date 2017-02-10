@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  */
 @Controller
-@RequestMapping(value = "/class")
+@RequestMapping(value = "dashboard/class")
 public class ClassController {
 	
 	@Autowired

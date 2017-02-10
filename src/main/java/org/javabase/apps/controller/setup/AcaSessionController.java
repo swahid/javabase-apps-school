@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/acaSession")
+@RequestMapping(value = "dashboard/acaSession")
 public class AcaSessionController {
 
 	@Autowired

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/insSystemRole")
+@RequestMapping(value = "dashboard/insSystemRole")
 public class InsSystemRoleController {
 	
 	@Autowired

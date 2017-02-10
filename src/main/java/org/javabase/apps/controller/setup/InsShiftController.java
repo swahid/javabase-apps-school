@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/insShift")
+@RequestMapping(value = "dashboard/insShift")
 public class InsShiftController {
 	
 	@Autowired

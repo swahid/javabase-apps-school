@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/institution")
+@RequestMapping(value = "dashboard/institution")
 public class InstitutionController {
 	
 	@Autowired

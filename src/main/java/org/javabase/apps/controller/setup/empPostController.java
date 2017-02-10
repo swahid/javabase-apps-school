@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/empPost")
+@RequestMapping(value = "dashboard/empPost")
 public class empPostController {
 	
 	@Autowired
