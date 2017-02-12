@@ -28,8 +28,8 @@ public class Role implements Serializable{
 
 	private static final long serialVersionUID = 7406695508037970942L;
 
-    private Integer roleid;
-    private String rolename;
+    private Integer roleId;
+    private String roleName;
 	private Set<User> users = new HashSet<User>(0);
 	private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 
@@ -37,10 +37,10 @@ public class Role implements Serializable{
    }
 	
    public Role(String rolename, int userid) {
-       this.rolename = rolename;
+       this.roleName = rolename;
    }
    public Role(String rolename, int userid, String email, Date expDate, String firstName, Boolean isactive, Boolean isnonexpired, Boolean isnonlocked, String lastName, String password, String phone, Date regdate, String username, Set<User> users) {
-      this.rolename = rolename;
+      this.roleName = rolename;
       this.users = users;
    }
   
@@ -48,20 +48,20 @@ public class Role implements Serializable{
    @GeneratedValue(strategy=GenerationType.IDENTITY)
    @Column(name="roleid", unique=true, nullable=false)
    public Integer getRoleid() {
-       return this.roleid;
+       return this.roleId;
    }
    
    public void setRoleid(Integer roleid) {
-       this.roleid = roleid;
+       this.roleId = roleid;
    }
 
    @Column(name="rolename", nullable=false, length=45)
    public String getRolename() {
-       return this.rolename;
+       return this.roleName;
    }
    
    public void setRolename(String rolename) {
-       this.rolename = rolename;
+       this.roleName = rolename;
    }
 
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")

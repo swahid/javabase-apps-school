@@ -1,4 +1,4 @@
-package org.javabase.apps.controller.classes.user;
+package org.javabase.apps.controller.user;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,8 +34,7 @@ public class UserController {
 	public Map<String, Object> loadUser() {
 		Map<String, Object> response= new HashMap<String, Object>();
 		try {
-			List<User> userList = null;
-			userList = userservice.getAllUsers();
+			List<User> userList = userservice.getAllUsers();;
 			
 			response.put("success", true);
 			response.put("data", userList);

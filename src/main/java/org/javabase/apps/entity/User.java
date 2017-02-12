@@ -37,18 +37,18 @@ public class User implements Serializable{
 
 	private static final long serialVersionUID = 7790622876833971743L;
 	
-	private Integer userid;
+	private Integer userId;
     private Role role;
-    private String username;
+    private String userName;
     private String password;
     private String email;
     private String firstName;
     private String lastName;
     private String phone;
-    private String isactive;
+    private String isActive;
     private Date regdate;
-    private String isnonexpired;
-    private String isnonlocked;
+    private String isNonExpired;
+    private String isNonLocked;
     private Date expDate;
     private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 
@@ -57,11 +57,11 @@ public class User implements Serializable{
    @GeneratedValue(strategy=GenerationType.IDENTITY)
    @Column(name="userid", unique=true, nullable=false)
    public Integer getUserid() {
-       return this.userid;
+       return this.userId;
    }
    
    public void setUserid(Integer userid) {
-       this.userid = userid;
+       this.userId = userid;
    }
 
    @ManyToOne(fetch=FetchType.LAZY)
@@ -77,11 +77,11 @@ public class User implements Serializable{
    
    @Column(name="username", nullable=false, length=45)
    public String getUsername() {
-       return this.username;
+       return this.userName;
    }
    
    public void setUsername(String username) {
-       this.username = username;
+       this.userName = username;
    }
 
    
@@ -137,11 +137,11 @@ public class User implements Serializable{
    
    @Column(name="isactive", length=45)
    public String getIsactive() {
-       return this.isactive;
+       return this.isActive;
    }
    
    public void setIsactive(String isactive) {
-       this.isactive = isactive;
+       this.isActive = isactive;
    }
 
    @Temporal(TemporalType.TIMESTAMP)
@@ -157,21 +157,21 @@ public class User implements Serializable{
    
    @Column(name="isnonexpired", length=45)
    public String getIsnonexpired() {
-       return this.isnonexpired;
+       return this.isNonExpired;
    }
    
    public void setIsnonexpired(String isnonexpired) {
-       this.isnonexpired = isnonexpired;
+       this.isNonExpired = isnonexpired;
    }
 
    
    @Column(name="isnonlocked", length=45)
    public String getIsnonlocked() {
-       return this.isnonlocked;
+       return this.isNonLocked;
    }
    
    public void setIsnonlocked(String isnonlocked) {
-       this.isnonlocked = isnonlocked;
+       this.isNonLocked = isnonlocked;
    }
 
    @Temporal(TemporalType.TIMESTAMP)
