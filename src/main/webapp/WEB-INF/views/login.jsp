@@ -53,7 +53,7 @@
                  </thead>
                  <tbody>
                      <tr>
-                         <td>Admin</td>
+                         <td>admin</td>
                          <td>123456</td>
                          <td>admin@jschool.com</td>
                      </tr>

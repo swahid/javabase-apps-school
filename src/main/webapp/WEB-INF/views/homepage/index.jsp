@@ -5,6 +5,7 @@
 </jsp:attribute>
 <jsp:body>
  <!--=========== BEGIN SLIDER SECTION ================-->
+ <sec:authentication property="principal" var="user"/>
     <section id="slider">
       <div class="row">
         <div class="col-lg-12 col-md-12">

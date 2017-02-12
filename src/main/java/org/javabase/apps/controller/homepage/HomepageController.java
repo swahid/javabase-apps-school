@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value= {"/", "/home"} )
 public class HomepageController {
-
+	
 	@RequestMapping(method = RequestMethod.GET)
 	private String indexPage(){
-		
 		return "homepage/index";
 	}
 }

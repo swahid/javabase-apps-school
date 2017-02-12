@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.javabase.apps.entity.Role;
 import org.javabase.apps.entity.User;
@@ -13,6 +14,7 @@ import org.javabase.apps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,8 +28,19 @@ public class LoginController {
 	@Autowired
 	UserService userservice;
 	
+    @Autowired
+    HttpSession httpsession;
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+    	if (principal instanceof UserDetails) {
+    		String username = ((UserDetails) principal).getUsername();
+    		User user = userservice.getUserByUsername(username);
+    		httpsession.setAttribute("user", user);
+    	}
         return "login";
     }
 	
@@ -61,7 +74,9 @@ public class LoginController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){    
             new SecurityContextLogoutHandler().logout(request, response, auth);
+            httpsession.invalidate();
         }
+        httpsession.invalidate();
         return "redirect:/home";
     }
 

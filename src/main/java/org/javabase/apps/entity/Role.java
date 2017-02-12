@@ -31,7 +31,7 @@ public class Role implements Serializable{
     private Integer roleid;
     private String rolename;
 	private Set<User> users = new HashSet<User>(0);
-	private Set<Privilege> privilege = new HashSet<Privilege>(0);
+	private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 
    public Role() {
    }
@@ -74,12 +74,12 @@ public class Role implements Serializable{
    }
 
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")
-	public Set<Privilege> getPrivilege() {
-		return privilege;
+	public Set<UserPrivilege> getPrivilege() {
+		return userPrivilege;
 	}
 	
-	public void setPrivilege(Set<Privilege> privilege) {
-		this.privilege = privilege;
+	public void setPrivilege(Set<UserPrivilege> userPrivilege) {
+		this.userPrivilege = userPrivilege;
 	}
    
    

@@ -21,6 +21,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
  * @version	1.0.0
@@ -45,7 +50,7 @@ public class User implements Serializable{
     private String isnonexpired;
     private String isnonlocked;
     private Date expDate;
-    private Set<Privilege> privilege = new HashSet<Privilege>(0);
+    private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 
   
    @Id 
@@ -130,7 +135,7 @@ public class User implements Serializable{
    }
 
    
-   @Column(name="isactive")
+   @Column(name="isactive", length=45)
    public String getIsactive() {
        return this.isactive;
    }
@@ -150,7 +155,7 @@ public class User implements Serializable{
    }
 
    
-   @Column(name="isnonexpired")
+   @Column(name="isnonexpired", length=45)
    public String getIsnonexpired() {
        return this.isnonexpired;
    }
@@ -160,7 +165,7 @@ public class User implements Serializable{
    }
 
    
-   @Column(name="isnonlocked")
+   @Column(name="isnonlocked", length=45)
    public String getIsnonlocked() {
        return this.isnonlocked;
    }
@@ -180,11 +185,13 @@ public class User implements Serializable{
    }
 
    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-	public Set<Privilege> getPrivilege() {
-		return privilege;
+   @Cascade(CascadeType.ALL)
+   @Fetch(FetchMode.SELECT)
+	public Set<UserPrivilege> getPrivilege() {
+		return userPrivilege;
 	}
 	
-	public void setPrivilege(Set<Privilege> privilege) {
-		this.privilege = privilege;
+	public void setPrivilege(Set<UserPrivilege> userPrivilege) {
+		this.userPrivilege = userPrivilege;
 	}
 }

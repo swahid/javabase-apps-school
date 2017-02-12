@@ -5,8 +5,12 @@ package org.javabase.apps.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 import org.javabase.apps.entity.User;
+import org.javabase.apps.entity.UserPrivilege;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -39,8 +43,7 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 			boolean credentialsNonExpired= user.getIsnonexpired().equalsIgnoreCase("Y");
 			boolean accountNonLocked= user.getIsnonlocked().equalsIgnoreCase("Y");
 			
-			Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-			authorities.add(new SimpleGrantedAuthority(user.getRole().getRolename()));
+			Collection<GrantedAuthority> authorities = getGrantedAuthorities(user.getRole().getPrivilege());
 			
 			org.springframework.security.core.userdetails.User securedUser = 
 					new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -50,5 +53,15 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 		}
 		
 	}
+	
+	private Collection<GrantedAuthority> getGrantedAuthorities(Set<UserPrivilege> userPrivileges) {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        
+        for (Iterator<UserPrivilege> userPrivilege = userPrivileges.iterator(); userPrivilege.hasNext(); ) {
+        	UserPrivilege userPrivileage = userPrivilege.next();
+        	authorities.add(new SimpleGrantedAuthority(userPrivileage.getPrivilege().getPrivilegeName()));
+		}
+        return authorities;
+    }
 
 }

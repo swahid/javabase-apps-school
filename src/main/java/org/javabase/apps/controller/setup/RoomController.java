@@ -44,16 +44,6 @@ public class RoomController {
 	@RequestMapping(value = "/load",method = RequestMethod.GET)
 	public Map<String, Object> roomInfo(@RequestParam Map<String, Object> param) {
 		Map<String, Object> response= new HashMap<String, Object>();
-		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		
-		if (principal instanceof UserDetails) {
-			String username = ((UserDetails) principal).getUsername();
-			 user = userservice.getUserByUsername(username);
-		}
-		
-		param.put("entryUser", user.getUserid());
-		
 		try {
 			System.out.println(param.get("buildingId"));
 			System.out.println(param.get("roomUsedId"));

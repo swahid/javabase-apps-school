@@ -12,6 +12,7 @@
              <h1>404</h1>
              <h2>Sorry :(</h2>
              <h3>This page doesn't exist.</h3>
+             <h3 style="color: yellow;">Under Construction</h3>
              <p class="wow fadeInLeftBig animated" style="visibility: visible; animation-name: fadeInLeftBig;">Please, continue to our <a href="index.html">Home page</a></p>
            </div>
       </div>
