@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .failureUrl("/login?error=1")
 	        .and().csrf() //csrf enable so you need to send csrf parameter
 	        .and().logout().logoutUrl("/logout")
-	        .logoutSuccessUrl("/home")
+	        .logoutSuccessUrl("/dashboard")
 	        .and().exceptionHandling().accessDeniedPage("/404");
 	    }
 	    

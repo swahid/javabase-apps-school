@@ -5,6 +5,7 @@ package org.javabase.apps.mapper;
 
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.javabase.apps.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
@@ -21,26 +22,25 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserMapperImpl implements UserMapper{
 
 	@Autowired
-	private HibernateTemplate  hibernateTemplate;
+	private SessionFactory  session;
 	
 	@Override
 	@Transactional(readOnly=true)
 	public List<User> getAllUsers() {
-		String hql = "FROM User";
-		return (List<User>) hibernateTemplate.find(hql);
+		return session.getCurrentSession().createCriteria(User.class).list();
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public User getUserById(int userId) {
-		return hibernateTemplate.get(User.class, userId);
+		return (User) session.getCurrentSession().get(User.class, userId);
 	}
 
 	@Override
 	@Transactional
 	public boolean addUser(User user) {
 		try {
-			hibernateTemplate.save(user);
+			session.getCurrentSession().save(user);
 			
 			return true;
 		} catch (Exception e) {
@@ -52,20 +52,20 @@ public class UserMapperImpl implements UserMapper{
 	@Override
 	@Transactional
 	public void updateUser(User user) {
-		hibernateTemplate.update(user);
+		session.getCurrentSession().update(user);
 	}
 
 	@Override
 	@Transactional
 	public void deleteUser(int userId) {
-		hibernateTemplate.delete(userId);
+		session.getCurrentSession().delete(userId);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public boolean userExists(String username) {
-		String hql = "FROM User";
-		List<User> userList = (List<User>) hibernateTemplate.find(hql);
+		String hql = "FROM User where username = "+username;
+		List<User> userList = (List<User>) session.getCurrentSession().createQuery(hql).list();
 		return userList.size()>0 ? true : false;
 	}
 
@@ -74,7 +74,7 @@ public class UserMapperImpl implements UserMapper{
 	public User getUserByUsername(String username) {
 		String hql = "FROM User WHERE username = '"+username+"'";
 		
-		List<User> userList = (List<User>) hibernateTemplate.find(hql);
+		List<User> userList = session.getCurrentSession().createQuery(hql).list();
 
 		if (userList.size()>0) {
 			User user = userList.get(0);

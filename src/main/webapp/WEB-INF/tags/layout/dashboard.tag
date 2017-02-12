@@ -130,7 +130,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href='<c:url value="/dashboard/class/syllabus"/>'>Manage Syllabus</a></li>
               </ul>
             </li>
-            <li class="active"><a href='<c:url value="/dashboard/subject"/>'><i class="fa fa-link"></i> <span>Subject</span></a></li>
+            <li class="active"><a href='<c:url value="/dashboard/user"/>'><i class="fa fa-link"></i> <span>Manage User</span></a></li>
+<%--             <li class="active"><a href='<c:url value="/dashboard/subject"/>'><i class="fa fa-link"></i> <span>Subject</span></a></li>
             <li class="active"><a href='<c:url value="/dashboard/routine"/>'><i class="fa fa-link"></i> <span>Routine</span></a></li>
             <li class="active"><a href='<c:url value="/dashboard/attendence"/>'><i class="fa fa-link"></i> <span>Attendance</span></a></li>
             <li class="active"><a href='<c:url value="/dashboard/exam"/>'><i class="fa fa-link"></i> <span>Exam</span></a></li>
@@ -141,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="active"><a href='<c:url value="/dashboard/message"/>'><i class="fa fa-link"></i> <span>Messaging</span></a></li>
             <li class="active"><a href='<c:url value="/dashboard/transport"/>'><i class="fa fa-link"></i> <span>Transport</span></a></li>
             <li class="active"><a href='<c:url value="/dashboard/account"/>'><i class="fa fa-link"></i> <span>Account</span></a></li>
-            <li class="active"><a href='<c:url value="/dashboard/settings"/>'><i class="fa fa-link"></i> <span>Settings</span></a></li>
+            <li class="active"><a href='<c:url value="/dashboard/settings"/>'><i class="fa fa-link"></i> <span>Settings</span></a></li> --%>
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Setup</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
