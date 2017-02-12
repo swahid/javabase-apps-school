@@ -1,18 +1,8 @@
 package org.javabase.apps.controller;
 
-import java.util.Locale;
-
-import javax.servlet.http.HttpSession;
-
-import org.javabase.apps.entity.User;
-import org.javabase.apps.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,23 +14,9 @@ public class DashboardController {
 	
 	private static final Logger log = LoggerFactory.getLogger(DashboardController.class);
 	
-	@Autowired
-    UserService userservice;
-    
-    @Autowired
-    HttpSession response;
-	
 	@RequestMapping(value = { "/dashboard"}, method = RequestMethod.GET)
-	public String dashboard(Locale locale, Model model) {
-		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-    	if (principal instanceof UserDetails) {
-    		String username = ((UserDetails) principal).getUsername();
-    		User user = userservice.getUserByUsername(username);
-    	    response.setAttribute("user", user);
-    	}
-		log.info("Welcome home! ");
+	public String dashboard() {
+		log.info("Welcome Dashboard! ");
 		return "dashboard";
 	}
 	
