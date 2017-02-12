@@ -45,7 +45,7 @@ public class User implements Serializable{
     private String isnonexpired;
     private String isnonlocked;
     private Date expDate;
-    private Set<Privilege> privilege = new HashSet<Privilege>(0);
+    private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 
   
    @Id 
@@ -180,11 +180,11 @@ public class User implements Serializable{
    }
 
    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-	public Set<Privilege> getPrivilege() {
-		return privilege;
+	public Set<UserPrivilege> getPrivilege() {
+		return userPrivilege;
 	}
 	
-	public void setPrivilege(Set<Privilege> privilege) {
-		this.privilege = privilege;
+	public void setPrivilege(Set<UserPrivilege> userPrivilege) {
+		this.userPrivilege = userPrivilege;
 	}
 }
