@@ -40,9 +40,24 @@
 			      <input type="password" name="password" placeholder="password"/>
 			      <input type="hidden" name="${_csrf.parameterName}"   value="${_csrf.token}" />
 			      <button>login</button>
-			      <p class="message">Not registered? <a href="#" onclick="toggle_visibility(); return false;" class="message">Create an account</a></p>
+			      <!-- <p class="message">Not registered? <a href="#" onclick="toggle_visibility(); return false;" class="message">Create an account</a></p> -->
 			    </form>
 			</div>
+			<table id="loginTable" style="border:1px solid white; text-align: center; color: white;">
+                 <thead>
+                     <tr>
+                         <th>Username</th>
+                         <th>Password</th>
+                         <th>Email</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>Admin</td>
+                         <td>123456</td>
+                         <td>admin@jschool.com</td>
+                     </tr>
+                 </table>
 		</div>
 		    </c:otherwise>
 		</c:choose>
