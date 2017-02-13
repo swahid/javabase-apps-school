@@ -26,6 +26,8 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
  * @version	1.0.0
@@ -64,6 +66,7 @@ public class User implements Serializable{
        this.userId = userid;
    }
 
+   @JsonIgnore
    @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumn(name="roleid", nullable=false)
    public Role getRole() {
@@ -84,7 +87,7 @@ public class User implements Serializable{
        this.userName = username;
    }
 
-   
+   @JsonIgnore
    @Column(name="password", nullable=false, length=45)
    public String getPassword() {
        return this.password;
@@ -183,7 +186,7 @@ public class User implements Serializable{
    public void setExpDate(Date expDate) {
        this.expDate = expDate;
    }
-
+   @JsonIgnore
    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
    @Cascade(CascadeType.ALL)
    @Fetch(FetchMode.SELECT)

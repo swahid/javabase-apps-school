@@ -103,10 +103,10 @@ $(document).ready(function($) {
 	        columns	: [{
 		        	title	: 'User Id',
 		        	data	: 'userid'
-				},{
+				},/*{
 					title	: 'Role',
 					data	: 'role'
-				},{
+				},*/{
 					title	: 'UserName',
 					data	: 'username'
 				},{

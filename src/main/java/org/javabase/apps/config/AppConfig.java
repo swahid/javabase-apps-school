@@ -3,12 +3,16 @@
  */
 package org.javabase.apps.config;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -49,6 +53,22 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 		resolver.setCookieName("localeCookie");
 		resolver.setCookieMaxAge(4800);
 		return resolver;
+    }
+    
+    /*
+     * (non-Javadoc)
+     * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#configureMessageConverters(java.util.List)
+     * @description Jackson Rest data binding converter.
+     */
+    @Override
+    public void configureMessageConverters( List<HttpMessageConverter<?>> converters ) {
+        converters.add(converter());
+    }
+
+    @Bean
+    MappingJackson2HttpMessageConverter converter() {
+    	MappingJackson2HttpMessageConverter  converter = new MappingJackson2HttpMessageConverter ();
+        return converter;
     }
     
     

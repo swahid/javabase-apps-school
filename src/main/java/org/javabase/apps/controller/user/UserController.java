@@ -35,6 +35,9 @@ public class UserController {
 		Map<String, Object> response= new HashMap<String, Object>();
 		try {
 			List<User> userList = userservice.getAllUsers();;
+			User user = userList.get(0);
+			String rolename = user.getRole().getRolename();
+			
 			
 			response.put("success", true);
 			response.put("data", userList);

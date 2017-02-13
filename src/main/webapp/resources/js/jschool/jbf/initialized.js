@@ -5,8 +5,7 @@
 $(document).ready(function($) {
 		//For All Select Menu Call
 	$('.select2').select2({
-		placeholder	: "Select Your Option ....",
-		allowClear	: true
+		placeholder	: "Select Your Option ...."
 	});
 		
 		
