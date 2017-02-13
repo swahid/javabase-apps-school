@@ -29,7 +29,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	     
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
-	       
+	    	http.authorizeRequests().and().csrf().disable();
+	    	
 	    	http.authorizeRequests()
 	    	.antMatchers("/resources/**").permitAll()
 	    	.antMatchers("/dashboard/**").authenticated()
@@ -39,7 +40,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .usernameParameter("username").passwordParameter("password")
 	        .defaultSuccessUrl("/loginsuccess")
 	        .failureUrl("/login?error=1")
-	        .and().csrf() //csrf enable so you need to send csrf parameter
 	        .and().logout().logoutUrl("/logout")
 	        .logoutSuccessUrl("/home")
 	        .and().exceptionHandling().accessDeniedPage("/404");

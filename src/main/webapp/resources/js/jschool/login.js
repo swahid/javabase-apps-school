@@ -34,11 +34,11 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
-			beforeSend: function(xhr) {
+			/*beforeSend: function(xhr) {
 		        xhr.setRequestHeader("Accept", "application/json");
 		        xhr.setRequestHeader("Content-Type", "application/json");
 		        xhr.setRequestHeader(header, token);
-		    },
+		    },*/
 			success  : function(resonse) {
 				var message = "registration Sucess";
 				//				$("#msg").html(data.message);
