@@ -33,7 +33,11 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-		
+        return "login";
+    }
+	
+	@RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
+	public String loginSucess() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
     	if (principal instanceof UserDetails) {
@@ -41,8 +45,8 @@ public class LoginController {
     		User user = userservice.getUserByUsername(username);
     		httpsession.setAttribute("user", user);
     	}
-        return "login";
-    }
+		return "redirect:/dashboard";
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="/registration", method = RequestMethod.POST)
