@@ -5,34 +5,33 @@
 $(document).ready(function($) {
 	
 	// call roomDatabase function for initialized datatable
-	userDatatable('');
+	userDatatable();
 	
 	//insert room info data
-	$("button#roomSubmit").click(function(event) {
+	$("button#userSubmit").click(function(event) {
 		event.preventDefault();
 		
-		javascript: $('#addNewRoomForm').validationEngine('attach');
-        if (!$('#addNewRoomForm').validationEngine('validate')) {
+		javascript: $('#addUserForm').validationEngine('attach');
+        if (!$('#addUserForm').validationEngine('validate')) {
             return;
         }
 		
 		var data 	= {},
-			header 	= {},
-			url 	= "room/addNewRoom";
+			role 	= {},
+			privilege 	= {},
+			
+			url 	= "user/save";
 		
-		data["buildingId"]       = $("#buildingModal").val();
-		data["roomUsedId"] 	     = $("#roomUsedModal").val();
-		data["floorNo"] 	     = $("#floorNo").val();
-		data["roomName"]         = $("#roomName").val();
-		data["roomNo"] 	         = $("#roomNo").val();
-		data["totalSeat"]  		 = $("#totalSeat").val();
-		data["size"] 	         = $("#size").val();
-		data["entryUser"] 	     = $("#entryUser").val();
-		data["usedFor"] 	     = $("#roomUsedModal option:selected").text();
-
+		role["roleId"]		= $("#rollCombo").val();
+		role["roleName"]	= $("#rollCombo option:selected").text();
 		
-		header.csrfToken = $('#csrfToken').val();
-		header.csrfHeader = $('#csrfHeader').val();
+		data["userName"]	= $("#username").val();
+		data["password"]	= $("#retypePassword").val();
+		data["email"]		= $("#email").val();
+		data["firstName"]   = $("#firstName").val();
+		data["lastName"] 	= $("#lastName").val();
+		data["role"] 	    = role;
+		
 		/*	
 		 * if in spring aplication csrf enable
 		 * send csrf parameter in header otherwise 405 error
@@ -42,21 +41,16 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
-			beforeSend: function(xhr) {
-		        xhr.setRequestHeader("Accept", "application/json");
-		        xhr.setRequestHeader("Content-Type", "application/json");
-		        xhr.setRequestHeader(header.csrfHeader, header.csrfToken);
-		    },
+			contentType: "application/json; charset=utf-8",
 			success  : function(resonse) {
 				success(resonse.message);
-				roomDatatable("#roomTable", 'room/load','' );
-				document.getElementById("addNewRoomForm").reset();
-				 $("#roomModal").modal('hide'); 
+				roomDatatable();
+				document.getElementById("addUserForm").reset();
+				$("#roomModal").modal('hide'); 
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
 				alert("Insert falied");
-				document.getElementById("addNewRoomForm").reset()
 			}
 		});
 		
@@ -64,17 +58,14 @@ $(document).ready(function($) {
 	/*
 	 * Datable get room function
 	 */
-	function userDatatable(value) {
+	function userDatatable(param) {
 		var url = 'user/load';
 		$('#userTable').dataTable({
 			destroy	: true,
-	        data	: jbf.ajax.getLoadData(url, value),
+	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'User Id',
+		        	title	: 'Id',
 		        	data	: 'userid'
-				},{
-					title	: 'Role',
-					data	: 'role.rolename'
 				},{
 					title	: 'UserName',
 					data	: 'username'
@@ -88,7 +79,10 @@ $(document).ready(function($) {
 		    		title	: 'Last Name',
 		    		data	: 'lastName'
 		    	},{
-		    		title	: 'Member Since',
+					title	: 'Type',
+					data	: 'role.rolename'
+				},{
+		    		title	: 'Since',
 		    		data	: 'regdate',
 		    		render  : function (date) {
 		    			if (date) {

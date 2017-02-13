@@ -15,7 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author medisys
@@ -23,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name="user_privilege")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userPrivilegeId")
 public class UserPrivilege implements Serializable{
 
 	private static final long serialVersionUID = 6326470270248586972L;
@@ -32,17 +34,14 @@ public class UserPrivilege implements Serializable{
     @Column(name="user_privilege_id", unique=true, nullable=false)
 	private Integer userPrivilegeId;
 	
-	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="roleid", nullable=false)
 	private Role role;
 	
-	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="userid", nullable=false)
 	private User user;
 	
-	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="privilege_id", nullable=false)
 	private Privilege privilege;

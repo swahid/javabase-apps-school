@@ -21,14 +21,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -37,6 +32,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name="user")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userid")
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 7790622876833971743L;
@@ -68,7 +64,7 @@ public class User implements Serializable{
        this.userId = userid;
    }
 
-   @JsonManagedReference
+//   @JsonManagedReference
    @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumn(name="roleid", nullable=false)
    public Role getRole() {
@@ -189,7 +185,7 @@ public class User implements Serializable{
        this.expDate = expDate;
    }
 
-   @JsonBackReference
+//   @JsonBackReference
    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
 	public Set<UserPrivilege> getPrivilege() {
 		return userPrivilege;

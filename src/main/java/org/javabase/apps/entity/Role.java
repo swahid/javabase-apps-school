@@ -16,7 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -25,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 @Entity
 @Table(name="role")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="roleid")
 public class Role implements Serializable{
 
 	private static final long serialVersionUID = 7406695508037970942L;
@@ -55,7 +57,6 @@ public class Role implements Serializable{
        this.roleName = rolename;
    }
 
-   @JsonBackReference
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")
    public Set<User> getUsers() {
        return this.users;
@@ -65,7 +66,6 @@ public class Role implements Serializable{
        this.users = users;
    }
 
-   @JsonBackReference
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")
 	public Set<UserPrivilege> getPrivilege() {
 		return userPrivilege;

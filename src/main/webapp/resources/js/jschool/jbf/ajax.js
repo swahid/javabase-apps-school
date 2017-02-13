@@ -4,7 +4,7 @@
 jbf.ajax||(function(e){
     var ajax = {
         
-		getLoadData : function(url, param){
+		load : function(url, param){
 			var data={};
 			$.ajax({
 				async	: false,

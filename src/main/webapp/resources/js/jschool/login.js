@@ -18,10 +18,10 @@ $(document).ready(function($) {
 		
 		event.preventDefault();
 		var data = {}
-		data["username"]   = $("#username").val(),
-		data["password"]   = $("#password").val(),
-		data["email"] 	   = $("#email").val(),
-		url = "registration";
+			data["username"]   = $("#username").val(),
+			data["password"]   = $("#password").val(),
+			data["email"] 	   = $("#email").val(),
+			url = "registration";
 		
 		var token = $('#csrfToken').val();
 		var header = $('#csrfHeader').val();

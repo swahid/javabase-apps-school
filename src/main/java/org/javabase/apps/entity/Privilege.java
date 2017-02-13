@@ -16,7 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
  * @author medisys
@@ -24,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 @Entity
 @Table(name="privilege")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="privilegeId")
 public class Privilege implements Serializable{
 	
 	private static final long serialVersionUID = 3208533250194362271L;
@@ -36,7 +38,6 @@ public class Privilege implements Serializable{
 	@Column(name="privilege_name", nullable=false, length=45)
 	private String privilegeName;
 	
-	@JsonBackReference
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="privilege")
 	private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 

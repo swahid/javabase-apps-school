@@ -44,30 +44,6 @@
 	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="userTable" class="table table-bordered table-striped">
-               <%-- <thead>
-                     <tr>
-                         <th>User Id</th>
-                         <th>Username</th>
-                         <th>Email</th>
-                         <th>First Name</th>
-                         <th>Last Name</th>
-                         <th>User Type</th>
-                         <th>Member Since</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <c:forEach var="userValue" items="${userTable}">
-                     	<tr>
-                     		<td>${userValue.userid}</td>
-                     		<td>${userValue.username}</td>
-                     		<td>${userValue.email}</td>
-                     		<td>${userValue.firstName}</td>
-                     		<td>${userValue.lastName}</td>
-                     		<td>${userValue.role.rolename}</td>
-                     		<td>${userValue.regdate}</td>
-                     	</tr>
-                     </c:forEach>
-                 </tbody> --%>
             </table>
         </div><!-- /.box-body -->
        
@@ -85,7 +61,6 @@
       </div>
       <div class="modal-body">
       <form action="#" method="post" class="form-horizontal" id="addUserForm">
-				<input type="hidden" id="entryUser" value="${user.userid}"/>
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="floorNo"> First Name<span class="require-field">*</span></label>
 			<div class="col-sm-6">
@@ -101,7 +76,7 @@
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="userNo">Email <span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="email" class="form-control validate[required,custom[number]] text-input" type="email" value="" name="email">
+				<input id="email" class="form-control validate[required,custom[email]] text-input" type="email" value="" name="email">
 			</div>
 		</div>
 		<div class="form-group">
@@ -125,13 +100,12 @@
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="roleCombo">Select Roll<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-            <select name="rollCombo" class="form-control select2" id="roleCombo" style="width: 100%">
-            	<option value="-1"></option>
-            	<option value="1"> Admin</option>
-            	<option value="2"> Student</option>
-            	<option value="3"> Teacher</option>
-            	<option value="4"> Parent</option>
-            	<option value="5"> Staff</option>
+            <select name="rollCombo" class="form-control select2" id="rollCombo" style="width: 100%">
+            	<option value="1">Admin</option>
+            	<option value="2">Student</option>
+            	<option value="3">Teacher</option>
+            	<option value="4">Parent</option>
+            	<option value="5">Staff</option>
             </select>
 			</div>
 		</div>
