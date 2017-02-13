@@ -20,6 +20,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
  
 @Configuration
 @EnableWebMvc
@@ -66,7 +70,9 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 
     @Bean
     MappingJackson2HttpMessageConverter converter() {
-    	MappingJackson2HttpMessageConverter  converter = new MappingJackson2HttpMessageConverter ();
+    	MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+    	converter.setObjectMapper(new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false));
+        converter.setObjectMapper(new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false));
         return converter;
     }
     

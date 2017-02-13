@@ -4,7 +4,6 @@
 package org.javabase.apps.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,16 +32,6 @@ public class Role implements Serializable{
 	private Set<User> users = new HashSet<User>(0);
 	private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 
-   public Role() {
-   }
-	
-   public Role(String rolename, int userid) {
-       this.roleName = rolename;
-   }
-   public Role(String rolename, int userid, String email, Date expDate, String firstName, Boolean isactive, Boolean isnonexpired, Boolean isnonlocked, String lastName, String password, String phone, Date regdate, String username, Set<User> users) {
-      this.roleName = rolename;
-      this.users = users;
-   }
   
    @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY)
