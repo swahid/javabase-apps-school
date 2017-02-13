@@ -17,7 +17,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -66,7 +65,7 @@ public class Role implements Serializable{
        this.users = users;
    }
 
-   @JsonIgnore
+   @JsonBackReference
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")
 	public Set<UserPrivilege> getPrivilege() {
 		return userPrivilege;

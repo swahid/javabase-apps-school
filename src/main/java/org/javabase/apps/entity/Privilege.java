@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * @author medisys
  *
@@ -34,6 +36,7 @@ public class Privilege implements Serializable{
 	@Column(name="privilege_name", nullable=false, length=45)
 	private String privilegeName;
 	
+	@JsonBackReference
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="privilege")
 	private Set<UserPrivilege> userPrivilege = new HashSet<UserPrivilege>(0);
 

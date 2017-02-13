@@ -26,6 +26,7 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -187,10 +188,9 @@ public class User implements Serializable{
    public void setExpDate(Date expDate) {
        this.expDate = expDate;
    }
-   @JsonIgnore
+
+   @JsonBackReference
    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-   @Cascade(CascadeType.ALL)
-   @Fetch(FetchMode.SELECT)
 	public Set<UserPrivilege> getPrivilege() {
 		return userPrivilege;
 	}

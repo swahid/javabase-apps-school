@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * @author medisys
  *
@@ -30,14 +32,17 @@ public class UserPrivilege implements Serializable{
     @Column(name="user_privilege_id", unique=true, nullable=false)
 	private Integer userPrivilegeId;
 	
+	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="roleid", nullable=false)
 	private Role role;
 	
+	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="userid", nullable=false)
 	private User user;
 	
+	@JsonManagedReference
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="privilege_id", nullable=false)
 	private Privilege privilege;
