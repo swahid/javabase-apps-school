@@ -27,6 +27,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -66,7 +67,7 @@ public class User implements Serializable{
        this.userId = userid;
    }
 
-   @JsonIgnore
+   @JsonManagedReference
    @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumn(name="roleid", nullable=false)
    public Role getRole() {

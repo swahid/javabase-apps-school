@@ -16,6 +16,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
  * @version	1.0.0
@@ -53,6 +56,7 @@ public class Role implements Serializable{
        this.roleName = rolename;
    }
 
+   @JsonBackReference
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")
    public Set<User> getUsers() {
        return this.users;
@@ -62,6 +66,7 @@ public class Role implements Serializable{
        this.users = users;
    }
 
+   @JsonIgnore
    @OneToMany(fetch=FetchType.LAZY, mappedBy="role")
 	public Set<UserPrivilege> getPrivilege() {
 		return userPrivilege;

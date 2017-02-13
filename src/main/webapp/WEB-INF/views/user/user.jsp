@@ -44,7 +44,7 @@
 	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="userTable" class="table table-bordered table-striped">
-               <thead>
+               <%-- <thead>
                      <tr>
                          <th>User Id</th>
                          <th>Username</th>
@@ -67,7 +67,7 @@
                      		<td>${userValue.regdate}</td>
                      	</tr>
                      </c:forEach>
-                 </tbody>
+                 </tbody> --%>
             </table>
         </div><!-- /.box-body -->
        
@@ -84,14 +84,12 @@
         <h4 class="modal-title" id="myModalLabel"> <span><i class="fa fa-plus"></i></span> Add User</h4>
       </div>
       <div class="modal-body">
-      <form action="#" method="post" class="form-horizontal" id="addUserForm" spellcheck="true">
-				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+      <form action="#" method="post" class="form-horizontal" id="addUserForm">
 				<input type="hidden" id="entryUser" value="${user.userid}"/>
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="floorNo"> First Name<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="firstName" class="form-control validate[required,custom[number]]" type="text" name="firstName">
+				<input id="firstName" class="form-control validate[required]" type="text" name="firstName">
 			</div>
 		</div>
 		<div class="form-group">
@@ -128,6 +126,7 @@
 			<label class="col-sm-4 control-label" for="roleCombo">Select Roll<span class="require-field">*</span></label>
 			<div class="col-sm-6">
             <select name="rollCombo" class="form-control select2" id="roleCombo" style="width: 100%">
+            	<option value="-1"></option>
             	<option value="1"> Admin</option>
             	<option value="2"> Student</option>
             	<option value="3"> Teacher</option>

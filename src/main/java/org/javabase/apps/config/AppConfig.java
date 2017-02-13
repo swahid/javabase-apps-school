@@ -21,9 +21,9 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
  
 @Configuration
 @EnableWebMvc
@@ -53,7 +53,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public LocaleResolver localeResolver(){
 		CookieLocaleResolver resolver = new CookieLocaleResolver();
 		resolver.setDefaultLocale(new Locale("en"));
-		resolver.setCookieName("localeCookie");
+		resolver.setCookieName("schoolCookie");
 		resolver.setCookieMaxAge(4800);
 		return resolver;
     }
@@ -63,17 +63,25 @@ public class AppConfig extends WebMvcConfigurerAdapter{
      * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter#configureMessageConverters(java.util.List)
      * @description Jackson Rest data binding converter.
      */
-    @Override
-    public void configureMessageConverters( List<HttpMessageConverter<?>> converters ) {
-        converters.add(converter());
+    @Bean
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        mappingJackson2HttpMessageConverter.setObjectMapper(objectMapper());
+        return mappingJackson2HttpMessageConverter;
     }
 
     @Bean
-    MappingJackson2HttpMessageConverter converter() {
-    	MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-    	converter.setObjectMapper(new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false));
-        converter.setObjectMapper(new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false));
-        return converter;
+    public ObjectMapper objectMapper() {
+        ObjectMapper objMapper = new ObjectMapper();
+        objMapper.registerModule(new Hibernate4Module());
+        objMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        return objMapper;
+    }
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);        
+        converters.add(mappingJackson2HttpMessageConverter());
     }
     
     

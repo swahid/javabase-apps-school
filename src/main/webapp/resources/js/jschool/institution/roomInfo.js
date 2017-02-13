@@ -37,8 +37,6 @@ $(document).ready(function($) {
 		data["usedFor"] 	     = $("#roomUsedModal option:selected").text();
 
 		
-		header.csrfToken = $('#csrfToken').val();
-		header.csrfHeader = $('#csrfHeader').val();
 		/*	
 		 * if in spring aplication csrf enable
 		 * send csrf parameter in header otherwise 405 error
@@ -48,11 +46,6 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
-			beforeSend: function(xhr) {
-		        xhr.setRequestHeader("Accept", "application/json");
-		        xhr.setRequestHeader("Content-Type", "application/json");
-		        xhr.setRequestHeader(header.csrfHeader, header.csrfToken);
-		    },
 			success  : function(resonse) {
 				success(resonse.message);
 				roomDatatable("#roomTable", 'room/load','' );

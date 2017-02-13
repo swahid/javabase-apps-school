@@ -4,8 +4,8 @@
  */
 $(document).ready(function($) {
 	
-	// userDataTable	
-	$('#userTable').dataTable();
+	// call roomDatabase function for initialized datatable
+	userDatatable('');
 	
 	//insert room info data
 	$("button#roomSubmit").click(function(event) {
@@ -42,6 +42,11 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
+			beforeSend: function(xhr) {
+		        xhr.setRequestHeader("Accept", "application/json");
+		        xhr.setRequestHeader("Content-Type", "application/json");
+		        xhr.setRequestHeader(header.csrfHeader, header.csrfToken);
+		    },
 			success  : function(resonse) {
 				success(resonse.message);
 				roomDatatable("#roomTable", 'room/load','' );
@@ -56,5 +61,48 @@ $(document).ready(function($) {
 		});
 		
 	});
+	/*
+	 * Datable get room function
+	 */
+	function userDatatable(value) {
+		var url = 'user/load';
+		$('#userTable').dataTable({
+			destroy	: true,
+	        data	: jbf.ajax.getLoadData(url, value),
+	        columns	: [{
+		        	title	: 'User Id',
+		        	data	: 'userid'
+				},{
+					title	: 'Role',
+					data	: 'role.rolename'
+				},{
+					title	: 'UserName',
+					data	: 'username'
+				},{
+					title	: 'Email',
+					data	: 'email'
+				},{
+					title	: 'First Name',
+					data	: 'firstName'
+		    	},{
+		    		title	: 'Last Name',
+		    		data	: 'lastName'
+		    	},{
+		    		title	: 'Member Since',
+		    		data	: 'regdate',
+		    		render  : function (date) {
+		    			if (date) {
+		    				return moment(date).format("DD MMM YYYY");
+						}else{
+							return "";
+						}
+		    		}
+		    	}
+	        ],
+	        columnDefs	: [
+               {"className": "dt-center", "targets": "_all"}
+            ]
+	    });
+	};
 	
 });
