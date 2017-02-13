@@ -44,8 +44,30 @@
 	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="userTable" class="table table-bordered table-striped">
-               <!-- table body part dynamically call from databases function
-               server side processing -->
+               <thead>
+                     <tr>
+                         <th>User Id</th>
+                         <th>Username</th>
+                         <th>Email</th>
+                         <th>First Name</th>
+                         <th>Last Name</th>
+                         <th>User Type</th>
+                         <th>Member Since</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <c:forEach var="userValue" items="${userTable}">
+                     	<tr>
+                     		<td>${userValue.userid}</td>
+                     		<td>${userValue.username}</td>
+                     		<td>${userValue.email}</td>
+                     		<td>${userValue.firstName}</td>
+                     		<td>${userValue.lastName}</td>
+                     		<td>${userValue.role.rolename}</td>
+                     		<td>${userValue.regdate}</td>
+                     	</tr>
+                     </c:forEach>
+                 </tbody>
             </table>
         </div><!-- /.box-body -->
        
