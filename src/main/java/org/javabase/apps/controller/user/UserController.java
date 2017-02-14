@@ -39,7 +39,7 @@ public class UserController {
 			User user = userList.get(0);
 			response.put("success", true);
 			response.put("data", userList);
-			response.put("roleName", user.getRole().getRolename());
+//			response.put("roleName", user.getRole().getRolename());
 		}else {
 			response.put("success", false);
 			response.put("message", "No Data Found");

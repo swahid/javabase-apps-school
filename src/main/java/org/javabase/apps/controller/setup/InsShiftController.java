@@ -51,7 +51,7 @@ public class InsShiftController {
 			String username = ((UserDetails) principal).getUsername();
 			 user = userservice.getUserByUsername(username);
 		}
-		param.put("entryUser", user.getUserid());
+		param.put("entryUser", user.getUserId());
 		
 		List<InsShift> insShiftList = insShiftService.getAllInsShiftsByParam(param);
 			
@@ -74,7 +74,7 @@ public class InsShiftController {
 			 user = userservice.getUserByUsername(username);
 		}
 		
-		param.put("entryUser", user.getUserid());
+		param.put("entryUser", user.getUserId());
 		
 		List<InstitutionInfo> instituteList = institutionInfoService.getAllInstitutionInfosByParam(param);
 		

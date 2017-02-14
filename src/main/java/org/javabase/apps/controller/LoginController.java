@@ -53,13 +53,12 @@ public class LoginController {
 	public Map<String, Object> registration(@RequestBody User user) {
 		Map<String, Object> response= new HashMap<String, Object>();
         Role role = new Role();
-        role.setRoleid(1);
+        role.setRoleId(1);
         
-		user.setRole(role);
-		user.setRegdate(new Date());
-		user.setIsactive("Y");
-		user.setIsnonexpired("Y");
-		user.setIsnonlocked("Y");
+		user.setCreateDate(new Date());
+		user.setActive(true);
+		user.setNonExpired(true);
+		user.setNonLocked(true);
 		
 		Boolean save = userservice.addUser(user);
 		if (save) {

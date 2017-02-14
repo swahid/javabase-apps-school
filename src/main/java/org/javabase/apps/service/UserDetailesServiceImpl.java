@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.javabase.apps.entity.User;
-import org.javabase.apps.entity.UserPrivilege;
+import org.javabase.apps.entity.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -38,12 +38,12 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 		
 		if (user != null) {
 			String password = user.getPassword();
-			boolean enabled= user.getIsactive().equalsIgnoreCase("Y");
-			boolean accountNonExpired = user.getIsnonexpired().equalsIgnoreCase("Y");
-			boolean credentialsNonExpired= user.getIsnonexpired().equalsIgnoreCase("Y");
-			boolean accountNonLocked= user.getIsnonlocked().equalsIgnoreCase("Y");
+			boolean enabled= user.isActive();
+			boolean accountNonExpired = user.isNonExpired();
+			boolean credentialsNonExpired= user.isNonExpired();
+			boolean accountNonLocked= user.isNonLocked();
 			
-			Collection<GrantedAuthority> authorities = getGrantedAuthorities(user.getRole().getPrivilege());
+			Collection<GrantedAuthority> authorities = getGrantedAuthorities(user.getUserRoles());
 			
 			org.springframework.security.core.userdetails.User securedUser = 
 					new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -54,14 +54,14 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 		
 	}
 	
-	private Collection<GrantedAuthority> getGrantedAuthorities(Set<UserPrivilege> userPrivileges) {
-        List<GrantedAuthority> authorities = new ArrayList<>();
+	private Collection<GrantedAuthority> getGrantedAuthorities(Set<UserRole> param) {
+        List<GrantedAuthority> authoritiesRole = new ArrayList<>();
         
-        for (Iterator<UserPrivilege> userPrivilege = userPrivileges.iterator(); userPrivilege.hasNext(); ) {
-        	UserPrivilege userPrivileage = userPrivilege.next();
-        	authorities.add(new SimpleGrantedAuthority(userPrivileage.getPrivilege().getPrivilegeName()));
+        for (Iterator<UserRole> userRole = param.iterator(); userRole.hasNext(); ) {
+        	UserRole role = userRole.next();
+        	authoritiesRole.add(new SimpleGrantedAuthority(role.getRole().getRoleName()));
 		}
-        return authorities;
+        return authoritiesRole;
     }
 
 }

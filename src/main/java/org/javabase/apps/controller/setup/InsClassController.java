@@ -46,7 +46,7 @@ public class InsClassController {
 			String username = ((UserDetails) principal).getUsername();
 			 user = userservice.getUserByUsername(username);
 		}
-		param.put("entryUser", user.getUserid());
+		param.put("entryUser", user.getUserId());
 		
 		List<InsClass> insClassList = insClassService.getAllInsClasssByParam(param);
 			

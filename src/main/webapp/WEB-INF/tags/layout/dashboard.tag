@@ -79,8 +79,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <li class="user-header">
                     <img src="<c:url value="/resources/images/avatar.png"/>" class="img-circle" alt="User Image">
                     <p>
-                      ${user.firstName} ${user.lastName} - ${user.role.rolename}
-                      <small>Member since ${user.regdate}</small>
+                      ${user.firstName} ${user.lastName} - <%-- ${user.role.rolename} --%>
+                      <small>Member since ${user.createDate}</small>
                     </p>
                   </li>
                   <!-- Menu Footer-->

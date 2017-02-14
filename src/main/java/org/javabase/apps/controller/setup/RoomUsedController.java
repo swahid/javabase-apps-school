@@ -54,7 +54,7 @@ public class RoomUsedController {
 			 user = userservice.getUserByUsername(username);
 		}
 		
-		param.put("entryUser", user.getUserid());
+		param.put("entryUser", user.getUserId());
 		
 		List<RoomUsedType> roomUsedList = roomUsedTypeService.getAllRoomUsedTypesByParam(param);
 			
@@ -77,7 +77,7 @@ public class RoomUsedController {
 			 user = userservice.getUserByUsername(username);
 		}
 		
-		param.put("entryUser", user.getUserid());
+		param.put("entryUser", user.getUserId());
 		
 		List<InstitutionInfo> instituteList = institutionInfoService.getAllInstitutionInfosByParam(param);
 						

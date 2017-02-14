@@ -79,11 +79,11 @@ $(document).ready(function($) {
 		    		title	: 'Last Name',
 		    		data	: 'lastName'
 		    	},{
-					title	: 'Type',
-					data	: 'role.rolename'
+					title	: 'Status',
+					data	: 'isActive'
 				},{
 		    		title	: 'Since',
-		    		data	: 'regdate',
+		    		data	: 'createDate',
 		    		render  : function (date) {
 		    			if (date) {
 		    				return moment(date).format("DD MMM YYYY");
