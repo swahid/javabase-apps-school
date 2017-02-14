@@ -78,10 +78,10 @@ $(document).ready(function($) {
 		    	},{
 		    		title	: 'Last Name',
 		    		data	: 'lastName'
-		    	},/*{
+		    	},{
 					title	: 'Type',
-					data	: 'role.rolename'
-				},*/{
+					data	: 'role.roleName'
+				},{
 					title	: 'Status',
 					data	: 'active',
 					render  : function (status) {
