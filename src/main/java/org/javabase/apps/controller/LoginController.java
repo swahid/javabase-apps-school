@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.javabase.apps.entity.Role;
 import org.javabase.apps.entity.User;
 import org.javabase.apps.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,11 +27,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 	
+	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
+	
 	@Autowired
 	UserService userservice;
 	
-    @Autowired
-    HttpSession httpsession;
+	@Autowired
+	HttpSession session;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
@@ -37,14 +41,17 @@ public class LoginController {
     }
 	
 	@RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
-	public String loginSucess() {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-    	if (principal instanceof UserDetails) {
-    		String username = ((UserDetails) principal).getUsername();
-    		User user = userservice.getUserByUsername(username);
-    		httpsession.setAttribute("user", user);
-    	}
+	public String loginSucess(Authentication authentication) {
+		
+		Object principal = authentication.getPrincipal();
+		
+		log.info("authentication {}",authentication.getName());
+		
+		if (principal instanceof UserDetails) {
+			String username = ((UserDetails) principal).getUsername();
+			 User user = userservice.getUserByUsername(username);
+			 session.setAttribute("user", user);
+		}
 		return "redirect:/dashboard";
 	}
 	
@@ -57,7 +64,8 @@ public class LoginController {
         
 		user.setCreateDate(new Date());
 		user.setActive(true);
-		user.setNonExpired(true);
+		user.setAccountNonExpired(true);
+		user.setCredintialNonExpired(true);
 		user.setNonLocked(true);
 		
 		Boolean save = userservice.addUser(user);
@@ -73,13 +81,15 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
-    public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+    public String logoutPage (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){    
             new SecurityContextLogoutHandler().logout(request, response, auth);
-            httpsession.invalidate();
+            session.invalidate();
+            response.reset();
         }
-        httpsession.invalidate();
+        session.invalidate();
+        response.reset();
         return "redirect:/home";
     }
 

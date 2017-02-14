@@ -31,11 +31,10 @@ public class Role implements java.io.Serializable {
 	private String displayName;
 	private String description;
 	private Set<RolePermission> rolePermissions = new HashSet<RolePermission>(0);
-	private Set<UserRole> userRoles = new HashSet<UserRole>(0);
+	private Set<User> users = new HashSet<User>(0);
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "role_id", unique = true, nullable = false)
 	public Integer getRoleId() {
 		return this.roleId;
@@ -81,15 +80,15 @@ public class Role implements java.io.Serializable {
 	public void setRolePermissions(Set<RolePermission> rolePermissions) {
 		this.rolePermissions = rolePermissions;
 	}
-	
+
 	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
-	public Set<UserRole> getUserRoles() {
-		return userRoles;
+	public Set<User> getUsers() {
+		return users;
 	}
 
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 	
 }

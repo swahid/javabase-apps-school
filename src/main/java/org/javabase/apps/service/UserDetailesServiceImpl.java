@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
+import org.javabase.apps.entity.RolePermission;
 import org.javabase.apps.entity.User;
-import org.javabase.apps.entity.UserRole;
+import org.javabase.apps.entity.UserPermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,7 +30,7 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 	
 	@Autowired
 	UserService userservice;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
@@ -39,11 +39,11 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 		if (user != null) {
 			String password = user.getPassword();
 			boolean enabled= user.isActive();
-			boolean accountNonExpired = user.isNonExpired();
-			boolean credentialsNonExpired= user.isNonExpired();
+			boolean accountNonExpired = user.isAccountNonExpired();
+			boolean credentialsNonExpired= user.isCredintialNonExpired();
 			boolean accountNonLocked= user.isNonLocked();
 			
-			Collection<GrantedAuthority> authorities = getGrantedAuthorities(user.getUserRoles());
+			Collection<GrantedAuthority> authorities = getGrantedAuthorities(user);
 			
 			org.springframework.security.core.userdetails.User securedUser = 
 					new org.springframework.security.core.userdetails.User(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -54,12 +54,17 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 		
 	}
 	
-	private Collection<GrantedAuthority> getGrantedAuthorities(Set<UserRole> param) {
+	private Collection<GrantedAuthority> getGrantedAuthorities(User user) {
         List<GrantedAuthority> authoritiesRole = new ArrayList<>();
         
-        for (Iterator<UserRole> userRole = param.iterator(); userRole.hasNext(); ) {
-        	UserRole role = userRole.next();
-        	authoritiesRole.add(new SimpleGrantedAuthority(role.getRole().getRoleName()));
+        authoritiesRole.add(new SimpleGrantedAuthority(user.getRole().getRoleName()));
+        for (Iterator<RolePermission> rolePermission = user.getRole().getRolePermissions().iterator(); rolePermission.hasNext(); ) {
+        	RolePermission rolePerm = rolePermission.next();
+        	authoritiesRole.add(new SimpleGrantedAuthority(rolePerm.getPermission().getPermName()));
+        }
+        for (Iterator<UserPermission> userPermission = user.getUserPermissions().iterator(); userPermission.hasNext(); ) {
+        	UserPermission ur = userPermission.next();
+        	authoritiesRole.add(new SimpleGrantedAuthority(ur.getPermission().getPermName()));
 		}
         return authoritiesRole;
     }

@@ -9,7 +9,7 @@ INSERT INTO role(role_id,role_name, display_name, description) VALUES (1,'Admin'
 -- === User Preload Insert ==
 -- ==========================
 
-INSERT INTO user(is_active, create_date, email, is_non_expired, is_non_locked, password, username)VALUES (true, now(), 'admin@jschool.com', true, true, '123456', 'admin');
+INSERT INTO user(role_id,is_active, create_date, email, is_acc_non_expired,is_pass_non_expired, is_non_locked, password, username)VALUES (1,true, now(), 'admin@jschool.com', true,true, true, '123456', 'admin');
 
 
 -- ==========================
@@ -23,12 +23,12 @@ INSERT INTO permission (perm_name, display_name, description, flag, perm_code)VA
 -- ==========================
 -- === UserRole Insert ====
 -- ==========================
-INSERT INTO user_role(user_id, role_id) VALUES (1, 1);
+INSERT INTO user_permission(user_id, perm_id,is_active,grant_user,grantDate) VALUES (1, 1 ,1 ,1,now() );
 
 -- ==========================
 -- == UserPermission Insert =
 -- ==========================
-INSERT INTO role_permission(perm_id,role_id,is_active,grant_user) VALUES (1, 1 ,1 ,1 );
-INSERT INTO role_permission(perm_id,role_id,is_active,grant_user) VALUES (2, 1 ,1 ,1 );
-INSERT INTO role_permission(perm_id,role_id,is_active,grant_user) VALUES (3, 1 ,1 ,1 );
-INSERT INTO role_permission(perm_id,role_id,is_active,grant_user) VALUES (4, 1 ,1 ,1 );
+INSERT INTO role_permission(perm_id,role_id,is_active,grant_user,grantDate) VALUES (1, 1 ,1 ,1,now() );
+INSERT INTO role_permission(perm_id,role_id,is_active,grant_user,grantDate) VALUES (2, 1 ,1 ,1,now() );
+INSERT INTO role_permission(perm_id,role_id,is_active,grant_user,grantDate) VALUES (3, 1 ,1 ,1,now() );
+INSERT INTO role_permission(perm_id,role_id,is_active,grant_user,grantDate) VALUES (4, 1 ,1 ,1,now() );

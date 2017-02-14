@@ -36,10 +36,8 @@ public class UserController {
 		Map<String, Object> response = new HashMap<>();
 		List<User> userList = userservice.getAllUsers();
 		if (userList.size()>0) {
-			User user = userList.get(0);
 			response.put("success", true);
 			response.put("data", userList);
-//			response.put("roleName", user.getRole().getRolename());
 		}else {
 			response.put("success", false);
 			response.put("message", "No Data Found");

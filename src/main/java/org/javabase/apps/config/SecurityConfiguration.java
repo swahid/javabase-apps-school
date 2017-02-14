@@ -38,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //	        .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
 	        .and().formLogin().loginPage("/login")
 	        .usernameParameter("username").passwordParameter("password")
-	        .defaultSuccessUrl("/loginsuccess")
+	        .defaultSuccessUrl("/loginsuccess",true)
 	        .failureUrl("/login?error=1")
 	        .and().logout().logoutUrl("/logout")
 	        .logoutSuccessUrl("/home")

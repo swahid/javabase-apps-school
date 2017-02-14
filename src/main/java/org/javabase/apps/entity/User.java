@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -37,7 +39,8 @@ public class User implements java.io.Serializable {
 	private String email;
 	private Date expiredDate;
 	private boolean isActive;
-	private boolean isNonExpired;
+	private boolean isAccountNonExpired;
+	private boolean isCredintialNonExpired;
 	private boolean isNonLocked;
 	private String password;
 	private Date createDate;
@@ -47,9 +50,10 @@ public class User implements java.io.Serializable {
 	private Date lastLogin;
 	private GardianDetails gardianDetails;
 	private EmployeeDetails employeeDetails;
-	private Set<UserRole> userRoles = new HashSet<UserRole>(0);
+	private Set<UserPermission> userPermissions = new HashSet<UserPermission>(0);
 	private StudentDetails studentDetails;
 	private TeacherDetails teacherDetails;
+	private Role role;
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -96,15 +100,7 @@ public class User implements java.io.Serializable {
 		this.isActive = isActive;
 	}
 
-	@Column(name = "is_non_expired", nullable = false)
-	public boolean isNonExpired() {
-		return isNonExpired;
-	}
-
-	public void setNonExpired(boolean isNonExpired) {
-		this.isNonExpired = isNonExpired;
-	}
-
+	
 	@Column(name = "is_non_locked", nullable = false)
 	public boolean isNonLocked() {
 		return isNonLocked;
@@ -169,12 +165,12 @@ public class User implements java.io.Serializable {
 
 	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<UserRole> getUserRoles() {
-		return this.userRoles;
+	public Set<UserPermission> getUserPermissions() {
+		return userPermissions;
 	}
 
-	public void setUserRoles(Set<UserRole> userRoles) {
-		this.userRoles = userRoles;
+	public void setUserPermissions(Set<UserPermission> userPermissions) {
+		this.userPermissions = userPermissions;
 	}
 
 	@JsonManagedReference
@@ -215,5 +211,35 @@ public class User implements java.io.Serializable {
 		this.lastName = lastName;
 	}
 
+	@JsonManagedReference
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "role_id", nullable = false)
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	@Column(name = "is_acc_non_expired", nullable = false)
+	public boolean isAccountNonExpired() {
+		return isAccountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean isAccountNonExpired) {
+		this.isAccountNonExpired = isAccountNonExpired;
+	}
+
+	@Column(name = "is_pass_non_expired", nullable = false)
+	public boolean isCredintialNonExpired() {
+		return isCredintialNonExpired;
+	}
+
+	public void setCredintialNonExpired(boolean isCredintialNonExpired) {
+		this.isCredintialNonExpired = isCredintialNonExpired;
+	}
+
+	
 	
 }
