@@ -78,9 +78,19 @@ $(document).ready(function($) {
 		    	},{
 		    		title	: 'Last Name',
 		    		data	: 'lastName'
-		    	},{
+		    	},/*{
+					title	: 'Type',
+					data	: 'role.rolename'
+				},*/{
 					title	: 'Status',
-					data	: 'active'
+					data	: 'active',
+					render  : function (status) {
+		    			if (status) {
+		    				return "Active";
+						}else{
+							return "Inactive";
+						}
+		    		}
 				},{
 		    		title	: 'Since',
 		    		data	: 'createDate',

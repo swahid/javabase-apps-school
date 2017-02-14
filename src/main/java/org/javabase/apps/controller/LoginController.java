@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,15 +42,10 @@ public class LoginController {
 	@RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
 	public String loginSucess(Authentication authentication) {
 		
-		Object principal = authentication.getPrincipal();
-		
-		log.info("authentication {}",authentication.getName());
-		
-		if (principal instanceof UserDetails) {
-			String username = ((UserDetails) principal).getUsername();
+			String username = authentication.getName();
 			 User user = userservice.getUserByUsername(username);
+			 log.debug("user {}", user.getRole().getRoleName());
 			 session.setAttribute("user", user);
-		}
 		return "redirect:/dashboard";
 	}
 	
@@ -61,7 +55,6 @@ public class LoginController {
 		Map<String, Object> response= new HashMap<String, Object>();
         Role role = new Role();
         role.setRoleId(1);
-        
 		user.setCreateDate(new Date());
 		user.setActive(true);
 		user.setAccountNonExpired(true);
