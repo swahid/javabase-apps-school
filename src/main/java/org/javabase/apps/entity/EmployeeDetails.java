@@ -23,10 +23,11 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name = "employee_details", catalog = "jschool")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="user_id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userId")
 public class EmployeeDetails implements java.io.Serializable {
-
-	private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 1313641502426903858L;
+	
 	private int userId;
 	private User user;
 	private String addressLine1;

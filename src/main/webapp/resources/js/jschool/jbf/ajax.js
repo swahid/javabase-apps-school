@@ -13,6 +13,7 @@ jbf.ajax||(function(e){
 				data    : param,
 				success : function(resonse) {
 					data = resonse.data;
+					console.log(data);
 				},
 				error 	: function(e) {
 					console.log("ERROR: ", e);

@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name = "user", catalog = "jschool")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="user_id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userId")
 public class User implements java.io.Serializable {
 
 	private static final long serialVersionUID = -5182659307195189767L;

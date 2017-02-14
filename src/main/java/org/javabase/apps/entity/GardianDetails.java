@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name = "gardian_details", catalog = "jschool")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="user_id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userId")
 public class GardianDetails implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4134914308672214987L;

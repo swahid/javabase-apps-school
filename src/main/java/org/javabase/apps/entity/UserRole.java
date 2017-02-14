@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  */
 @Entity
 @Table(name = "user_role", catalog = "jschool")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="user_role_id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="userRoleId")
 public class UserRole implements java.io.Serializable {
 
 	private static final long serialVersionUID = 8832127749969358837L;

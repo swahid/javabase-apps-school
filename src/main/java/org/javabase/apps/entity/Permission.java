@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "permission", catalog = "jschool", 
 		uniqueConstraints = @UniqueConstraint(columnNames = { "perm_name","perm_code" }))
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="perm_id")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="permId")
 public class Permission implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1116683549304036088L;

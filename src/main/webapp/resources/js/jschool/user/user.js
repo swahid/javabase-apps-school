@@ -65,7 +65,7 @@ $(document).ready(function($) {
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
 		        	title	: 'Id',
-		        	data	: 'userid'
+		        	data	: 'userId'
 				},{
 					title	: 'UserName',
 					data	: 'username'
@@ -80,7 +80,7 @@ $(document).ready(function($) {
 		    		data	: 'lastName'
 		    	},{
 					title	: 'Status',
-					data	: 'isActive'
+					data	: 'active'
 				},{
 		    		title	: 'Since',
 		    		data	: 'createDate',
