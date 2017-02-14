@@ -18,8 +18,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
@@ -145,6 +147,7 @@ public class User implements java.io.Serializable {
 		this.lastLogin = lastLogin;
 	}
 
+	@JsonManagedReference
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
 	public GardianDetails getGardianDetails() {
 		return this.gardianDetails;
@@ -154,6 +157,7 @@ public class User implements java.io.Serializable {
 		this.gardianDetails = gardianDetails;
 	}
 
+	@JsonManagedReference
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
 	public EmployeeDetails getEmployeeDetails() {
 		return this.employeeDetails;
@@ -163,6 +167,7 @@ public class User implements java.io.Serializable {
 		this.employeeDetails = employeeDetails;
 	}
 
+	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<UserRole> getUserRoles() {
 		return this.userRoles;
@@ -172,6 +177,7 @@ public class User implements java.io.Serializable {
 		this.userRoles = userRoles;
 	}
 
+	@JsonManagedReference
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
 	public StudentDetails getStudentDetails() {
 		return this.studentDetails;
@@ -181,6 +187,7 @@ public class User implements java.io.Serializable {
 		this.studentDetails = studentDetails;
 	}
 
+	@JsonManagedReference
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
 	public TeacherDetails getTeacherDetails() {
 		return this.teacherDetails;
