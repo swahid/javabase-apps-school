@@ -56,8 +56,9 @@ public class UserDetailesServiceImpl implements UserDetailsService{
 	
 	private Collection<GrantedAuthority> getGrantedAuthorities(User user) {
         List<GrantedAuthority> authoritiesRole = new ArrayList<>();
-        
-        authoritiesRole.add(new SimpleGrantedAuthority(user.getRole().getRoleName()));
+        String roleName = user.getRole().getRoleName();
+        roleName = "ROLE_"+roleName.toUpperCase();
+        authoritiesRole.add(new SimpleGrantedAuthority(roleName));
         for (Iterator<RolePermission> rolePermission = user.getRole().getRolePermissions().iterator(); rolePermission.hasNext(); ) {
         	RolePermission rolePerm = rolePermission.next();
         	authoritiesRole.add(new SimpleGrantedAuthority(rolePerm.getPermission().getPermName()));
