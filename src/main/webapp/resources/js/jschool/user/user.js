@@ -4,6 +4,8 @@
  */
 $(document).ready(function($) {
 	
+	//load RoleCombo
+	jbf.combo.loadRole('#roleCombo','role/load');
 	// call roomDatabase function for initialized datatable
 	userDatatable();
 	
@@ -18,19 +20,18 @@ $(document).ready(function($) {
 		
 		var data 	= {},
 			role 	= {},
-			privilege 	= {},
 			
-			url 	= "user/save";
+			url 	= "user/adduser";
 		
-		role["roleId"]		= $("#rollCombo").val();
-		role["roleName"]	= $("#rollCombo option:selected").text();
+		role["roleId"]		= $("#roleCombo").val();
 		
 		data["userName"]	= $("#username").val();
 		data["password"]	= $("#retypePassword").val();
 		data["email"]		= $("#email").val();
 		data["firstName"]   = $("#firstName").val();
 		data["lastName"] 	= $("#lastName").val();
-		data["role"] 	    = role;
+		data["createDate"] 	    = new Date();
+//		data["role"] 	    = role;
 		
 		/*	
 		 * if in spring aplication csrf enable
@@ -44,13 +45,13 @@ $(document).ready(function($) {
 			contentType: "application/json; charset=utf-8",
 			success  : function(resonse) {
 				success(resonse.message);
-				roomDatatable();
+				userDatatable();
 				document.getElementById("addUserForm").reset();
 				$("#roomModal").modal('hide'); 
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
-				alert("Insert falied");
+				error("Insert falied");
 			}
 		});
 		
@@ -80,7 +81,7 @@ $(document).ready(function($) {
 		    		data	: 'lastName'
 		    	},{
 					title	: 'Type',
-					data	: 'role.roleName'
+					data	: 'role.displayName'
 				},{
 					title	: 'Status',
 					data	: 'active',

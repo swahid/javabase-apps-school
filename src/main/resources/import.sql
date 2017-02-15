@@ -4,10 +4,10 @@
 -- === Role Preload Insert ==
 -- ==========================
 INSERT INTO role(role_name, display_name, description) VALUES ('admin', 'Admin', 'Role Define For Administrative task');
-INSERT INTO role(role_name, display_name, description) VALUES ('teacher', 'Teacher', 'Role Define For Administrative task');
-INSERT INTO role(role_name, display_name, description) VALUES ('student', 'Teacher', 'Role Define For Administrative task');
-INSERT INTO role(role_name, display_name, description) VALUES ('staff', 'Teacher', 'Role Define For Administrative task');
-INSERT INTO role(role_name, display_name, description) VALUES ('staff', 'Teacher', 'Role Define For Administrative task');
+INSERT INTO role(role_name, display_name, description) VALUES ('teacher', 'Teacher', 'Role Define For Teacher task');
+INSERT INTO role(role_name, display_name, description) VALUES ('student', 'Student', 'Role Define For Student task');
+INSERT INTO role(role_name, display_name, description) VALUES ('parent', 'Parent', 'Role Define For Parent task');
+INSERT INTO role(role_name, display_name, description) VALUES ('staff', 'Staff', 'Role Define For Staff task');
 
 -- ==========================
 -- === User Preload Insert ==

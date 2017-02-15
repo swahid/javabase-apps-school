@@ -9,6 +9,7 @@ import org.javabase.apps.entity.User;
 import org.javabase.apps.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -22,36 +23,43 @@ public class UserServiceImpl implements UserService{
 	UserMapper usermapper;
 	
 	@Override
+	@Transactional(readOnly=true)
 	public List<User> getAllUsers() {
 		return usermapper.getAllUsers();
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public User getUserById(int userId) {
 		return usermapper.getUserById(userId);
 	}
 
 	@Override
+	@Transactional
 	public boolean addUser(User user) {
 		return usermapper.addUser(user);
 	}
 
 	@Override
+	@Transactional
 	public void updateUser(User user) {
 		usermapper.updateUser(user);
 	}
 
 	@Override
+	@Transactional
 	public void deleteUser(int userId) {
 		usermapper.deleteUser(userId);
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public boolean userExists(String username) {
 		return usermapper.userExists(username);
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public User getUserByUsername(String username) {
 		return usermapper.getUserByUsername(username);
 	}

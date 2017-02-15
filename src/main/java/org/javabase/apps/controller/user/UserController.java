@@ -46,7 +46,7 @@ public class UserController {
 		return response; 
 	}
 	@ResponseBody
-	@RequestMapping(value="save",  method=RequestMethod.POST)
+	@RequestMapping(value="adduser",  method=RequestMethod.POST)
 	public Map<String, Object> saveUser(@RequestBody Map<String, Map<String, Object>> param){
 		Map<String, Object> response = new HashMap<>();
 		log.info(param.get("userName").toString());

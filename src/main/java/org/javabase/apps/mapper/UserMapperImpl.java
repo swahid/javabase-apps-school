@@ -24,23 +24,19 @@ public class UserMapperImpl implements UserMapper{
 	private SessionFactory  session;
 	
 	@Override
-	@Transactional(readOnly=true)
 	public List<User> getAllUsers() {
 		return session.getCurrentSession().createCriteria(User.class).list();
 	}
 
 	@Override
-	@Transactional(readOnly=true)
 	public User getUserById(int userId) {
 		return (User) session.getCurrentSession().get(User.class, userId);
 	}
 
 	@Override
-	@Transactional
 	public boolean addUser(User user) {
 		try {
 			session.getCurrentSession().save(user);
-			
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,19 +45,16 @@ public class UserMapperImpl implements UserMapper{
 	}
 
 	@Override
-	@Transactional
 	public void updateUser(User user) {
 		session.getCurrentSession().update(user);
 	}
 
 	@Override
-	@Transactional
 	public void deleteUser(int userId) {
 		session.getCurrentSession().delete(userId);
 	}
 
 	@Override
-	@Transactional(readOnly=true)
 	public boolean userExists(String username) {
 		String hql = "FROM User WHERE username = '"+username+"'";
 		List<User> userList = (List<User>) session.getCurrentSession().createQuery(hql).list();

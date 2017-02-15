@@ -64,11 +64,11 @@
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="floorNo"> First Name<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="firstName" class="form-control validate[required]" type="text" name="firstName">
+				<input id="firstName" class="form-control validate[required] text-input" type="text" name="firstName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="userName"> LastName<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="userName">LastName<span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="lastName" class="form-control validate[required] text-input" type="text" name="lastName">
 			</div>
@@ -76,36 +76,36 @@
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="userNo">Email <span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="email" class="form-control validate[required,custom[email]] text-input" type="email" value="" name="email">
+				<input id="email" class="form-control validate[required,custom[email]] text-input" type="email" name="email">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="totalSeat">Username<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="username" class="form-control validate[required]" type="text" name="username" autocomplete="off">
+				<input id="username" class="form-control validate[required] text-input" type="text" name="username" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="totalSeat">Password<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="password" class="form-control validate[required]" type="password" name="password" autocomplete="off">
+				<input id="password" class="form-control validate[required] text-input" type="password" name="password" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="totalSeat">Re-Password<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="retypePassword" class="form-control validate[required]" type="password" name="retypePassword" autocomplete="off">
+				<input id="retypePassword" class="form-control validate[required,equals[password]] text-input" type="password" name="retypePassword" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="roleCombo">Select Roll<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-            <select name="rollCombo" class="form-control select2" id="rollCombo" style="width: 100%">
-            	<option value="1">Admin</option>
+            <select name="rollCombo" class="form-control select2 text-input" id="roleCombo" style="width: 100%">
+            	<!-- <option value="1">Admin</option>
             	<option value="2">Student</option>
             	<option value="3">Teacher</option>
             	<option value="4">Parent</option>
-            	<option value="5">Staff</option>
+            	<option value="5">Staff</option> -->
             </select>
 			</div>
 		</div>
@@ -115,8 +115,8 @@
         
       </div>
       <div class="modal-footer">
-        <button class="btn btn-success" id="userSubmit">Add</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-success" id="userSubmit">Add User</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
