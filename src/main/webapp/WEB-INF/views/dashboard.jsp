@@ -34,11 +34,8 @@
 	</jsp:attribute>
 	
 	<jsp:body>
-	<sec:authentication property="principal" var="principal"/>
-	<c:out value="${principal}"></c:out>
 	<sec:authorize access="hasRole('ADMIN') or hasRole('TEACHER') or hasRole('STUDENT')">
 	<sec:authorize access="hasAuthority('read')">
-	<input type="button" value="create"/>
 	      <!-- Info boxes -->
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -93,8 +90,7 @@
       <!-- /.row -->
       
 	<!-- =======================Info boxes End =================================== -->
-	</sec:authorize>
-	</sec:authorize>
+	
 	<div class="row">
         <div class="col-md-8">
           <div class="box box-primary">
@@ -160,5 +156,7 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
+      </sec:authorize>
+	</sec:authorize>
 	</jsp:body>
 </t:dashboard>
