@@ -4,10 +4,16 @@
  */
 $(document).ready(function($) {
 	//call class initialized
-	getClass();
+//	jbf.combo.loadClass('#classId','class/load');
+	
 	$("#addNewInstitutionForm").submit(function(event) {
 		
+		// form redirect stop
 		event.preventDefault();
+		
+		//call form validation code
+		
+		// get form data
 		var data = {}
 		data["categoryId"]     = $("#categoryId").val(),
 		data["insName"]        = $("#insName").val(),
@@ -21,10 +27,13 @@ $(document).ready(function($) {
 		data["webAddress"] 	   = $("#webAddress").val(),
 		url = "institution/addNewInstitution";
 		
+		/*
+		 * this part for csrf token now closed but dont removed from code
+		 * apply future in code 
+		 */ 
 		
-		
-		var token = $('#csrfToken').val();
-		var header = $('#csrfHeader').val();
+		/*var token = $('#csrfToken').val();
+		var header = $('#csrfHeader').val();*/
 		/*	
 		 * if in spring application csrf enable
 		 * send csrf parameter in header otherwise 405 error
@@ -34,29 +43,23 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
-			beforeSend: function(xhr) {
+			contentType: "application/json; charset=utf-8",
+			/*beforeSend: function(xhr) {
 		        xhr.setRequestHeader("Accept", "application/json");
 		        xhr.setRequestHeader("Content-Type", "application/json");
 		        xhr.setRequestHeader(header, token);
-		    },
+		    },*/
 			success  : function(resonse) {
-				var message = "Add Success";
-				//				$("#msg").html(data.message);
-				console.log(resonse.data);
-				alert(resonse.message);
-				data = null;
-				
-				console.log("Ajax is success.....");
+				var message = resonse.message;
+				//success notification
+				success(message);
 				document.getElementById("addNewInstitutionForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
-				alert("Add falied");
-//						$("#msg").html(e.message);
+				error("Add falied");
 				
-				console.log("Ajax is failed.....");
-				data = null;
-				document.getElementById("addNewInstitutionForm").reset()
+				
 			}
 		});
 		
