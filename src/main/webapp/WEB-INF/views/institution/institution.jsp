@@ -70,19 +70,19 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="last_name">Postal Code<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="postalCode" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="postalCode">
+				<input id="postalCode" class="form-control validate[required,custom[number]] text-input" type="text" value="" name="postalCode">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="last_name">Mail Address<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="mailAddress" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="mailAddress">
+				<input id="mailAddress" class="form-control validate[required,custom[email]] text-input" type="text" value="" name="mailAddress">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="last_name">Web Address<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="webAddress" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="webAddress">
+				<input id="webAddress" class="form-control validate[required,custom[url]] text-input" type="text" value="" name="webAddress">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">

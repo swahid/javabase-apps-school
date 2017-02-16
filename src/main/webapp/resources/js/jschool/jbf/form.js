@@ -5,13 +5,14 @@ jbf.form||(function(e){
     var form = {
     		
         validate	: function(id){
+        	var status;
         	javascript: $(id).validationEngine('attach');
-			if (!$(id).validationEngine('validate')) {
-				return true;
+			if ($(id).validationEngine('validate')) {
+				status= true;
 			}else {
-				return false;
+				status= false;
 			}
-			return true;
+			return status;
         }
     };
     e.form = form;

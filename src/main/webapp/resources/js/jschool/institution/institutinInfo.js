@@ -12,7 +12,10 @@ $(document).ready(function($) {
 		event.preventDefault();
 		
 		//call form validation code
-		
+		var status =jbf.form.validate('#addNewInstitutionForm');
+		if (!status) {
+			return;
+		}
 		// get form data
 		var data = {}
 		data["categoryId"]     = $("#categoryId").val(),
