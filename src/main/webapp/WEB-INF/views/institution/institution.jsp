@@ -19,7 +19,9 @@
             <div class="box-body">
         <form name="addNewInstitutionForm" action="#" method="post" class="form-horizontal" id="addNewInstitutionForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<!-- Get User information like userid or user name -->
+				<input type="hidden" id="userId" value="${user.userId}"/>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="class_name">Institution Type<span class="require-field">*</span></label>
 			<div class="col-sm-8">
