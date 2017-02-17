@@ -3,21 +3,34 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
-//	call building info initialized method
+	
+	roomUsedDatatable();
+	
 	$("#addNewRoomUsedForm").submit(function(event) {
 		
+		// form redirect stop
 		event.preventDefault();
+		
+		//call form validation code
+		var status =jbf.form.validate('#addNewRoomUsedForm');
+		if (!status) {
+			return;
+		}
+		// get form data
 		var data = {}
-		data["usedName"]        = $("#usedName").val(),
-		data["details"] 	    = $("#details").val(),
-		data["entryUser"] 	    = $("#entryUser").val(),
-		url = "roomUsed/addNewRoomUsed";
+		data["usedName"]       = $("#usedName").val(),
+		data["details"]        = $("#details").val(),
+		url = "roomUsed/add";
 		
+		/*
+		 * this part for csrf token now closed but dont removed from code
+		 * apply future in code 
+		 */ 
 		
-		var token = $('#csrfToken').val();
-		var header = $('#csrfHeader').val();
+		/*var token = $('#csrfToken').val();
+		var header = $('#csrfHeader').val();*/
 		/*	
-		 * if in spring aplication csrf enable
+		 * if in spring application csrf enable
 		 * send csrf parameter in header otherwise 405 error
 		 */
 		$.ajax({
@@ -25,55 +38,44 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
-			beforeSend: function(xhr) {
+			contentType: "application/json; charset=utf-8",
+			/*beforeSend: function(xhr) {
 		        xhr.setRequestHeader("Accept", "application/json");
 		        xhr.setRequestHeader("Content-Type", "application/json");
 		        xhr.setRequestHeader(header, token);
-		    },
+		    },*/
 			success  : function(resonse) {
-				var message = "Add Success";
-				//				$("#msg").html(data.message);
-				roomUsedDatatable("#roomUsedTable", 'roomUsed/load','' );
-				console.log(resonse.data);
-				alert(resonse.message);
-				data = null;
+				var message = resonse.message;
+				//success notification
+				success(message);
 				
+				roomUsedDatatable();
 				document.getElementById("addNewRoomUsedForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
-				alert("Add falied");
-//						$("#msg").html(e.message);
+				error("Add falied");
 				
-				data = null;
-				document.getElementById("addNewRoomUsedForm").reset()
+				
 			}
 		});
 		
 	});
 	
-	// call buildingDatabase function for initialized datatable
-	roomUsedDatatable("#roomUsedTable", 'roomUsed/load','' );
 	
-	/*
-	 * Datable get building function
-	 */
-	function roomUsedDatatable(id, url, value) {
-		
-		$(id).dataTable({
+	function roomUsedDatatable(param) {
+		var url = 'roomUsed/load';
+		$('#roomUsedTable').dataTable({
 			destroy	: true,
-	        data	: jbf.ajax.getLoadData(url, value),
+	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Used Id',
-		        	data	: 'roomUsedId'
+		        	title	: 'Building Name',
+		        	data	: 'usedName'
 				},{
-					title	: 'Name',
-					data	: 'usedName'
-				},{
-					title	: 'Description',
+					title	: 'Total Room',
 					data	: 'details'
-		    	},{
-		    		title	: 'Date',
+				},{
+		    		title	: 'Entry Date',
 		    		data	: 'entryDate',
 		    		render  : function (date) {
 		    			if (date) {

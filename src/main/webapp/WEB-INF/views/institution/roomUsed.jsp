@@ -13,24 +13,25 @@
         	<div class="box-header with-border">
             	<div class="box-title">
             		<span><i class="fa fa-plus"></i>
-					Room Used For</span>            	
+					Room Used</span>            	
 				</div>
             </div>
             <div class="box-body">
         <form name="addNewRoomUsedForm" action="#" method="post" class="form-horizontal" id="addNewRoomUsedForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
 				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
-				<input type="hidden" id="entryUser" value="${user.userid}"/>
+				<!-- Get User information like userid or user name -->
+				<input type="hidden" id="userId" value="${user.userId}"/>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="usedName"> Used Type<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="roll_id">Used Type<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="usedName" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="usedName">
+				<input id="usedName" class="form-control validate[required]" type="text" value="" name="usedName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="details">Description</label>
+			<label class="col-sm-2 control-label" for="first_name">Description <span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="details" class="form-control " type="text" value="" name="details">
+				<input id="details" class="form-control validate[required]" type="number" value="" name="details">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">
@@ -42,14 +43,12 @@
         </div>
     </div>
     </div>
-    
-    	<div class="box-body">
+        <!-- =========================== Search Datatable Start ======================== -->
+	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="roomUsedTable" class="table table-bordered table-striped">
-               <!-- table body part dynamically call from databases function
-               server side processing -->
             </table>
-        </div>
+        </div><!-- /.box-body -->
 	</div>
 	</jsp:body>
 </t:dashboard>
