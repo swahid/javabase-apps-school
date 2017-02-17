@@ -26,14 +26,18 @@
 				<!-- Get User information like userid or user name -->
 				<input type="hidden" id="userId" value="${user.userId}" />
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="buildingCombo">Select Roll<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="buildingCombo">Select uilding<span class="require-field">*</span></label>
 			<div class="col-sm-8">
             <select name="buildingCombo" class="form-control select2 text-input" id="buildingCombo" style="width: 100%">
-            	<!-- <option value="1">Admin</option>
-            	<option value="2">Student</option>
-            	<option value="3">Teacher</option>
-            	<option value="4">Parent</option>
-            	<option value="5">Staff</option> -->
+            	<!-- Option data will come from js file -->
+            </select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="roomUsedCombo">Room Used For<span class="require-field">*</span></label>
+			<div class="col-sm-8">
+            <select name="roomUsedCombo" class="form-control select2 text-input" id="roomUsedCombo" style="width: 100%">
+            	<!-- Option data will come from js file -->
             </select>
 			</div>
 		</div>

@@ -5,6 +5,7 @@
 $(document).ready(function($) {
 	//call class initialized
 	jbf.combo.loadBuilding('#buildingCombo','building/load');
+	jbf.combo.loadRoomUsed('#roomUsedCombo','roomUsed/load');
 	
 	
 //	datatable load at page load
@@ -23,7 +24,7 @@ $(document).ready(function($) {
 		// get form data
 		var data = {}
 		data["buildingId"]     = $("#buildingCombo").val(),
-		data["roomUsedId"]     = $("#roomUsedId").val(),
+		data["roomUsedId"]     = $("#roomUsedCombo").val(),
 		data["floorNo"] 	   = $("#floorNo").val(),
 		data["roomName"] 	   = $("#roomName").val(),
 		data["roomNo"] 	       = $("#roomNo").val(),
