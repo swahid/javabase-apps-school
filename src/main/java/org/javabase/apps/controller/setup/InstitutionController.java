@@ -1,6 +1,7 @@
 package org.javabase.apps.controller.setup;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.InstitutionInfo;
@@ -25,6 +26,18 @@ public class InstitutionController {
     }
 	
 	@ResponseBody
+	@RequestMapping(value = "load",method = RequestMethod.GET)
+	public Map<String, Object> allBuilding() {
+		Map<String, Object> response= new HashMap<String, Object>();
+
+		List<InstitutionInfo> institutionList = institutionInfoService.getAllInstitutionInfos();
+
+		response.put("success", true);
+		response.put("data", institutionList);
+		return response;
+	}
+	
+	@ResponseBody
 	@RequestMapping(value="addNewInstitution", method = RequestMethod.POST)
 	public Map<String, Object> registration(@RequestBody InstitutionInfo institutionInfo) {
 		Map<String, Object> response= new HashMap<String, Object>();
@@ -39,7 +52,6 @@ public class InstitutionController {
 	        response.put("message", "Add Institution Failed");
 			return response;
 		}
-		
 	}
 	
 }

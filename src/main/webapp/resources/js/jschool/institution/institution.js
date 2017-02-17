@@ -6,6 +6,10 @@ $(document).ready(function($) {
 	//call class initialized
 //	jbf.combo.loadClass('#classId','class/load');
 	
+	
+//	datatable load at page load
+	institutionDatatable();
+	
 	$("#addNewInstitutionForm").submit(function(event) {
 		
 		// form redirect stop
@@ -56,6 +60,7 @@ $(document).ready(function($) {
 				var message = resonse.message;
 				//success notification
 				success(message);
+				institutionDatatable();
 				document.getElementById("addNewInstitutionForm").reset()
 			},
 			error 	 : function(e) {
@@ -67,5 +72,57 @@ $(document).ready(function($) {
 		});
 		
 	});
+	
+
+	
+	function institutionDatatable(param) {
+		var url = 'institution/load';
+		$('#institutionTable').dataTable({
+			destroy	: true,
+	        data	: jbf.ajax.load(url, param),
+	        columns	: [{
+		        	title	: 'Name',
+		        	data	: 'insName'
+				},{
+					title	: 'Code',
+					data	: 'insCode'
+				},{
+					title	: 'Upazila',
+					data	: 'upazila'
+				},{
+					title	: 'Institution Type',
+					data	: 'category'
+		    	},{
+		    		title	: 'Established',
+		    		data	: 'situated'
+		    	},{
+		    		title	: 'Postal Address',
+		    		data	: 'address'
+		    	},{
+		    		title	: 'Postal Code',
+		    		data	: 'postalCode'
+		    	},{
+		    		title	: 'E-mail',
+		    		data	: 'mailAddress'
+		    	},{
+		    		title	: 'Web Address',
+		    		data	: 'webAddress'
+		    	},{
+		    		title	: 'Since',
+		    		data	: 'entryDate',
+		    		render  : function (date) {
+		    			if (date) {
+		    				return moment(date).format("DD MMM YYYY");
+						}else{
+							return "";
+						}
+		    		}
+		    	}
+	        ],
+	        columnDefs	: [
+               {"className": "dt-center", "targets": "_all"}
+            ]
+	    });
+	};
 	
 });

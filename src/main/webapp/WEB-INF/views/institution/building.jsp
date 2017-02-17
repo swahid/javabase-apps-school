@@ -61,13 +61,12 @@
         </div>
     </div>
     </div>
-        <!-- =========================== Search Datatable Room Start ======================== -->
+        <!-- =========================== Search Datatable Start ======================== -->
 	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="buildingTable" class="table table-bordered table-striped">
             </table>
         </div><!-- /.box-body -->
-       
 	</div>
 	</jsp:body>
 </t:dashboard>

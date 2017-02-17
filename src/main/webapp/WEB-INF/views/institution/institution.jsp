@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/institutinInfo.js' />"></script> 
+	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/institution.js' />"></script> 
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 
@@ -96,5 +96,13 @@
         </div>
     </div>
     </div>
+    
+       <!-- =========================== Search Datatable Start ======================== -->
+	<div class="box-body">
+		<div class="box-body table-responsive">
+            <table id="institutionTable" class="table table-bordered table-striped">
+            </table>
+        </div><!-- /.box-body -->
+	</div>
 	</jsp:body>
 </t:dashboard>
