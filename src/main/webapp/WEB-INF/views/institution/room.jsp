@@ -1,7 +1,8 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/roomInfo.js' />"></script> 
+	        <script type="text/javascript"
+			src="<c:url value='/resources/js/jschool/institution/room.js' />"></script> 
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 
@@ -12,112 +13,84 @@
 		<div class="box box-default" data-collapsed="0">
         	<div class="box-header with-border">
             	<div class="box-title">
-            		<span><i class="fa fa-room"></i>
-					Class Rooms</span>            	
+            		<span><i class="fa fa-plus"></i>
+					Room Info Entry</span>            	
 				</div>
-				<!-- Button trigger modal -->
-				<input type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#roomModal" value="Add Class Rooms" />
-			</div>
-	<!-- =========================== End Header ======================== -->
-	<!-- =========================== Start body Content ======================== -->
-	
-	
-	
- 		<!-- =========================== Search Combo Section Start ======================== -->
- 	<div class="box-body"> 
-	    <div class="form-group col-md-3">
-			<label for="buildingId"> BUilding</label>			
-            <select name="buildingId" id="buildingId" class="form-control buildingId">
+            </div>
+            <div class="box-body">
+        <form name="addNewRoomForm" action="#" method="post"
+							class="form-horizontal" id="addNewRoomForm"
+							enctype="multipart/form-data">
+				<input type="hidden" id="csrfToken" value="${_csrf.token}" />
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}" />
+				<!-- Get User information like userid or user name -->
+				<input type="hidden" id="userId" value="${user.userId}" />
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="buildingCombo">Select Roll<span class="require-field">*</span></label>
+			<div class="col-sm-8">
+            <select name="buildingCombo" class="form-control select2 text-input" id="buildingCombo" style="width: 100%">
+            	<!-- <option value="1">Admin</option>
+            	<option value="2">Student</option>
+            	<option value="3">Teacher</option>
+            	<option value="4">Parent</option>
+            	<option value="5">Staff</option> -->
             </select>
-			
-		</div>
-		<div class="form-group col-md-3">
-			<label for="roomUsedId"> Used For</label>			
-			<select name="roomUsedId" class="form-control roomUsedId" id="roomUsedId">
-			</select>
-		</div>
-  	</div>
- 	<!-- =========================== Search Combo Section END ========================== -->
- 
- 
-    <!-- =========================== Search Datatable Room Start ======================== -->
-	<div class="box-body">
-		<div class="box-body table-responsive">
-            <table id="roomTable" class="table table-bordered table-striped">
-               <!-- table body part dynamically call from databases function
-               server side processing -->
-            </table>
-        </div><!-- /.box-body -->
-       
-	</div>
- <!-- =========================== Search Datatable Room END ========================== -->
-        </div>
-        <!-- ==================================./ box body end ==================================== -->
-<!-- =================================== Modal ========================================= -->
-<div class="modal fade" id="roomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <span><i class="fa fa-plus"></i></span> Add Class Room</h4>
-      </div>
-      <div class="modal-body">
-      <form action="#" method="post" class="form-horizontal" id="addNewRoomForm" autocomplete="off" spellcheck="true">
-				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
-				<input type="hidden" id="entryUser" value="${user.userid}"/>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="buildingId">Building Name<span class="require-field">*</span></label>
-			<div class="col-sm-8">
-				<select name="buildingModal" class="form-control validate[required] buildingId" id="buildingModal">
-				</select>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="roomUsedId">Used For<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="roll_id">Floor No<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="roomUsedModal" class="form-control  validate[required] roomUsedId" id="roomUsedModal">
-				</select>
+				<input id="floorNo" class="form-control validate[required]" type="text" value="" name="floorNo">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="floorNo"> Floor No<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="first_name"> Room Nmae<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="floorNo" class="form-control validate[required,custom[number]]" type="text" name="floorNo">
+				<input id="roomName" class="form-control validate[required]" type="text" value="" name="roomName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="roomName"> Room Name<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="middle_name">Room No</label>
 			<div class="col-sm-8">
-				<input id="roomName" class="form-control validate[required] text-input" type="text" name="roomName">
+				<input id="roomNo" class="form-control " type="text" value="" name="roomNo">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="roomNo">Room No. <span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="last_name">Total Seat<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="roomNo" class="form-control validate[required,custom[number]] text-input" type="text" value="" name="roomNo">
+				<input id="totalSeat" class="form-control validate[required]" type="text" value="" name="totalSeat">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="totalSeat">Total Seat<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="last_name">Room Size<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="totalSeat" class="form-control validate[required,custom[number]] text-input" type="text" name="totalSeat">
+				<input id="size" class="form-control validate[required]" type="text" value="" name="size">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="last_name">Room Used For<span class="require-field">*</span></label>
+			<div class="col-sm-8">
+				<input id="usedFor" class="form-control validate[required]" type="text" value="" name="usedFor">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">
+        	
+        	<input type="submit" value="Save" name="save_ins_information" class="btn btn-success">
         </div>
-      </form>
-        
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-success" id="roomSubmit">submit</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- =================================== Modal ========================================= -->
+        </form>
+        </div>
+        </div>
     </div>
     </div>
+    
+       <!-- =========================== Search Datatable Start ======================== -->
+	<div class="box-body">
+		<div class="box-body table-responsive">
+            <table id="roomTable"
+					class="table table-bordered table-striped">
+            </table>
+        </div>
+			<!-- /.box-body -->
+	</div>
 	</jsp:body>
 </t:dashboard>

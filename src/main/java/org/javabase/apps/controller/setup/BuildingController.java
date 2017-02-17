@@ -26,13 +26,12 @@ public class BuildingController {
     }
 	
 	@ResponseBody
-	@RequestMapping(value = "view",method = RequestMethod.GET)
+	@RequestMapping(value = "load",method = RequestMethod.GET)
 	public Map<String, Object> allBuilding() {
 		Map<String, Object> response= new HashMap<String, Object>();
 
 		List<BuildingInfo> buildingList = buildingInfoService.getAllBuildingInfos();
 
-		System.out.println("Calling view "+buildingList.size());
 		response.put("success", true);
 		response.put("data", buildingList);
 		return response;

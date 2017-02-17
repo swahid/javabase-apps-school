@@ -3,28 +3,37 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
+	//call class initialized
+	jbf.combo.loadBuilding('#buildingCombo','building/load');
 	
-	buildingDatatable();
 	
-	$("#addNewBuildingForm").submit(function(event) {
+//	datatable load at page load
+	roomDatatable();
+	
+	$("#addNewRoomForm").submit(function(event) {
 		
 		// form redirect stop
 		event.preventDefault();
 		
 		//call form validation code
-		var status =jbf.form.validate('#addNewBuildingForm');
+		var status =jbf.form.validate('#addNewRoomForm');
 		if (!status) {
 			return;
 		}
 		// get form data
 		var data = {}
-		data["buildName"]     	 = $("#buildName").val(),
-		data["totalRoom"]        = $("#totalRoom").val(),
-		data["floor"] 	  		 = $("#floor").val(),
-		data["constructionType"] = $("#constructionType").val(),
-		data["details"] 	   	 = $("#details").val(),
-		url = "building/add";
+		data["buildingId"]     = $("#buildingCombo").val(),
+		data["roomUsedId"]     = $("#roomUsedId").val(),
+		data["floorNo"] 	   = $("#floorNo").val(),
+		data["roomName"] 	   = $("#roomName").val(),
+		data["roomNo"] 	       = $("#roomNo").val(),
+		data["totalSeat"] 	   = $("#totalSeat").val(),
+		data["size"] 	       = $("#size").val(),
+		data["usedFor"]        = $("#usedFor").val(),
+		data["webAddress"] 	   = $("#webAddress").val(),
+		url = "room/add";
 		
+		console.log(data);
 		/*
 		 * this part for csrf token now closed but dont removed from code
 		 * apply future in code 
@@ -51,9 +60,8 @@ $(document).ready(function($) {
 				var message = resonse.message;
 				//success notification
 				success(message);
-				
-				buildingDatatable();
-				document.getElementById("addNewBuildingForm").reset()
+				roomDatatable();
+				document.getElementById("addNewRoomForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
@@ -65,27 +73,37 @@ $(document).ready(function($) {
 		
 	});
 	
+
 	
-	function buildingDatatable(param) {
-		var url = 'building/load';
-		$('#buildingTable').dataTable({
+	function roomDatatable(param) {
+		var url = 'room/load';
+		$('#roomTable').dataTable({
 			destroy	: true,
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
 		        	title	: 'Building Name',
-		        	data	: 'buildName'
+		        	data	: 'buildingId'
 				},{
-					title	: 'Total Room',
-					data	: 'totalRoom'
+					title	: 'Used Type',
+					data	: 'roomUsedId'
 				},{
-					title	: 'Floor',
-					data	: 'floor'
+					title	: 'Floor No',
+					data	: 'floorNo'
 				},{
-					title	: 'Construction',
-					data	: 'constructionType'
+					title	: 'Room Nmae',
+					data	: 'roomName'
 		    	},{
-		    		title	: 'Description',
-		    		data	: 'details'
+		    		title	: 'Room No',
+		    		data	: 'roomNo'
+		    	},{
+		    		title	: 'Total seat',
+		    		data	: 'totalSeat'
+		    	},{
+		    		title	: 'Room Size',
+		    		data	: 'size'
+		    	},{
+		    		title	: 'Used',
+		    		data	: 'usedFor'
 		    	},{
 		    		title	: 'Since',
 		    		data	: 'entryDate',
@@ -103,4 +121,5 @@ $(document).ready(function($) {
             ]
 	    });
 	};
+	
 });
