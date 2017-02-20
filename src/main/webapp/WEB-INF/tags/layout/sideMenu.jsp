@@ -50,6 +50,7 @@
 <li><a href='<c:url value="/dashboard/shift"/>'>Shift </a></li>
 <li><a href='<c:url value="/dashboard/insClass"/>'>Class </a></li>
 <li><a href='<c:url value="/dashboard/subject"/>'>Subject </a></li>
+<li><a href='<c:url value="/dashboard/classOnShift"/>'>Class On Shift </a></li>
 <li><a href='<c:url value="/dashboard/classSection"/>'>Class Section</a></li>
 <li><a href='<c:url value="/dashboard/acaSession"/>'>Academic Session</a></li>
 <li><a href='<c:url value="/dashboard/insSystemRole"/>'>Role Names</a></li>
