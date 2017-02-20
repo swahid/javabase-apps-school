@@ -13,29 +13,23 @@
         	<div class="box-header with-border">
             	<div class="box-title">
             		<span><i class="fa fa-plus"></i>
-					Room Used For</span>            	
+					Class Info Entry</span>            	
 				</div>
             </div>
             <div class="box-body">
-        <form name="addInsClassForm" action="#" method="post" class="form-horizontal" id="addInsClassForm" enctype="multipart/form-data">
+        <form name="addClassForm" action="#" method="post" class="form-horizontal" id="addClassForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<!-- Get User information like userid or user name -->
+				<input type="hidden" id="userId" value="${user.userId}"/>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="insShiftId">Select Shift<span class="require-field"></span></label>
+			<label class="col-sm-2 control-label" for="roll_id">Class Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<select name="insShiftId" class="form-control" id="insShiftId">
-
-				</select>
+				<input id="className" class="form-control validate[required]" type="text" value="" name="className">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="className">Class Name</label>
-			<div class="col-sm-8">
-				<input id="className" class="form-control " type="text" value="" name="className">
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="details">Note</label>
+			<label class="col-sm-2 control-label" for="middle_name">Note </label>
 			<div class="col-sm-8">
 				<input id="details" class="form-control " type="text" value="" name="details">
 			</div>
@@ -49,15 +43,12 @@
         </div>
     </div>
     </div>
-    
-      
-    <div class="box-body">
+        <!-- =========================== Search Datatable Start ======================== -->
+	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="classTable" class="table table-bordered table-striped">
-               <!-- table body part dynamically call from databases function
-               server side processing -->
             </table>
-        </div>
+        </div><!-- /.box-body -->
 	</div>
 	</jsp:body>
 </t:dashboard>

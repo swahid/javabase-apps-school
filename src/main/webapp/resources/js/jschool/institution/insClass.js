@@ -3,23 +3,34 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
-	//For load institution
-	getInsShiftData();
-//	call insClass info initialized method
-	$("#addInsClassForm").submit(function(event) {
+	
+	buildingDatatable();
+	
+	$("#addClassForm").submit(function(event) {
 		
+		// form redirect stop
 		event.preventDefault();
+		
+		//call form validation code
+		var status =jbf.form.validate('#addClassForm');
+		if (!status) {
+			return;
+		}
+		// get form data
 		var data = {}
-		data["insShiftId"]    = $("#insShiftId").val(),
-		data["className"]    = $("#className").val(),
-		data["details"]       = $("#details").val(),
-		url = "insClass/addInsClass";
+		data["className"]      = $("#className").val(),
+		data["details"]        = $("#details").val(),
+		url = "insClass/add";
 		
+		/*
+		 * this part for csrf token now closed but dont removed from code
+		 * apply future in code 
+		 */ 
 		
-		var token = $('#csrfToken').val();
-		var header = $('#csrfHeader').val();
+		/*var token = $('#csrfToken').val();
+		var header = $('#csrfHeader').val();*/
 		/*	
-		 * if in spring aplication csrf enable
+		 * if in spring application csrf enable
 		 * send csrf parameter in header otherwise 405 error
 		 */
 		$.ajax({
@@ -27,59 +38,44 @@ $(document).ready(function($) {
 			url      : url,
 			data 	 : JSON.stringify(data),
 			dataType : 'json',
-			beforeSend: function(xhr) {
+			contentType: "application/json; charset=utf-8",
+			/*beforeSend: function(xhr) {
 		        xhr.setRequestHeader("Accept", "application/json");
 		        xhr.setRequestHeader("Content-Type", "application/json");
 		        xhr.setRequestHeader(header, token);
-		    },
+		    },*/
 			success  : function(resonse) {
-				var message = "Add Success";
-				//				$("#msg").html(data.message);
-				classDatatable("#classTable", 'insClass/load','' );				
-				console.log(resonse.data);
-				alert(resonse.message);
-				data = null;
+				var message = resonse.message;
+				//success notification
+				success(message);
 				
-				document.getElementById("addInsClassForm").reset()
+				buildingDatatable();
+				document.getElementById("addNewBuildingForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
-				alert("Add falied");
-//						$("#msg").html(e.message);
+				error("Add falied");
 				
-				data = null;
-				document.getElementById("addInsClassForm").reset()
+				
 			}
 		});
 		
 	});
 	
-
-	// call classDatabase function for initialized datatable
-	classDatatable("#classTable", 'insClass/load','' );
 	
-	/*
-	 * Datable get building function
-	 */
-	function classDatatable(id, url, value) {
-		
-		$(id).dataTable({
+	function buildingDatatable(param) {
+		var url = 'insClass/load';
+		$('#classTable').dataTable({
 			destroy	: true,
-	        data	: jbf.ajax.getLoadData(url, value),
+	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Class Id',
-		        	data	: 'classId'
-				},{
-					title	: 'Shift ',
-					data	: 'insShiftId'
-				},{
-					title	: 'Class Name',
-					data	: 'className'
+		        	title	: 'Class Name',
+		        	data	: 'className'
 				},{
 					title	: 'Note',
 					data	: 'details'
-		    	},{
-		    		title	: 'Date',
+				},{
+		    		title	: 'Since',
 		    		data	: 'entryDate',
 		    		render  : function (date) {
 		    			if (date) {
