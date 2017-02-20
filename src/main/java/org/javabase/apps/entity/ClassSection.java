@@ -21,7 +21,7 @@ public class ClassSection implements java.io.Serializable {
 
 	private static final long serialVersionUID = 6759632239272891147L;
 	private Integer secId;
-    private int classId;
+    private int shiftClaId;
     private String secName;
     private String details;
     private Date entryDate;
@@ -41,15 +41,15 @@ public class ClassSection implements java.io.Serializable {
         this.secId = secId;
     }
 
-    @Column(name = "class_id")
-    public int getClassId() {
-        return this.classId;
+    @Column(name = "shift_cla_id")
+    public Integer getShiftClaId() {
+    	return shiftClaId;
     }
-
-    public void setClassId(int classId) {
-        this.classId = classId;
+    
+    public void setShiftClaId(Integer shiftClaId) {
+    	this.shiftClaId = shiftClaId;
     }
-
+    
     @Column(name = "sec_name", length = 45)
     public String getSecName() {
         return this.secName;

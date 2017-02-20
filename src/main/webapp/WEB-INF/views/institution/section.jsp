@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/classOnShift.js' />"></script> 
+	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/section.js' />"></script> 
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 
@@ -17,7 +17,7 @@
 				</div>
             </div>
             <div class="box-body">
-        <form name="addClassOnShiftForm" action="#" method="post" class="form-horizontal" id="addClassOnShiftForm" enctype="multipart/form-data">
+        <form name="addSectionForm" action="#" method="post" class="form-horizontal" id="addSectionForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
 				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 				<!-- Get User information like userid or user name -->
@@ -38,7 +38,12 @@
             </select>
 			</div>
 		</div>
-		
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="middle_name">Section Name</label>
+			<div class="col-sm-8">
+				<input id="secName" class="form-control " type="text" value="" name="secName">
+			</div>
+		</div>
 		<div class="col-sm-offset-2 col-sm-8">
         	
         	<input type="submit" value="Save" name="save_ins_information" class="btn btn-success">
@@ -51,7 +56,7 @@
         <!-- =========================== Search Datatable Start ======================== -->
 	<div class="box-body">
 		<div class="box-body table-responsive">
-            <table id="classOnShiftTable" class="table table-bordered table-striped">
+            <table id="sectionDataTable" class="table table-bordered table-striped">
             </table>
         </div><!-- /.box-body -->
 	</div>

@@ -44,7 +44,15 @@ jbf.combo||(function(e){
 				$(id).append("<option value=''></option>")
 				$(id).append("<option value="+ data[i].insShiftId +">"+data[i].shiftName+"</option>")
 			}
-		}
+		},
+    classOnShiftCombo: function(id, url, param) {
+    	var data = jbf.ajax.load(url, param);
+    	$(id).empty();
+    	for (var i = 0; i < data.length; i++) {
+    		$(id).append("<option value=''></option>")
+    		$(id).append("<option value="+ data[i].insShiftId +">"+data[i].shiftName+"</option>")
+    	}
+    }
     };
     e.combo = combo;
 }(jbf));

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "dashboard/classSection")
+@RequestMapping(value = "dashboard/section")
 public class InsClassSectionController {
 	
 	@Autowired
@@ -23,7 +23,7 @@ public class InsClassSectionController {
 	
 	@RequestMapping(method = RequestMethod.GET)
     public String roomPage() {
-        return "institution/classSection";
+        return "institution/section";
     }
 	
 	@ResponseBody
@@ -32,7 +32,6 @@ public class InsClassSectionController {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
 		List<ClassSection> classSectionList = classSectionService.getAllClassSections();
-//		List<ClassSection> classSectionList = classSectionService.getAllClassSectionsByParam(param);
 			
 		response.put("success", true);
 		response.put("data", classSectionList);
@@ -41,7 +40,7 @@ public class InsClassSectionController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="addInsClassSection", method = RequestMethod.POST)
+	@RequestMapping(value="add", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody ClassSection classSection) {
 		Map<String, Object> response= new HashMap<String, Object>();
 		Boolean save = classSectionService.addClassSection(classSection);
