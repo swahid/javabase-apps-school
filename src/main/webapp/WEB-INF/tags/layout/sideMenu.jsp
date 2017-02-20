@@ -47,7 +47,7 @@
 <li><a href='<c:url value="/dashboard/building"/>'>Building </a></li>
 <li><a href='<c:url value="/dashboard/roomUsed"/>'>Room Used </a></li>
 <li><a href='<c:url value="/dashboard/room"/>'>Room </a></li>
-<li><a href='<c:url value="/dashboard/insShift"/>'>Shift </a></li>
+<li><a href='<c:url value="/dashboard/shift"/>'>Shift </a></li>
 <li><a href='<c:url value="/dashboard/insClass"/>'>Class </a></li>
 <li><a href='<c:url value="/dashboard/classSection"/>'>Class Section</a></li>
 <li><a href='<c:url value="/dashboard/acaSession"/>'>Academic Session</a></li>

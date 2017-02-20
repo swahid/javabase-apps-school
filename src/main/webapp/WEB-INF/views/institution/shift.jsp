@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/insShift.js' />"></script> 
+	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/shift.js' />"></script> 
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 
@@ -13,35 +13,37 @@
         	<div class="box-header with-border">
             	<div class="box-title">
             		<span><i class="fa fa-plus"></i>
-					Room Used For</span>            	
+					Shift Entry</span>            	
 				</div>
             </div>
             <div class="box-body">
-        <form name="addInsShiftForm" action="#" method="post" class="form-horizontal" id="addInsShiftForm" enctype="multipart/form-data">
+        <form name="addNewShiftForm" action="#" method="post" class="form-horizontal" id="addNewShiftForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
-						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
+				<!-- Get User information like userid or user name -->
+				<input type="hidden" id="userId" value="${user.userId}"/>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="shiftName"> Shift Name<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="roll_id">Shift Name<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="shiftName" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="shiftName">
+				<input id="shiftName" class="form-control validate[required]" type="text" value="" name="shiftName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="startTime">Start Time</label>
+			<label class="col-sm-2 control-label" for="middle_name">Start Time</label>
 			<div class="col-sm-8">
 				<input id="startTime" class="form-control " type="text" value="" name="startTime">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="startTime">End Time</label>
+			<label class="col-sm-2 control-label" for="middle_name">End Time</label>
 			<div class="col-sm-8">
 				<input id="entTme" class="form-control " type="text" value="" name="entTme">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="details">Description</label>
+			<label class="col-sm-2 control-label" for="last_name">Description<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="details" class="form-control " type="text" value="" name="details">
+				<input id="details" class="form-control validate[required,custom[onlyLetterSp]] text-input" type="text" value="" name="details">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">
@@ -53,14 +55,12 @@
         </div>
     </div>
     </div>
-    
-    <div class="box-body">
+        <!-- =========================== Search Datatable Start ======================== -->
+	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="shiftTable" class="table table-bordered table-striped">
-               <!-- table body part dynamically call from databases function
-               server side processing -->
             </table>
-        </div>
+        </div><!-- /.box-body -->
 	</div>
 	</jsp:body>
 </t:dashboard>
