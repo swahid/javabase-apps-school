@@ -39,11 +39,12 @@ public class empPostController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="addEmpPost", method = RequestMethod.POST)
+	@RequestMapping(value="add", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody EmpPost impPost) {
 		Map<String, Object> response= new HashMap<String, Object>();
 		Boolean save = impPostService.addEmpPost(impPost);
 		
+		System.out.println("Calling ............");
 		if (save) {
 			response.put("suceess", true);
 	        response.put("message", "Add Post Sucess");
