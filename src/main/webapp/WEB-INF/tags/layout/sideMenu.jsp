@@ -52,9 +52,10 @@
 <li><a href='<c:url value="/dashboard/subject"/>'>Subject </a></li>
 <li><a href='<c:url value="/dashboard/classOnShift"/>'>Class On Shift </a></li>
 <li><a href='<c:url value="/dashboard/section"/>'>Class Section</a></li>
-<li><a href='<c:url value="/dashboard/acaSession"/>'>Academic Session</a></li>
+<li><a href='<c:url value="/dashboard/session"/>'>Academic Session</a></li>
 <li><a href='<c:url value="/dashboard/insSystemRole"/>'>Role Names</a></li>
 <li><a href='<c:url value="/dashboard/empPost"/>'>Employee Post</a></li>
+<li><a href='<c:url value="/dashboard/teachersPost"/>'>Teachers Post</a></li>
   </ul>
 </li>
 </sec:authorize>

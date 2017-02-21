@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/tags/layout/includes.jsp"%>
 <t:dashboard>
 	<jsp:attribute name="header">
-	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/acaSession.js' />"></script> 
+	        <script type="text/javascript" src="<c:url value='/resources/js/jschool/institution/session.js' />"></script> 
 	</jsp:attribute>
 	<jsp:attribute name="contentHeader">
 
@@ -17,7 +17,7 @@
 				</div>
             </div>
             <div class="box-body">
-        <form name="addAcaSessionForm" action="#" method="post" class="form-horizontal" id="addAcaSessionForm" enctype="multipart/form-data">
+        <form name="addSessionForm" action="#" method="post" class="form-horizontal" id="addSessionForm" enctype="multipart/form-data">
 				<input type="hidden" id="csrfToken" value="${_csrf.token}"/>
 						<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 		<div class="form-group">
@@ -49,7 +49,7 @@
     </div>
       <div class="box-body">
 		<div class="box-body table-responsive">
-            <table id="acaSessionTable" class="table table-bordered table-striped">
+            <table id="sessionTable" class="table table-bordered table-striped">
                <!-- table body part dynamically call from databases function
                server side processing -->
             </table>
