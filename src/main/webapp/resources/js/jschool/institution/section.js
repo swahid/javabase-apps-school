@@ -75,8 +75,11 @@ $(document).ready(function($) {
 			destroy	: true,
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Class Nmae',
+		        	title	: 'Shift Name',
 		        	data	: 'shiftClaId'
+				},{
+					title	: 'Class Name',
+					data	: 'secName'
 				},{
 					title	: 'Section Name',
 					data	: 'secName'

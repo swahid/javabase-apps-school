@@ -65,10 +65,10 @@ $(document).ready(function($) {
 		        	title	: 'Post Name',
 		        	data	: 'subName'
 				},{
-					title	: 'Job',
+					title	: 'Designation',
 					data	: 'degignation'
 				},{
-					title	: 'Description',
+					title	: 'Key Job',
 					data	: 'activity'
 				},{
 					title	: 'Description',

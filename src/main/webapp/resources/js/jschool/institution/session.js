@@ -60,13 +60,13 @@ $(document).ready(function($) {
 			destroy	: true,
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Post Name',
+		        	title	: 'Session',
 		        	data	: 'session'
 				},{
-					title	: 'Job',
+					title	: 'Duration',
 					data	: 'duration'
 				},{
-					title	: 'Description',
+					title	: 'Level',
 					data	: 'level'
 				},{
 		    		title	: 'Entry Date',
