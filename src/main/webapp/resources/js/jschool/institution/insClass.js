@@ -4,7 +4,7 @@
  */
 $(document).ready(function($) {
 	
-	buildingDatatable();
+	classDatatable();
 	
 	$("#addClassForm").submit(function(event) {
 		
@@ -49,8 +49,8 @@ $(document).ready(function($) {
 				//success notification
 				success(message);
 				
-				buildingDatatable();
-				document.getElementById("addNewBuildingForm").reset()
+				classDatatable();
+				document.getElementById("addClassForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
@@ -63,7 +63,7 @@ $(document).ready(function($) {
 	});
 	
 	
-	function buildingDatatable(param) {
+	function classDatatable(param) {
 		var url = 'insClass/load';
 		$('#classTable').dataTable({
 			destroy	: true,
