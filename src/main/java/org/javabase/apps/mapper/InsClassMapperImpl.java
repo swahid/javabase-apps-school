@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 /**
  * @author  Rashedunnabi <rashedunnabi21@gmail.com>
@@ -42,12 +43,15 @@ public class InsClassMapperImpl implements InsClassMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<InsClass> getAllInsClasssByParam(Map<String, Object> params) {
-		String entryUser = params.get("entryUser").toString();
-		String joinhql = "From InsClass c where c.insShiftId in (select s.insShiftId From InsShift s " +
-						" where s.insId in (select i.insId from InstitutionInfo i where i.entryUser = :entryUser))";
+		String shiftParam = params.get("shiftParam").toString();
+		String hql = null;
+		Query query = null;
 		
-		Query query = session.getCurrentSession().createQuery(joinhql);
-		query.setParameter("entryUser", Integer.valueOf(entryUser) );
+		if (!StringUtils.isEmpty(shiftParam)) {
+		    hql = "From InsClass where insShiftId = :insShiftId";
+		    query= session.getCurrentSession().createQuery(hql);
+		    query.setParameter("insShiftId", Integer.valueOf(shiftParam));
+        }
 		
 		List<InsClass> classList = query.list();
 		

@@ -5,7 +5,15 @@
 $(document).ready(function($) {
 	//call class initialized
 	jbf.combo.shiftCombo('#shiftCombo','shift/load');
-	jbf.combo.loadClass('#classCombo','insClass/load');
+	
+	$("#shiftCombo").on('change', function (evt) {
+	    var selectShiftParam = "shiftParam=" +($(this).select2('val'));
+	    
+	    jbf.combo.loadClass('#classCombo','insClass/load',selectShiftParam);
+	    
+	  })
+	
+	
 	
 	
 //	datatable load at page load

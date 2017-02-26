@@ -1,20 +1,12 @@
 package org.javabase.apps.controller.setup;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.javabase.apps.entity.BuildingInfo;
 import org.javabase.apps.entity.RoomInfo;
-import org.javabase.apps.entity.User;
 import org.javabase.apps.service.RoomInfoService;
-import org.javabase.apps.service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "dashboard/room")
 public class RoomController {
-	
-	private static final Logger log = LoggerFactory.getLogger(RoomController.class);
 	
 	@Autowired
 	RoomInfoService roomInfoService;
