@@ -20,7 +20,7 @@ $(document).ready(function($) {
 		var data = {}
 		data["shiftName"]    = $("#shiftName").val(),
 		data["startTime"]    = $("#startTime").val(),
-		data["entTme"]       = $("#entTme").val(),
+		data["entTme"]       = $("#endTime").val(),
 		data["details"] 	 = $("#details").val(),
 		url = "shift/add";
 		

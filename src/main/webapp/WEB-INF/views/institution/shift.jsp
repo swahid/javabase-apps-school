@@ -28,17 +28,29 @@
 				<input id="shiftName" class="form-control validate[required]" type="text" value="" name="shiftName">
 			</div>
 		</div>
+		 <!-- time Picker -->
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="middle_name">Start Time</label>
 			<div class="col-sm-8">
-				<input id="startTime" class="form-control " type="text" value="" name="startTime">
-			</div>
+				<div class="input-group bootstrap-timepicker">
+	                <input type="text" class="form-control timepicker" id="startTime">
+	                <div class="input-group-addon">
+	                <i class="fa fa-clock-o"></i>
+	                </div>
+	            </div>
+            </div>
 		</div>
+		 <!-- time Picker -->
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="middle_name">End Time</label>
 			<div class="col-sm-8">
-				<input id="entTme" class="form-control " type="text" value="" name="entTme">
-			</div>
+				<div class="input-group bootstrap-timepicker">
+	                <input type="text" class="form-control timepicker" id="endTime">
+	                <div class="input-group-addon">
+	                <i class="fa fa-clock-o"></i>
+	                </div>
+	            </div>
+            </div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="last_name">Description<span class="require-field">*</span></label>

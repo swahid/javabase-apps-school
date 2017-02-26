@@ -7,7 +7,13 @@ $(document).ready(function($) {
 	$('.select2').select2({
 		placeholder	: "Select Your Option ...."
 	});
-		
+	//Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+    $('.datepicker').datepicker({
+        autoclose: true
+      });
 		
 });
 
