@@ -6,6 +6,7 @@ $(document).ready(function($) {
 	
 	classDatatable();
 	
+	
 	$("#addClassForm").submit(function(event) {
 		
 		// form redirect stop

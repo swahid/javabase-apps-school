@@ -30,16 +30,11 @@ public class InsClassController {
 	
 	@ResponseBody
 	@RequestMapping(value = "load",method = RequestMethod.GET)
-	public Map<String, Object> allInsClass(@RequestParam("shiftParam") int shiftParam) {
+	public Map<String, Object> allInsClass() {
 		Map<String, Object> response= new HashMap<String, Object>();
 		List<InsClass> insClassList = new ArrayList<>();
 		
-		if (!StringUtils.isEmpty(shiftParam)) {
-		    response.put("shiftParam", shiftParam);
-		    insClassList = insClassService.getAllInsClasssByParam(response);
-        }else {
             insClassList = insClassService.getAllInsClasss();
-        }
 			
 		response.put("success", true);
 		response.put("data", insClassList);
