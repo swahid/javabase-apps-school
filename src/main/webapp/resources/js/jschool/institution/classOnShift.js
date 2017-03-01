@@ -3,10 +3,15 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
-	//call class initialized
+	//call insClass initialized
 	jbf.combo.shiftCombo('#shiftCombo','shift/load');
-	jbf.combo.loadClass('#classCombo','insClass/load');
 	
+	
+	$("#shiftCombo").on('change', function(){
+	    var shiftId = "shiftId="+this.value;
+	    
+	    jbf.combo.loadClass('#classCombo','insClass/loadbyShift',shiftId);
+	  });
 	
 //	datatable load at page load
 	classOnShiftDatatable();

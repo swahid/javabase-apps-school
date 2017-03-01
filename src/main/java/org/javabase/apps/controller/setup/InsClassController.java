@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -39,7 +40,20 @@ public class InsClassController {
 		return response;
 		
 	}
-	
+	@ResponseBody
+    @RequestMapping(value = "loadbyShift",method = RequestMethod.GET)
+    public Map<String, Object> loadbyShift(@RequestParam("shiftId") int shiftId) {
+        Map<String, Object> response= new HashMap<String, Object>();
+        
+        System.out.println(shiftId);
+        
+        List<InsClass> insClassList = insClassService.getAllInsClasss();
+        
+        response.put("success", true);
+        response.put("data", insClassList);
+        return response;
+        
+    }
 	@ResponseBody
 	@RequestMapping(value="add", method = RequestMethod.POST)
 	public Map<String, Object> save(@RequestBody InsClass insClass) {
