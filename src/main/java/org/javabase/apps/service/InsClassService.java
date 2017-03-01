@@ -14,6 +14,7 @@ public interface InsClassService {
 	
 	public List<InsClass> getAllInsClasss();
 	public List<InsClass> getAllInsClasssByParam(Map<String, Object> params);
+	public List<InsClass> getClassByShift(int shiftId);
 	public InsClass getInsClassById(int insClassId);
 	public boolean addInsClass(InsClass insClass);
 	public boolean updateInsClass(InsClass insClass);

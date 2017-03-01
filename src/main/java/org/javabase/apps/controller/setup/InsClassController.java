@@ -45,9 +45,7 @@ public class InsClassController {
     public Map<String, Object> loadbyShift(@RequestParam("shiftId") int shiftId) {
         Map<String, Object> response= new HashMap<String, Object>();
         
-        System.out.println(shiftId);
-        
-        List<InsClass> insClassList = insClassService.getAllInsClasss();
+        List<InsClass> insClassList = insClassService.getClassByShift(shiftId);
         
         response.put("success", true);
         response.put("data", insClassList);

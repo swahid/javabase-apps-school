@@ -6,12 +6,11 @@ $(document).ready(function($) {
 	//call class initialized
 	jbf.combo.shiftCombo('#shiftCombo','shift/load');
 	
-	$("#shiftCombo").on('change', function (evt) {
-	    var selectShiftParam = "shiftParam=" +($(this).select2('val'));
-	    
-	    jbf.combo.loadClass('#classCombo','insClass/load',selectShiftParam);
-	    
-	  })
+	$("#shiftCombo").on('change', function(){
+        var shiftId = "shiftId="+this.value;
+        
+        jbf.combo.loadClass('#classCombo','insClass/loadbyShift',shiftId);
+      });
 	
 	
 	

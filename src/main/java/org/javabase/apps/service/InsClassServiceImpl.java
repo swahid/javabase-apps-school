@@ -52,4 +52,9 @@ public class InsClassServiceImpl implements InsClassService{
 		return insClassMapper.deleteInsClass(insClassId);
 	}
 
+    @Override
+    public List<InsClass> getClassByShift(int shiftId) {
+        return insClassMapper.getClassByShift(shiftId);
+    }
+
 }

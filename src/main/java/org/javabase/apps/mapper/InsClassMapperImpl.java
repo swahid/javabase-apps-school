@@ -12,7 +12,6 @@ import org.javabase.apps.entity.InsClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -26,18 +25,16 @@ import org.springframework.util.StringUtils;
 @SuppressWarnings("unchecked")
 public class InsClassMapperImpl implements InsClassMapper{
 
-	@Autowired
+    private static final Logger log = LoggerFactory.getLogger(InsClassMapperImpl.class);
+	
+    @Autowired
 	SessionFactory session;
 	
-	@Autowired
-	private HibernateTemplate  hibernateTemplate;
-	private static final Logger log = LoggerFactory.getLogger(InsClassMapperImpl.class);
 	
 	@Override
 	@Transactional(readOnly=true)
 	public List<InsClass> getAllInsClasss() {
-		String hql = "FROM InsClass";
-		return (List<InsClass>) hibernateTemplate.find(hql);
+		return session.getCurrentSession().createCriteria(InsClass.class).list();
 	}
 	
 	@Override
@@ -61,14 +58,14 @@ public class InsClassMapperImpl implements InsClassMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public InsClass getInsClassById(int insClassId) {
-		return hibernateTemplate.get(InsClass.class, insClassId);
+		return (InsClass) session.getCurrentSession().get(InsClass.class, insClassId);
 	}
 
 	@Override
 	@Transactional
 	public boolean addInsClass(InsClass insClass) {
 		try {
-			hibernateTemplate.save(insClass);
+			session.getCurrentSession().save(insClass);
 			
 			return true;
 		} catch (Exception e) {
@@ -81,7 +78,7 @@ public class InsClassMapperImpl implements InsClassMapper{
 	@Transactional
 	public boolean updateInsClass(InsClass insClass) {
 		try {
-			hibernateTemplate.update(insClass);
+			session.getCurrentSession().update(insClass);
 			
 			return true;
 		} catch (Exception e) {
@@ -94,7 +91,7 @@ public class InsClassMapperImpl implements InsClassMapper{
 	@Transactional
 	public boolean deleteInsClass(int insClassId) {
 		try {
-			hibernateTemplate.delete(insClassId);
+			session.getCurrentSession().delete(insClassId);
 			
 			return true;
 		} catch (Exception e) {
@@ -102,5 +99,21 @@ public class InsClassMapperImpl implements InsClassMapper{
 			return false;
 		}
 	}
+
+    @Override
+    @Transactional(readOnly=true)
+    public List<InsClass> getClassByShift(int shiftId) {
+        
+        String hql = "Select c.* From ins_class c"+
+                     " join class_on_shift cs on c.class_id = cs.class_id"+
+                     " where cs.ins_shift_id = :shiftId";
+        
+        Query query = (Query) session.getCurrentSession().createSQLQuery(hql).addEntity(InsClass.class);
+        
+        query.setParameter("shiftId", shiftId);
+        
+        List<InsClass> list = query.list();
+        return list;
+    }
 
 }
