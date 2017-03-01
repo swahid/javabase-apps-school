@@ -12,7 +12,6 @@ import org.javabase.apps.entity.ClassSection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,18 +24,15 @@ import org.springframework.transaction.annotation.Transactional;
 @SuppressWarnings("unchecked")
 public class ClassSectionMapperImpl implements ClassSectionMapper{
 
-	@Autowired
-	SessionFactory session;
+    private static final Logger log = LoggerFactory.getLogger(ClassSectionMapperImpl.class);
 	
-	@Autowired
-	private HibernateTemplate  hibernateTemplate;
-	private static final Logger log = LoggerFactory.getLogger(ClassSectionMapperImpl.class);
+    @Autowired
+	SessionFactory session;
 	
 	@Override
 	@Transactional(readOnly=true)
 	public List<ClassSection> getAllClassSections() {
-		String hql = "FROM ClassSection";
-		return (List<ClassSection>) hibernateTemplate.find(hql);
+		return session.getCurrentSession().createCriteria(ClassSection.class).list();
 	}
 	
 	@Override
@@ -57,14 +53,14 @@ public class ClassSectionMapperImpl implements ClassSectionMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public ClassSection getClassSectionById(int classSectionId) {
-		return hibernateTemplate.get(ClassSection.class, classSectionId);
+		return (ClassSection) session.getCurrentSession().get(ClassSection.class, classSectionId);
 	}
 
 	@Override
 	@Transactional
 	public boolean addClassSection(ClassSection classSection) {
 		try {
-			hibernateTemplate.save(classSection);
+			session.getCurrentSession().save(classSection);
 			
 			return true;
 		} catch (Exception e) {
@@ -77,7 +73,7 @@ public class ClassSectionMapperImpl implements ClassSectionMapper{
 	@Transactional
 	public boolean updateClassSection(ClassSection classSection) {
 		try {
-			hibernateTemplate.update(classSection);
+			session.getCurrentSession().update(classSection);
 			
 			return true;
 		} catch (Exception e) {
@@ -90,7 +86,7 @@ public class ClassSectionMapperImpl implements ClassSectionMapper{
 	@Transactional
 	public boolean deleteClassSection(int classSectionId) {
 		try {
-			hibernateTemplate.delete(classSectionId);
+			session.getCurrentSession().delete(classSectionId);
 			
 			return true;
 		} catch (Exception e) {

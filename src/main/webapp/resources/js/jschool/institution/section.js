@@ -31,8 +31,11 @@ $(document).ready(function($) {
 		// get form data
 		var data = {}
 		data["shiftClaId"]  = $("#classCombo").val(),
+		data["className"]  = $("#classCombo :selected").text(),
+		data["shiftName"]  = $("#shiftCombo :selected").text(),
 		data["secName"]     = $("#secName").val(),
-		data["details"]     = $("#details").val(),
+		data["entryUser"]     = $("#username").val(),
+		data["entryDate"]     = new Date(),
 		url = "section/add";
 		
 		/*
@@ -82,26 +85,25 @@ $(document).ready(function($) {
 			destroy	: true,
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Shift Name',
-		        	data	: 'shiftClaId'
-				},{
-					title	: 'Class Name',
-					data	: 'secName'
-				},{
-					title	: 'Section Name',
-					data	: 'secName'
-				},{
-		    		title	: 'Since',
-		    		data	: 'entryDate',
-		    		render  : function (date) {
-		    			if (date) {
-		    				return moment(date).format("DD MMM YYYY");
-						}else{
-							return "";
-						}
-		    		}
-		    	}
-	        ],
+                title   : 'Class Name',
+                data    : 'className'
+            },{
+	        	title	: 'Shift Name',
+	        	data	: 'shiftName'
+			},{
+                title   : 'Section Name',
+                data    : 'secName'
+            },{
+	    		title	: 'Since',
+	    		data	: 'entryDate',
+	    		render  : function (date) {
+	    			if (date) {
+	    				return moment(date).format("DD MMM YYYY");
+					}else{
+						return "";
+					}
+	    		}
+	    	}],
 	        columnDefs	: [
                {"className": "dt-center", "targets": "_all"}
             ]
