@@ -77,8 +77,6 @@ $(document).ready(function($) {
 		
 	});
 	
-
-	
 	function sectionDatatable(param) {
 		var url = 'section/load';
 		$('#sectionDataTable').dataTable({
