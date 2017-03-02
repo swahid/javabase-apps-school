@@ -11,7 +11,6 @@ import org.javabase.apps.entity.ClassOnShift;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,38 +23,34 @@ import org.springframework.transaction.annotation.Transactional;
 @SuppressWarnings("unchecked")
 public class ClassOnShiftMapperImpl implements ClassOnShiftMapper{
 
-	@Autowired
-	SessionFactory session;
+    private static final Logger log = LoggerFactory.getLogger(ClassOnShiftMapperImpl.class);
 	
-	@Autowired
-	private HibernateTemplate  hibernateTemplate;
-	private static final Logger log = LoggerFactory.getLogger(ClassOnShiftMapperImpl.class);
+    @Autowired
+	SessionFactory session;
 	
 	@Override
 	@Transactional(readOnly=true)
 	public List<ClassOnShift> getAllClassOnShifts() {
-		String hql = "FROM ClassOnShift";
-		return (List<ClassOnShift>) hibernateTemplate.find(hql);
+		return session.getCurrentSession().createCriteria(ClassOnShift.class).list();
 	}
 	
 	@Override
 	@Transactional(readOnly=true)
 	public List<ClassOnShift> getAllClassOnShiftsByParam(Map<String, Object> params) {
-		String hql = "FROM ClassOnShift";
-		return (List<ClassOnShift>) hibernateTemplate.find(hql);
+		return session.getCurrentSession().createCriteria(ClassOnShift.class).list();
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public ClassOnShift getClassOnShiftById(int classOnShiftId) {
-		return hibernateTemplate.get(ClassOnShift.class, classOnShiftId);
+		return (ClassOnShift) session.getCurrentSession().get(ClassOnShift.class, classOnShiftId);
 	}
 
 	@Override
 	@Transactional
 	public boolean addClassOnShift(ClassOnShift classOnShift) {
 		try {
-			hibernateTemplate.save(classOnShift);
+			session.getCurrentSession().save(classOnShift);
 			
 			return true;
 		} catch (Exception e) {
@@ -68,7 +63,7 @@ public class ClassOnShiftMapperImpl implements ClassOnShiftMapper{
 	@Transactional
 	public boolean updateClassOnShift(ClassOnShift classOnShift) {
 		try {
-			hibernateTemplate.update(classOnShift);
+			session.getCurrentSession().update(classOnShift);
 			
 			return true;
 		} catch (Exception e) {
@@ -81,7 +76,7 @@ public class ClassOnShiftMapperImpl implements ClassOnShiftMapper{
 	@Transactional
 	public boolean deleteClassOnShift(int classOnShiftId) {
 		try {
-			hibernateTemplate.delete(classOnShiftId);
+			session.getCurrentSession().delete(classOnShiftId);
 			
 			return true;
 		} catch (Exception e) {

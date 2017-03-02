@@ -9,6 +9,7 @@ import org.javabase.apps.entity.InsClass;
 import org.javabase.apps.service.InsClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +40,18 @@ public class InsClassController {
 		response.put("data", insClassList);
 		return response;
 		
+	}
+	@ResponseBody
+	@RequestMapping(value = "load/{classId}",method = RequestMethod.GET)
+	public Map<String, Object> loadClassById(@PathVariable int classId) {
+	    Map<String, Object> response= new HashMap<String, Object>();
+	    
+	    InsClass insclass = insClassService.getInsClassById(classId);
+	    
+	    response.put("success", true);
+	    response.put("data", insclass);
+	    return response;
+	    
 	}
 	@ResponseBody
     @RequestMapping(value = "loadbyShift",method = RequestMethod.GET)

@@ -23,10 +23,11 @@ $(document).ready(function($) {
 			return;
 		}
 		// get form data
-		var data = {}
-		data["classId"]  = $("#classCombo").val(),
-		data["insShiftId"]    = $("#shiftCombo").val(),
-		url = "classOnShift/add";
+		var data = {},
+		    url  = "classOnShift/add";
+		data["classId"]       = $("#classCombo").val();
+		data["insShiftId"]    = $("#shiftCombo").val();
+		data["entryDate"]     = new Date();
 		
 		/*
 		 * this part for csrf token now closed but dont removed from code
@@ -52,14 +53,14 @@ $(document).ready(function($) {
 		    },*/
 			success  : function(resonse) {
 				var message = resonse.message;
+				classOnShiftDatatable();
 				//success notification
 				success(message);
-				classOnShiftDatatable();
 				document.getElementById("addClassOnShiftForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
-				error("Add falied");
+				error("unable to save");
 				
 				
 			}
@@ -76,10 +77,30 @@ $(document).ready(function($) {
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
 		        	title	: 'Class Name',
-		        	data	: 'classId'
+		        	data	: 'classId',
+		        	render  : function (classId) {
+                        if (classId) {
+                            var url = 'insClass/load/'+classId,
+                                data = jbf.ajax.load(url);
+                            
+                            return data.className;
+                        }else{
+                            return "Not Found";
+                        }
+                    }
 				},{
 					title	: 'Shift Name',
-					data	: 'insShiftId'
+					data	: 'insShiftId',
+					render  : function (insShiftId) {
+                        if (insShiftId) {
+                            var url = 'shift/load/'+insShiftId;
+                                data = jbf.ajax.load(url);
+                            
+                            return data.shiftName;
+                        }else{
+                            return "Not Found";
+                        }
+                    }
 				},{
 		    		title	: 'Entry Date',
 		    		data	: 'entryDate',
