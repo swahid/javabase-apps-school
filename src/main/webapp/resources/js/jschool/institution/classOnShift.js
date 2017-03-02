@@ -68,8 +68,6 @@ $(document).ready(function($) {
 		
 	});
 	
-
-	
 	function classOnShiftDatatable(param) {
 		var url = 'classOnShift/load';
 		$('#classOnShiftTable').dataTable({
