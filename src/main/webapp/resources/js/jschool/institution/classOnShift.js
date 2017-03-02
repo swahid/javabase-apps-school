@@ -9,7 +9,7 @@ $(document).ready(function($) {
     
 	//call insClass initialized
 	jbf.combo.shiftCombo('#shiftCombo','shift/load');
-	jbf.combo.shiftCombo('#classCombo','insClass/load');
+	jbf.combo.loadClass('#classCombo','insClass/load');
 	
 	
 	$("#addClassOnShiftForm").submit(function(event) {
