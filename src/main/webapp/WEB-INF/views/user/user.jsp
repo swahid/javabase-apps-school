@@ -19,28 +19,9 @@
 				<input type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#userModal" value="Add Users" />
 			</div>
 	<!-- =========================== End Header ======================== -->
-	<!-- =========================== Start body Content ======================== -->
+	<!-- =========================== Start body Content ================ -->
 	
-	
-	
- 		<!-- =========================== Search Combo Section Start ======================== -->
-<!--  	<div class="box-body"> 
-	    <div class="form-group col-md-3">
-			<label for="buildingId"> BUilding</label>			
-            <select name="buildingId" id="buildingId" class="form-control buildingId">
-            </select>
-			
-		</div>
-		<div class="form-group col-md-3">
-			<label for="userUsedId"> Used For</label>			
-			<select name="userUsedId" class="form-control userUsedId" id="userUsedId">
-			</select>
-		</div>
-  	</div> -->
- 	<!-- =========================== Search Combo Section END ========================== -->
- 
- 
-    <!-- =========================== Search Datatable Room Start ======================== -->
+    <!-- =========================== Search Datatable Start ============ -->
 	<div class="box-body">
 		<div class="box-body table-responsive">
             <table id="userTable" class="table table-bordered table-striped">
@@ -57,55 +38,57 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel"> <span><i class="fa fa-plus"></i></span> Add User</h4>
+        <h4 class="modal-title" id="myModalLabel"> <span><i class="fa fa-user"></i></span> Add User</h4>
       </div>
       <div class="modal-body">
       <form action="#" method="post" class="form-horizontal" id="addUserForm">
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="floorNo"> First Name<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="firstName">First Name<span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="firstName" class="form-control validate[required] text-input" type="text" name="firstName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="userName">LastName<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="lastName">LastName<span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="lastName" class="form-control validate[required] text-input" type="text" name="lastName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="userNo">Email <span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="gender">Gender<span class="require-field">*</span></label>
+			<div class="col-sm-6">
+				<input id="gender" name="gender" class="validate[required]" type="radio"> Male&nbsp;&nbsp;
+				<input id="gender" name="gender" class="validate[required]" type="radio"> Female
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="email">Email <span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="email" class="form-control validate[required,custom[email]] text-input" type="email" name="email">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="totalSeat">Username<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="username">Username<span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="username" class="form-control validate[required] text-input" type="text" name="username" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="totalSeat">Password<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="password">Password<span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="password" class="form-control validate[required] text-input" type="password" name="password" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="totalSeat">Re-Password<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="retypePassword">Re-Password<span class="require-field">*</span></label>
 			<div class="col-sm-6">
 				<input id="retypePassword" class="form-control validate[required,equals[password]] text-input" type="password" name="retypePassword" autocomplete="off">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-4 control-label" for="roleCombo">Select Roll<span class="require-field">*</span></label>
+			<label class="col-sm-4 control-label" for="rollCombo">Select Roll<span class="require-field">*</span></label>
 			<div class="col-sm-6">
             <select name="rollCombo" class="form-control select2 text-input" id="roleCombo" style="width: 100%">
-            	<!-- <option value="1">Admin</option>
-            	<option value="2">Student</option>
-            	<option value="3">Teacher</option>
-            	<option value="4">Parent</option>
-            	<option value="5">Staff</option> -->
             </select>
 			</div>
 		</div>

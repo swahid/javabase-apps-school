@@ -77,14 +77,14 @@
 		                <div class="form-group col-md-6">
 		                  <label for="homePhoneNo" class="col-sm-6 control-label">Phone Home #</label>
 		                  <div class="col-sm-6">
-		                      <input type="number" class="form-control " id="homePhoneNo">
+		                      <input type="text" class="form-control " id="homePhoneNo">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="mobileNo" class="col-sm-6 control-label">Mobile No #</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="number" class="form-control" id="mobileNo">
+		                      <input type="text" class="form-control" id="mobileNo">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">

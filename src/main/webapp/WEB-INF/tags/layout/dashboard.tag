@@ -86,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="/dashboard/profile" class="btn btn-default btn-flat">Profile</a>
+                      <a href='<c:url value="/dashboard/profile"></c:url>' class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
                       <a href='<c:url value="/logout"></c:url>' class="btn btn-default btn-flat">Sign out</a>
