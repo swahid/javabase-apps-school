@@ -16,14 +16,16 @@ import javax.persistence.TemporalType;
  * @since   1.0.0
  */
 @Entity
-@Table(name = "setup_school")
+@Table(name = "setup_system")
 public class SetupSchool implements java.io.Serializable {
 
     private static final long serialVersionUID = 6543749333542756492L;
 
-    private Integer schoolId;
-    private String  schoolName;
-    private String  schoolType;
+    private Integer systemId;
+    private String  systemName;
+    private String  systemType;
+    private String  systemEmail;
+    private Integer  sessionId;
     private String  addressLine1;
     private String  addressLine2;
     private String  city;
@@ -34,37 +36,39 @@ public class SetupSchool implements java.io.Serializable {
     private Date    establishedDate;
     private Date    openTime;
     private Date    closeTime;
-    private String  schoolLogo;
-    private String  schoolBanner;
+    private String  systemLogo;
+    private String  systemBanner;
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "school_id", unique = true, nullable = false)
+    @Column(name = "system_id", unique = true, nullable = false)
     public Integer getSchoolId() {
-        return this.schoolId;
+        return this.systemId;
     }
 
-    public void setSchoolId(Integer schoolId) {
-        this.schoolId = schoolId;
+    public void setSchoolId(Integer systemId) {
+        this.systemId = systemId;
     }
 
-    @Column(name = "school_name", length = 45)
+    @Column(name = "system_name", length = 45)
     public String getSchoolName() {
-        return this.schoolName;
+        return this.systemName;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    public void setSchoolName(String systemName) {
+        this.systemName = systemName;
     }
 
-    @Column(name = "school_Type", length = 45)
+    @Column(name = "system_Type", length = 45)
     public String getSchoolType() {
-        return this.schoolType;
+        return this.systemType;
     }
 
-    public void setSchoolType(String schoolType) {
-        this.schoolType = schoolType;
+    public void setSchoolType(String systemType) {
+        this.systemType = systemType;
     }
+    
+    
 
     @Column(name = "address_line1", length = 100)
     public String getAddressLine1() {
@@ -159,22 +163,41 @@ public class SetupSchool implements java.io.Serializable {
         this.closeTime = closeTime;
     }
 
-    @Column(name = "school_logo", length = 45)
+    @Column(name = "system_logo", length = 45)
     public String getSchoolLogo() {
-        return this.schoolLogo;
+        return this.systemLogo;
     }
 
-    public void setSchoolLogo(String schoolLogo) {
-        this.schoolLogo = schoolLogo;
+    public void setSchoolLogo(String systemLogo) {
+        this.systemLogo = systemLogo;
     }
 
-    @Column(name = "school_banner", length = 45)
+    @Column(name = "system_banner", length = 45)
     public String getSchoolBanner() {
-        return this.schoolBanner;
+        return this.systemBanner;
     }
 
-    public void setSchoolBanner(String schoolBanner) {
-        this.schoolBanner = schoolBanner;
+    public void setSchoolBanner(String systemBanner) {
+        this.systemBanner = systemBanner;
     }
 
+    @Column(name = "system_email", length = 45)
+    public String getSystemEmail() {
+        return systemEmail;
+    }
+
+    public void setSystemEmail(String systemEmail) {
+        this.systemEmail = systemEmail;
+    }
+
+    @Column(name = "session_id")
+    public Integer getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(Integer sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    
 }

@@ -94,6 +94,10 @@
     <script src=<c:url value="/resources/plugins/notification/notify.min.js"/> type="text/javascript"></script>
    
    
+    <!-- Imageupload -->
+	<link rel="stylesheet" href='<c:url value="/resources/plugins/imageupload/bootstrap-imageupload.min.css"/>'>
+    <script src=<c:url value="/resources/plugins/imageupload/bootstrap-imageupload.min.js"/> type="text/javascript"></script>
+    
     <!-- SELECT2 -->
 	<link rel="stylesheet" href='<c:url value="/resources/plugins/select2/select2.min.css"/>'>
     <script src=<c:url value="/resources/plugins/select2/select2.full.min.js"/> type="text/javascript"></script>
@@ -118,16 +122,16 @@
     ---- SCHOOL MANEGEMENT CUSTOM DEPENDENCY ----
     =============================================-->
     
-    			<!-- ===================== CUSTOM CSS ======================-->
+    <!-- ===================== CUSTOM CSS ======================-->
     <!-- POPUP CSS -->
     <link rel='stylesheet' href='<c:url value="/resources/css/popup.css"/>'>
     <!-- School Style CSS -->
     <link rel="stylesheet" href='<c:url value="/resources/css/jschool.css"/>'>
     
     
-   <!-- ==============
-   ---- CUSTOM JS ----
-   =================== -->
+    <!-- ==============
+    ---- CUSTOM JS ----
+    =================== -->
     <!-- comboialized custom js script -->
     <script src="<c:url value='/resources/js/jschool/jbf/ajax.js' />" type="text/javascript"></script>
     <script src="<c:url value='/resources/js/jschool/jbf/date.js' />" type="text/javascript"></script>
