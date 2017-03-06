@@ -28,7 +28,7 @@
            <div class="contact_form wow fadeInLeft">
               <form class="submitphoto_form">
                 <input type="text" class="wp-form-control wpcf7-text" placeholder="Your name">
-                <input type="mail" class="wp-form-control wpcf7-email" placeholder="Email address">          
+                <input type="email" class="wp-form-control wpcf7-email" placeholder="Email address">          
                 <input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
                 <textarea class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
                 <input type="submit" value="Submit" class="wpcf7-submit">
@@ -61,7 +61,7 @@
 
     <!--=========== BEGIN GOOGLE MAP SECTION ================-->
     <section id="googleMap">
-      <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=200+Lincoln+Ave,+Salinas,+CA,+USA&amp;aq=&amp;sll=30.977609,-95.712891&amp;sspn=42.157377,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=200+Lincoln+Ave,+Salinas,+California+93901-2639&amp;t=m&amp;z=14&amp;ll=36.674837,-121.657691&amp;output=embed"></iframe>
+      <iframe width="100%" height="500" src="https://www.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=200+Lincoln+Ave,+Salinas,+CA,+USA&amp;aq=&amp;sll=30.977609,-95.712891&amp;sspn=42.157377,86.572266&amp;ie=UTF8&amp;hq=&amp;hnear=200+Lincoln+Ave,+Salinas,+California+93901-2639&amp;t=m&amp;z=14&amp;ll=36.674837,-121.657691&amp;output=embed"></iframe>
     </section>
     <!--=========== END GOOGLE MAP SECTION ================-->
 

@@ -16,7 +16,7 @@
                 <li>
                   <img src="<c:url value='/resources/images/homepage/slider/2.jpg'/>" alt="img2">
                    <div class="slider_caption">
-                    <h2>Largest & Beautiful University</h2>
+                    <h2>Largest n Beautiful University</h2>
                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                     <a class="slider_btn" href="#">Know More</a>
                   </div>
