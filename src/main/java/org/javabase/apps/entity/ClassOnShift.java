@@ -1,5 +1,4 @@
 package org.javabase.apps.entity;
-// Generated Jan 10, 2017 12:47:22 PM by Hibernate Tools 3.6.0
 
 import java.util.Date;
 import javax.persistence.Column;

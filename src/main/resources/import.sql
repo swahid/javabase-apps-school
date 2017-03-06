@@ -4,18 +4,12 @@
 -- === Role Preload Insert ==
 -- ==========================
 INSERT INTO role(role_name, display_name, description) VALUES ('admin', 'Admin', 'Role Define For Administrative task');
-INSERT INTO role(role_name, display_name, description) VALUES ('teacher', 'Teacher', 'Role Define For Teacher task');
-INSERT INTO role(role_name, display_name, description) VALUES ('student', 'Student', 'Role Define For Student task');
-INSERT INTO role(role_name, display_name, description) VALUES ('parent', 'Parent', 'Role Define For Parent task');
-INSERT INTO role(role_name, display_name, description) VALUES ('staff', 'Staff', 'Role Define For Staff task');
 
 -- ==========================
 -- === User Preload Insert ==
 -- ==========================
 
 INSERT INTO user(role_id,is_active, create_date, email, is_acc_non_expired,is_pass_non_expired, is_non_locked, password, username)VALUES (1,true, now(), 'admin@jschool.com', true,true, true, '123456', 'admin');
-INSERT INTO user(role_id,is_active, create_date, email, is_acc_non_expired,is_pass_non_expired, is_non_locked, password, username)VALUES (2,true, now(), 'teacher@jschool.com', true,true, true, '123456', 'teacher');
-INSERT INTO user(role_id,is_active, create_date, email, is_acc_non_expired,is_pass_non_expired, is_non_locked, password, username)VALUES (3,true, now(), 'student@jschool.com', true,true, true, '123456', 'student');
 
 
 -- ==========================
