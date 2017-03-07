@@ -63,6 +63,8 @@ public class UserInformation implements java.io.Serializable {
     private Date    birthdate;
     private String  nationalId;
     private String  birthRegistration;
+    private String  userLogo;
+    private String  userBanner;
 
     @GenericGenerator(name = "generator", strategy = "foreign", 
             parameters = @Parameter(name = "property", value = "user"))
@@ -396,4 +398,23 @@ public class UserInformation implements java.io.Serializable {
         this.birthRegistration = birthRegistration;
     }
 
+    @Column(name = "user_logo", length = 100)
+    public String getUserLogo() {
+        return userLogo;
+    }
+
+    public void setUserLogo(String userLogo) {
+        this.userLogo = userLogo;
+    }
+
+    @Column(name = "user_banner", length = 100)
+    public String getUserBanner() {
+        return userBanner;
+    }
+
+    public void setUserBanner(String userBanner) {
+        this.userBanner = userBanner;
+    }
+
+    
 }

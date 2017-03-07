@@ -3,6 +3,10 @@
  */
 package org.javabase.apps.controller.user;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +22,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -65,5 +72,69 @@ public class UserProfileController {
         
         return response;
     }
+    
+    @RequestMapping(value="uploadLogo", method=RequestMethod.POST)
+    public String uploadLogo(@RequestParam("avaterLogo") MultipartFile file,
+            @RequestParam("userId") int userId, RedirectAttributes redirectAttributes) {
+        
+        String UPLOADED_FOLDER = "E://temp//";
+        UserInformation user = service.getUserInfoById(userId);
+        try {
+
+            // Get the file and save it somewhere
+            byte[] bytes = file.getBytes();
+            String fileName = file.getOriginalFilename();
+            fileName = fileName.substring(fileName.indexOf("."));
+            fileName = user.getUser().getUsername()+"_logo"+fileName;
+            
+            Path path = Paths.get(UPLOADED_FOLDER + fileName);
+            Files.write(path, bytes);
+            
+            user.setUserLogo(fileName);
+            service.update(user);
+            
+            
+            redirectAttributes.addFlashAttribute("message",
+                    "You successfully uploaded '" + fileName + "'");
+
+            return "redirect:/dashboard/profile";
+        } catch (IOException e) {
+            redirectAttributes.addFlashAttribute("message","Max Limit Exceed");
+            log.error(e.getMessage(), e);
+            return "redirect:/dashboard/profile";
+        }
+        
+    }
+    @RequestMapping(value="uploadBanner", method=RequestMethod.POST)
+    public String uploadBanner(@RequestParam("userbanner") MultipartFile file,
+            @RequestParam("userId") int userId, RedirectAttributes redirectAttributes) {
+        
+        String UPLOADED_FOLDER = "F://temp//";
+       UserInformation user = service.getUserInfoById(userId);
+       try {
+
+           // Get the file and save it somewhere
+           byte[] bytes = file.getBytes();
+           String fileName = file.getOriginalFilename();
+           fileName = fileName.substring(fileName.indexOf("."));
+           fileName = user.getUser().getUsername()+"_banner"+fileName;
+           
+           Path path = Paths.get(UPLOADED_FOLDER + fileName);
+           Files.write(path, bytes);
+           
+           user.setUserBanner(fileName);
+           service.update(user);
+           
+           redirectAttributes.addFlashAttribute("message",
+                   "You successfully uploaded '" + fileName + "'");
+
+           return "redirect:/dashboard/profile";
+       } catch (IOException e) {
+           redirectAttributes.addFlashAttribute("message","Max Limit Exceed 1MB");
+           log.error(e.getMessage(), e);
+           return "redirect:/dashboard/profile";
+       }
+       
+   }
 
 }

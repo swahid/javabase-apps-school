@@ -164,24 +164,25 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" autocomplete="off">
+                    <form class="form-horizontal" action='<c:url value='/dashboard/profile/uploadLogo'></c:url>' enctype="multipart/form-data" method="post">
                       <span>Upload Your Avater</span>
                       <div class="box-body">
                         <div class="form-group col-sm-2 ">
                           <label for="username" class="control-label"></label>
-                            <input type="file" id="avaterImage">
+                            <input type="file" name="avaterLogo" class="btn btn-info">
+                            <input type="hidden" name="userId" value="${user.userId}">
                             <button type="submit" class="btn btn-info">Upload Logo</button>
                         </div>
                       </div>
                       <!-- /.box-body -->
                     </form>
                     <!-- form start -->
-                    <form class="form-horizontal" autocomplete="off">
+                    <form class="form-horizontal" action='<c:url value='/dashboard/profile/uploadBanner'></c:url>' enctype="multipart/form-data" method="post">
                       <span>Upload Your Banner</span>
                       <div class="box-body">
                         <div class="form-group col-sm-2 ">
                           <label for="username" class="control-label"></label>
-                            <input type="file" id="avaterImage">
+                            <input type="file" name="userbanner">
                             <button type="submit" class="btn btn-info">Upload Banner</button>
                         </div>
                       </div>
