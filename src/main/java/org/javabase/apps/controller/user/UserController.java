@@ -109,4 +109,29 @@ public class UserController {
 		
 		return response; 
 	}
+	
+	@ResponseBody
+    @RequestMapping(value="changePassword",  method=RequestMethod.PUT)
+    public Map<String, Object> saveUser(@RequestBody User user){
+        Map<String, Object> response = new HashMap<>();
+        
+        String password = user.getPassword();
+        
+        System.out.println("passowrd" + password);
+        
+        user = userservice.getUserById(user.getUserId());
+        user.setPassword(password);
+        boolean update = userservice.updateUser(user);
+        
+        if (update) {
+            response.put("success", true);
+            response.put("message", "save success");
+        }else {
+            log.info("insert failed");
+            response.put("error", true);
+            response.put("message", "unable to save");
+        }
+        
+        return response; 
+    }
 }

@@ -45,13 +45,25 @@ public class UserMapperImpl implements UserMapper{
 	}
 
 	@Override
-	public void updateUser(User user) {
-		session.getCurrentSession().update(user);
+	public boolean updateUser(User user) {
+	    try {
+            session.getCurrentSession().update(user);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
 	}
 
 	@Override
-	public void deleteUser(int userId) {
-		session.getCurrentSession().delete(userId);
+	public boolean deleteUser(User user) {
+	    try {
+            session.getCurrentSession().save(user);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
 	}
 
 	@Override

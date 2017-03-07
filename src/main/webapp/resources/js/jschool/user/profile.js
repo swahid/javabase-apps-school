@@ -50,4 +50,42 @@ $(document).ready(function($) {
         
     });
     
+    //update profile about details section
+    $("#userAccountForm").submit(function(event) {
+        event.preventDefault();
+        
+        
+        var form = jbf.form.validate("#userAccountForm");
+        if (!form) {
+            return;
+        }
+        
+        var data    = {},
+        url     = "user/changePassword";
+        
+        data["userId"]      = $("#userId").val();
+        data["username"]  = $("#username").val();
+        data["password"]   = $("#confirmPassword").val();
+        
+        /*  
+         * if in spring aplication csrf enable
+         * send csrf parameter in header otherwise 405 error
+         */
+        $.ajax({
+            type     : "PUT",
+            url      : url,
+            data     : JSON.stringify(data),
+            dataType : 'json',
+            contentType: "application/json; charset=utf-8",
+            success  : function(resonse) {
+                success(resonse.message);
+            },
+            error    : function(e) {
+                console.log("ERROR: ",e);
+                error("update falied");
+            }
+        });
+        
+    });
+    
 });

@@ -68,7 +68,6 @@ public class User implements java.io.Serializable {
 		this.email = email;
 	}
 
-	@JsonIgnore
 	@Column(name = "password", nullable = false, length = 100)
 	public String getPassword() {
 		return this.password;

@@ -42,14 +42,14 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	@Transactional
-	public void updateUser(User user) {
-		usermapper.updateUser(user);
+	public boolean updateUser(User user) {
+	    return usermapper.updateUser(user);
 	}
 
 	@Override
 	@Transactional
-	public void deleteUser(int userId) {
-		usermapper.deleteUser(userId);
+	public boolean deleteUser(User user) {
+	    return usermapper.deleteUser(user);
 	}
 
 	@Override

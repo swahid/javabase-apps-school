@@ -199,7 +199,7 @@
 		            </div>
 		            <!-- /.box-header -->
 		            <!-- form start -->
-		            <form class="form-horizontal" autocomplete="off">
+		            <form class="form-horizontal" autocomplete="off" action="#" method="post" id="userAccountForm">
 		              <div class="box-body">
 		                <div class="form-group">
 		                  <label for="username" class="col-sm-4 control-label">Username</label>
@@ -229,6 +229,7 @@
                             <input type="password" class="form-control validate[required, equals[newPassword]]" id="confirmPassword" placeholder="Confirm Password">
                           </div>
                         </div>
+                        <input type="hidden" id="userId" value="${user.userId}">
 		              </div>
 		              <!-- /.box-body -->
 		              <div class="box-footer">
