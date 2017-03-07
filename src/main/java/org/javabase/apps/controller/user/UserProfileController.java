@@ -4,6 +4,7 @@
 package org.javabase.apps.controller.user;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserProfileController {
     
     @RequestMapping(method=RequestMethod.GET)
-    public String profile(){
+    public String profile(Model model){
+        
         return "user/profile";
     }
 

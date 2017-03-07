@@ -19,8 +19,8 @@
 	    <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
 		    <div class="widget-user-header bg-black" style="background: url('<c:url value="/resources/images/user/banner.jpg"/>') center center;">
-		      <h3 class="widget-user-username">Elizabeth Pierce</h3>
-		      <h5 class="widget-user-desc">Web Designer</h5>
+		      <h3 class="widget-user-username"><span>${userInfo.firstName} ${userInfo.lastName}</span></h3>
+		      <h5 class="widget-user-desc">${user.role.roleName}</h5>
 		    </div>
 		    <div class="widget-user-image">
 		      <img class="img-circle" src='<c:url value="/resources/images/user/avatar.png"/>' alt="User Avatar">
@@ -51,53 +51,53 @@
 		                <div class="form-group col-md-6">
 		                  <label for="firstName" class="col-sm-6 control-label">First Name</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="firstName">
+		                      <input type="text" class="form-control" id="firstName" value="${userInfo.firstName}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="lastName" class="col-sm-6 control-label">Last Name</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="lastName">
+		                      <input type="text" class="form-control" id="lastName" value="${userInfo.lastName}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="fatherName" class="col-sm-6 control-label">Father Name</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="fatherName">
+		                      <input type="text" class="form-control " id="fatherName" value="${userInfo.fatherName}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="motherName" class="col-sm-6 control-label">Mother Name</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="motherName">
+		                      <input type="text" class="form-control" id="motherName" value="${userInfo.motherName}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="homePhoneNo" class="col-sm-6 control-label">Phone Home #</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="homePhoneNo">
+		                      <input type="text" class="form-control " id="homePhoneNo" value="${userInfo.phoneHome}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="mobileNo" class="col-sm-6 control-label">Mobile No #</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="mobileNo">
+		                      <input type="text" class="form-control" id="mobileNo" value="${userInfo.phoneMobile}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="birthdate" class="col-sm-6 control-label">BirthDate</label>
 		                  <div class="col-sm-6">
-		                      <input type="date" class="form-control " id="birthdate">
+		                      <input type="date" class="form-control " id="birthdate" value="${userInfo.birthdate}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="useEmail" class="col-sm-6 control-label">Email</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="email" class="form-control" id="useEmail">
+		                      <input type="email" class="form-control" id="useEmail" value="${userInfo.emailPrimary}">
 		                  </div>
 		                </div>
 		              </div>
@@ -122,46 +122,46 @@
 		                <div class="form-group col-md-6">
 		                  <label for="addressLine1" class="col-sm-6 control-label">Address Line 1</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="addressLine1">
+		                      <input type="text" class="form-control " id="addressLine1" value="${userInfo.addressLine1}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="addressLine2" class="col-sm-6 control-label">Address Line 1</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="addressLine2">
+		                      <input type="text" class="form-control" id="addressLine2" value="${userInfo.addressLine2}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="city" class="col-sm-6 control-label">City</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="city">
+		                      <input type="text" class="form-control " id="city" value="${userInfo.city}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="State" class="col-sm-6 control-label">State</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="State">
+		                      <input type="text" class="form-control" id="State" value="${userInfo.state}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="district" class="col-sm-6 control-label">District</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="district">
+		                      <input type="text" class="form-control " id="district" value="${userInfo.zipCode}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="postalCode" class="col-sm-6 control-label">Postal Code</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="postalCode">
+		                      <input type="text" class="form-control" id="postalCode" value="${userInfo.district}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
                           <label for="Country" class="col-sm-6 control-label">Country</label>
                           <div class="col-sm-6">
-                              <input type="text" class="form-control" id="Country">
+                              <input type="text" class="form-control" id="Country" value="${userInfo.country}">
                           </div>
                         </div>
 		              </div>
@@ -220,30 +220,30 @@
 		            <form class="form-horizontal" autocomplete="off">
 		              <div class="box-body">
 		                <div class="form-group">
-		                  <label for="username" class="col-sm-2 control-label">Username</label>
+		                  <label for="username" class="col-sm-4 control-label">Username</label>
 		
-		                  <div class="col-sm-10">
-		                    <input type="text" class="form-control" id="username" readonly>
+		                  <div class="col-sm-8">
+		                    <input type="text" class="form-control" id="username" readonly value="${user.username}">
 		                  </div>
 		                </div>
 		                <div class="form-group">
-		                  <label for="currentPassword" class="col-sm-2 control-label">Current Password</label>
+		                  <label for="currentPassword" class="col-sm-4 control-label">Current Password</label>
 		
-		                  <div class="col-sm-10">
+		                  <div class="col-sm-8">
 		                    <input type="password" class="form-control" id="currentPassword" placeholder="Current Password">
 		                  </div>
 		                </div>
 		                <div class="form-group">
-		                  <label for="newPassword" class="col-sm-2 control-label">New Password</label>
+		                  <label for="newPassword" class="col-sm-4 control-label">New Password</label>
 		
-		                  <div class="col-sm-10">
+		                  <div class="col-sm-8">
 		                    <input type="password" class="form-control" id="newPassword" placeholder="New Password">
 		                  </div>
 		                </div>
                         <div class="form-group">
-                          <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
+                          <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password</label>
         
-                          <div class="col-sm-10">
+                          <div class="col-sm-8">
                             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
                           </div>
                         </div>

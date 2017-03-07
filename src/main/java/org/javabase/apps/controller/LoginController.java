@@ -46,7 +46,8 @@ public class LoginController {
 			 User user = userservice.getUserByUsername(username);
 			 log.debug("user {}", user.getRole().getRoleName());
 			 session.setAttribute("user", user);
-		return "redirect:/dashboard";
+			 session.setAttribute("userInfo", user.getUserInformation());
+		return "redirect:/dashboard/profile";
 	}
 	
 	@ResponseBody

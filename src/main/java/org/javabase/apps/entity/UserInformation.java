@@ -38,9 +38,10 @@ public class UserInformation implements java.io.Serializable {
     private String  addressLine1;
     private String  addressLine2;
     private String  city;
-    private String  zip;
+    private String  zipCode;
     private String  state;
     private String  country;
+    private String  district;
     private String  gender;
     private Boolean isStudent;
     private Boolean isStaff;
@@ -167,18 +168,27 @@ public class UserInformation implements java.io.Serializable {
         this.city = city;
     }
 
-    @Column(name = "zip", length = 6)
-    public String getZip() {
-        return this.zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-
     @Column(name = "state", length = 20)
     public String getState() {
         return this.state;
+    }
+    
+    @Column(name = "zip_code", length = 6)
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+    
+    @Column(name = "district", length = 20)
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public void setState(String state) {
