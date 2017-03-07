@@ -193,6 +193,7 @@ public class User implements java.io.Serializable {
 		this.isCredintialNonExpired = isCredintialNonExpired;
 	}
 
+	@JsonIgnore
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="user")
     public UserInformation getUserInformation() {
         return userInformation;

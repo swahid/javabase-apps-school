@@ -9,6 +9,7 @@ import org.javabase.apps.controller.setup.RoomController;
 import org.javabase.apps.entity.Role;
 import org.javabase.apps.entity.User;
 import org.javabase.apps.entity.UserInformation;
+import org.javabase.apps.service.UserInformationService;
 import org.javabase.apps.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userservice;
+	
+	@Autowired
+	UserInformationService userInformationService;
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String users() {
@@ -93,6 +97,7 @@ public class UserController {
 		    
 		    user = userservice.getUserByUsername(userName);
 		    userInfo.setUser(user);
+		    userInformationService.save(userInfo);
 		    
 		    response.put("success", true);
 		    response.put("message", "save success");

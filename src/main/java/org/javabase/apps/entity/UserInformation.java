@@ -76,7 +76,7 @@ public class UserInformation implements java.io.Serializable {
         this.userId = userId;
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch=FetchType.LAZY)
     @PrimaryKeyJoinColumn
     public User getUser() {
         return this.user;

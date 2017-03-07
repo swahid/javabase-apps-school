@@ -57,8 +57,8 @@
 		<div class="form-group">
 			<label class="col-sm-4 control-label" for="gender">Gender<span class="require-field">*</span></label>
 			<div class="col-sm-6">
-				<input id="gender" name="gender" class="validate[required]" type="radio"> Male&nbsp;&nbsp;
-				<input id="gender" name="gender" class="validate[required]" type="radio"> Female
+				<input id="gender" name="gender" class="validate[required]" type="radio" value="M"> Male&nbsp;&nbsp;
+				<input id="gender" name="gender" class="validate[required]" type="radio" value="M"> Female
 			</div>
 		</div>
 		<div class="form-group">

@@ -43,9 +43,9 @@ $(document).ready(function($) {
 			contentType: "application/json; charset=utf-8",
 			success  : function(resonse) {
 			    userDatatable();
-				success(resonse.message);
 				document.getElementById("addUserForm").reset();
-				$("#roomModal").modal('hide'); 
+				$("#userModal").modal('hide'); 
+				success(resonse.message);
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
