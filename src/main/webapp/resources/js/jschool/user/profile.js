@@ -18,9 +18,16 @@ $(document).ready(function($) {
         data["motherName"]  = $("#motherName").val();
         data["phoneHome"]   = $("#phoneHome").val();
         data["birthdate"]   = $("#birthdate").val();
-        data["emailPrimary"]  = $("#emailPrimary").val();
-        data["entryUser"]    = $("#username").val();
-        data["entryDate"]    = new Date();
+        data["emailPrimary"]= $("#emailPrimary").val();
+        data["addressLine1"]= $("#addressLine1").val();
+        data["addressLine2"]= $("#addressLine2").val();
+        data["city"]        = $("#city").val();
+        data["state"]       = $("#state").val();
+        data["zipCode"]     = $("#zipCode").val();
+        data["district"]    = $("#district").val();
+        data["country"]     = $("#country").val();
+        data["updateUser"]  = $("#username").val();
+        data["updateDate"]  = new Date();
         
         /*  
          * if in spring aplication csrf enable

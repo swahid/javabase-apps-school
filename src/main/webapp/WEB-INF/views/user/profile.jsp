@@ -99,71 +99,52 @@
 		                  <div class="col-sm-6">
 		                      <input type="email" class="form-control" id="emailPrimary" value="${userInfo.emailPrimary}">
 		                  </div>
-		                      <input type="hidden" id="userId" value="${user.userId}">
-		                </div>
-		              </div>
-		              <!-- /.box-body -->
-		              <div class="box-footer">
-		                  <button type="submit" class="btn btn-warning pull-right">Update Info</button>
-		              </div>
-		              <!-- /.box-footer -->
-		            </form>
-		          </div>
-		          
-		          
-                  <!-- Address Form -->
-		          <div class="box">
-		            <div class="box-header with-no-border">
-		              <h3 class="box-title">Address</h3>
-		            </div>
-		            
-		            <!-- form start -->
-		            <form class="form-horizontal">
-		              <div class="box-body">
-		                <div class="form-group col-md-6">
-		                  <label for="addressLine1" class="col-sm-6 control-label">Address Line 1</label>
-		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="addressLine1" value="${userInfo.addressLine1}">
-		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
-		                  <label for="addressLine2" class="col-sm-6 control-label">Address Line 1</label>
-		
-		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="addressLine2" value="${userInfo.addressLine2}">
-		                  </div>
-		                </div>
-		                <div class="form-group col-md-6">
-		                  <label for="city" class="col-sm-6 control-label">City</label>
-		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="city" value="${userInfo.city}">
-		                  </div>
-		                </div>
-		                <div class="form-group col-md-6">
-		                  <label for="State" class="col-sm-6 control-label">State</label>
-		
-		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="State" value="${userInfo.state}">
-		                  </div>
-		                </div>
-		                <div class="form-group col-md-6">
-		                  <label for="district" class="col-sm-6 control-label">District</label>
-		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="district" value="${userInfo.zipCode}">
-		                  </div>
-		                </div>
-		                <div class="form-group col-md-6">
-		                  <label for="postalCode" class="col-sm-6 control-label">Postal Code</label>
-		
-		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="postalCode" value="${userInfo.district}">
-		                  </div>
-		                </div>
-		                <div class="form-group col-md-6">
+                          <label for="addressLine1" class="col-sm-6 control-label">Address Line 1</label>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control " id="addressLine1" value="${userInfo.addressLine1}">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="addressLine2" class="col-sm-6 control-label">Address Line 2</label>
+        
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control" id="addressLine2" value="${userInfo.addressLine2}">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="city" class="col-sm-6 control-label">City</label>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control " id="city" value="${userInfo.city}">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="State" class="col-sm-6 control-label">State</label>
+        
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control" id="state" value="${userInfo.state}">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="district" class="col-sm-6 control-label">District</label>
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control " id="district" value="${userInfo.district}">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="postalCode" class="col-sm-6 control-label">Postal Code</label>
+        
+                          <div class="col-sm-6">
+                              <input type="text" class="form-control" id="zipCode" value="${userInfo.zipCode}">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
                           <label for="Country" class="col-sm-6 control-label">Country</label>
                           <div class="col-sm-6">
                               <input type="text" class="form-control" id="Country" value="${userInfo.country}">
                           </div>
+                          <input type="hidden" id="userId" value="${user.userId}">
                         </div>
 		              </div>
 		              <!-- /.box-body -->
