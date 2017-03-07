@@ -95,8 +95,8 @@
    
    
     <!-- Imageupload -->
-	<link rel="stylesheet" href='<c:url value="/resources/plugins/imageupload/bootstrap-imageupload.min.css"/>'>
-    <script src=<c:url value="/resources/plugins/imageupload/bootstrap-imageupload.min.js"/> type="text/javascript"></script>
+	<link rel="stylesheet" href='<c:url value="/resources/plugins/imageupload/css/bootstrap-imageupload.min.css"/>'>
+    <script src=<c:url value="/resources/plugins/imageupload/js/bootstrap-imageupload.min.js"/> type="text/javascript"></script>
     
     <!-- SELECT2 -->
 	<link rel="stylesheet" href='<c:url value="/resources/plugins/select2/select2.min.css"/>'>

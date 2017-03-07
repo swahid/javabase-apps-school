@@ -3,7 +3,7 @@
 
 
 <jsp:attribute name="header">
-    <script type="text/javascript" src="<c:url value='/resources/js/jschool/user/user.js' />"></script> 
+    <script type="text/javascript" src="<c:url value='/resources/js/jschool/user/profile.js' />"></script> 
 </jsp:attribute>
 
 <jsp:attribute name="contentHeader">
@@ -46,12 +46,12 @@
 		            </div>
 		            
 		            <!-- form start -->
-		            <form class="form-horizontal">
+		            <form class="form-horizontal" method="post" action="#" id="userAboutForm">
 		              <div class="box-body">
 		                <div class="form-group col-md-6">
 		                  <label for="firstName" class="col-sm-6 control-label">First Name</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="firstName" value="${userInfo.firstName}">
+		                      <input type="text" class="form-control text-input" id="firstName" value="${userInfo.firstName}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
@@ -64,7 +64,7 @@
 		                <div class="form-group col-md-6">
 		                  <label for="fatherName" class="col-sm-6 control-label">Father Name</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="fatherName" value="${userInfo.fatherName}">
+		                      <input type="text" class="form-control" id="fatherName" value="${userInfo.fatherName}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
@@ -77,14 +77,14 @@
 		                <div class="form-group col-md-6">
 		                  <label for="homePhoneNo" class="col-sm-6 control-label">Phone Home #</label>
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control " id="homePhoneNo" value="${userInfo.phoneHome}">
+		                      <input type="text" class="form-control " id="phoneHome" value="${userInfo.phoneHome}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
 		                  <label for="mobileNo" class="col-sm-6 control-label">Mobile No #</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="text" class="form-control" id="mobileNo" value="${userInfo.phoneMobile}">
+		                      <input type="text" class="form-control" id="phoneMobile" value="${userInfo.phoneMobile}">
 		                  </div>
 		                </div>
 		                <div class="form-group col-md-6">
@@ -97,8 +97,9 @@
 		                  <label for="useEmail" class="col-sm-6 control-label">Email</label>
 		
 		                  <div class="col-sm-6">
-		                      <input type="email" class="form-control" id="useEmail" value="${userInfo.emailPrimary}">
+		                      <input type="email" class="form-control" id="emailPrimary" value="${userInfo.emailPrimary}">
 		                  </div>
+		                      <input type="hidden" id="userId" value="${user.userId}">
 		                </div>
 		              </div>
 		              <!-- /.box-body -->
@@ -230,7 +231,7 @@
 		                  <label for="currentPassword" class="col-sm-4 control-label">Current Password</label>
 		
 		                  <div class="col-sm-8">
-		                    <input type="password" class="form-control" id="currentPassword" placeholder="Current Password">
+		                    <input type="password" class="form-control validate[required]" id="currentPassword" placeholder="Current Password">
 		                  </div>
 		                </div>
 		                <div class="form-group">
@@ -244,7 +245,7 @@
                           <label for="confirmPassword" class="col-sm-4 control-label">Confirm Password</label>
         
                           <div class="col-sm-8">
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control validate[required, equals[newPassword]]" id="confirmPassword" placeholder="Confirm Password">
                           </div>
                         </div>
 		              </div>
