@@ -93,6 +93,7 @@
 			</div>
 		</div>
 		<div class="col-sm-offset-4 col-sm-6">
+		<input id="createUser" type="hidden" value="${user.username}">
         </div>
       </form>
         

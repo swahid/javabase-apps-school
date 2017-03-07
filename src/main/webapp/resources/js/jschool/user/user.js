@@ -13,26 +13,24 @@ $(document).ready(function($) {
 	$("button#userSubmit").click(function(event) {
 		event.preventDefault();
 		
-		javascript: $('#addUserForm').validationEngine('attach');
-        if (!$('#addUserForm').validationEngine('validate')) {
+		var save = jbf.form.validate("#addUserForm");
+		if (!save) {
             return;
         }
 		
 		var data 	= {},
-			role 	= {},
-			
 			url 	= "user/adduser";
-		
-		role["roleId"]		= $("#roleCombo").val();
 		
 		data["userName"]	= $("#username").val();
 		data["password"]	= $("#retypePassword").val();
 		data["email"]		= $("#email").val();
 		data["firstName"]   = $("#firstName").val();
 		data["lastName"] 	= $("#lastName").val();
-		data["createDate"] 	    = new Date();
-//		data["role"] 	    = role;
+		data["gender"] 	    = $("#gender").val();
+		data["createUser"] 	= $("#createUser").val();
+		data["roleId"] 	    = $("#roleCombo").val();
 		
+		console.log($("#rollCombo").val())
 		/*	
 		 * if in spring aplication csrf enable
 		 * send csrf parameter in header otherwise 405 error
@@ -44,8 +42,8 @@ $(document).ready(function($) {
 			dataType : 'json',
 			contentType: "application/json; charset=utf-8",
 			success  : function(resonse) {
+			    userDatatable();
 				success(resonse.message);
-				userDatatable();
 				document.getElementById("addUserForm").reset();
 				$("#roomModal").modal('hide'); 
 			},

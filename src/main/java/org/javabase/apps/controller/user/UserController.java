@@ -1,11 +1,14 @@
 package org.javabase.apps.controller.user;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.controller.setup.RoomController;
+import org.javabase.apps.entity.Role;
 import org.javabase.apps.entity.User;
+import org.javabase.apps.entity.UserInformation;
 import org.javabase.apps.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,9 +50,58 @@ public class UserController {
 	}
 	@ResponseBody
 	@RequestMapping(value="adduser",  method=RequestMethod.POST)
-	public Map<String, Object> saveUser(@RequestBody Map<String, Map<String, Object>> param){
+	public Map<String, Object> saveUser(@RequestBody Map<String, String> entity){
 		Map<String, Object> response = new HashMap<>();
-		log.info(param.get("userName").toString());
+		
+		String userName   = entity.get("userName");
+		String password   = entity.get("password");
+		String email      = entity.get("email");
+		String firstName  = entity.get("firstName");
+		String lastName   = entity.get("lastName");
+		String gender   = entity.get("gender");
+		String createUser = entity.get("createUser");
+		Date createDate   = new Date();
+		String roleId     = entity.get("roleId");
+		Role role = new Role();
+		User user = new User();
+		UserInformation userInfo= new UserInformation();
+		
+		role.setRoleId(Integer.valueOf(roleId));
+		user.setUsername(userName);
+		user.setPassword(password);
+		user.setEmail(email);
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setCreateDate(createDate);
+		user.setActive(true);
+		user.setCredintialNonExpired(true);
+		user.setAccountNonExpired(true);
+		user.setNonLocked(true);
+		user.setUserInformation(userInfo);
+		user.setRole(role);
+		
+		userInfo.setEmailPrimary(email);
+        userInfo.setFirstName(firstName);
+        userInfo.setLastName(lastName);
+        userInfo.setGender(gender);
+        userInfo.setEntryUser(createUser);
+        
+		
+		boolean save = userservice.addUser(user);
+		
+		if (save) {
+		    
+		    user = userservice.getUserByUsername(userName);
+		    userInfo.setUser(user);
+		    
+		    response.put("success", true);
+		    response.put("message", "save success");
+        }else {
+            log.info("insert failed");
+            response.put("error", true);
+            response.put("message", "unable to save");
+        }
+		
 		return response; 
 	}
 }
