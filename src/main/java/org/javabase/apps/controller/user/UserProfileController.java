@@ -13,7 +13,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.javabase.apps.controller.setup.RoomController;
 import org.javabase.apps.entity.UserInformation;
 import org.javabase.apps.service.UserInformationService;
 import org.slf4j.Logger;
@@ -37,7 +36,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping(value="dashboard/profile")
 public class UserProfileController {
     
-    private static final Logger log = LoggerFactory.getLogger(RoomController.class);
+    private static final Logger log = LoggerFactory.getLogger(UserProfileController.class);
     
     @Autowired
     UserInformationService service;

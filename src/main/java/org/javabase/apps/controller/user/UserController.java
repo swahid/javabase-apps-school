@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.javabase.apps.controller.setup.RoomController;
 import org.javabase.apps.entity.Role;
 import org.javabase.apps.entity.User;
 import org.javabase.apps.entity.UserInformation;
@@ -24,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value="dashboard/user")
 public class UserController {
 	
-	private static final Logger log = LoggerFactory.getLogger(RoomController.class);
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	UserService userservice;

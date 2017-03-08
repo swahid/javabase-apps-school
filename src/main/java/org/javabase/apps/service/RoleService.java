@@ -18,6 +18,6 @@ public interface RoleService {
 	public boolean addRole(Role role);
 	public boolean updateRole(Role role);
     public boolean deleteRole(int roleId);
-    public boolean isRoleExist(int roleId);
+    public boolean isRoleExist(String roleName);
 
 }

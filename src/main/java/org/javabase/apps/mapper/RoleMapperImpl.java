@@ -6,6 +6,7 @@ package org.javabase.apps.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.javabase.apps.entity.Role;
 import org.slf4j.Logger;
@@ -76,10 +77,15 @@ public class RoleMapperImpl implements RoleMapper{
 	}
 
 	@Override
-	public boolean isRoleExist(int roleId) {
+	public boolean isRoleExist(String roleName) {
 		try {
-			Role role=(Role) session.getCurrentSession().get(Role.class, roleId);
-			if (role !=null) {
+		    String hql = "From Role where roleName = :  roleName";
+			Query query = session.getCurrentSession().createQuery(hql);
+			
+			query.setParameter("roleName", roleName);
+			
+			List<Role> roelList = query.list();
+			if (roelList.size()>0) {
 				return true;
 			}else {
 				return false;

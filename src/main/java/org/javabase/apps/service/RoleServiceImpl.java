@@ -43,8 +43,8 @@ public class RoleServiceImpl implements RoleService{
 
 	@Override
 	@Transactional
-	public boolean addRole(Role role) {
-		boolean isRoleExist = mapper.isRoleExist(role.getRoleId());
+	public boolean addRole(Role role){
+		boolean isRoleExist = mapper.isRoleExist(role.getRoleName());
 		if (isRoleExist) {
 			return mapper.updateRole(role);
 		}else {
@@ -66,8 +66,8 @@ public class RoleServiceImpl implements RoleService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public boolean isRoleExist(int roleId) {
-		return mapper.isRoleExist(roleId);
+	public boolean isRoleExist(String roleName) {
+		return mapper.isRoleExist(roleName);
 	}
 
 }
