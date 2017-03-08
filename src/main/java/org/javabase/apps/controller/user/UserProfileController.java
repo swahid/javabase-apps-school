@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.javabase.apps.controller.setup.RoomController;
@@ -40,6 +41,9 @@ public class UserProfileController {
     
     @Autowired
     UserInformationService service;
+    
+    @Autowired
+    HttpSession session;
     
     @RequestMapping(method=RequestMethod.GET)
     public String profile(HttpSession session){
@@ -74,20 +78,21 @@ public class UserProfileController {
     }
     
     @RequestMapping(value="uploadLogo", method=RequestMethod.POST)
-    public String uploadLogo(@RequestParam("avaterLogo") MultipartFile file,
+    public String uploadLogo(@RequestParam("avaterLogo") MultipartFile file, HttpServletRequest request,
             @RequestParam("userId") int userId, RedirectAttributes redirectAttributes) {
-        
-        String UPLOADED_FOLDER = "E://temp//";
-        UserInformation user = service.getUserInfoById(userId);
         try {
-
+            
+            String saveDirectory=request.getSession().getServletContext().getRealPath("/")+"resources\\images\\user\\";
+            
+            UserInformation user = service.getUserInfoById(userId);
             // Get the file and save it somewhere
             byte[] bytes = file.getBytes();
             String fileName = file.getOriginalFilename();
             fileName = fileName.substring(fileName.indexOf("."));
             fileName = user.getUser().getUsername()+"_logo"+fileName;
             
-            Path path = Paths.get(UPLOADED_FOLDER + fileName);
+            
+            Path path = Paths.get(saveDirectory + fileName);
             Files.write(path, bytes);
             
             user.setUserLogo(fileName);
@@ -96,9 +101,10 @@ public class UserProfileController {
             
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + fileName + "'");
-
+            
+            session.setAttribute("userInfo", service.getUserInfoById(user.getUserId()));
             return "redirect:/dashboard/profile";
-        } catch (IOException e) {
+        } catch (Exception e ) {
             redirectAttributes.addFlashAttribute("message","Max Limit Exceed");
             log.error(e.getMessage(), e);
             return "redirect:/dashboard/profile";
@@ -106,20 +112,23 @@ public class UserProfileController {
         
     }
     @RequestMapping(value="uploadBanner", method=RequestMethod.POST)
-    public String uploadBanner(@RequestParam("userbanner") MultipartFile file,
+    public String uploadBanner(@RequestParam("userbanner") MultipartFile file, HttpServletRequest request,
             @RequestParam("userId") int userId, RedirectAttributes redirectAttributes) {
         
-        String UPLOADED_FOLDER = "F://temp//";
-       UserInformation user = service.getUserInfoById(userId);
        try {
+           
+           String saveDirectory=request.getSession().getServletContext().getRealPath("/")+"resources\\images\\user\\";
+           
+           UserInformation user = service.getUserInfoById(userId);
 
            // Get the file and save it somewhere
            byte[] bytes = file.getBytes();
+           
            String fileName = file.getOriginalFilename();
            fileName = fileName.substring(fileName.indexOf("."));
            fileName = user.getUser().getUsername()+"_banner"+fileName;
            
-           Path path = Paths.get(UPLOADED_FOLDER + fileName);
+           Path path = Paths.get(saveDirectory + fileName);
            Files.write(path, bytes);
            
            user.setUserBanner(fileName);
@@ -128,6 +137,7 @@ public class UserProfileController {
            redirectAttributes.addFlashAttribute("message",
                    "You successfully uploaded '" + fileName + "'");
 
+           session.setAttribute("userInfo", service.getUserInfoById(user.getUserId()));
            return "redirect:/dashboard/profile";
        } catch (IOException e) {
            redirectAttributes.addFlashAttribute("message","Max Limit Exceed 1MB");

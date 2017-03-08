@@ -42,11 +42,12 @@ public class LoginController {
 	@RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
 	public String loginSucess(Authentication authentication) {
 		
-			String username = authentication.getName();
-			 User user = userservice.getUserByUsername(username);
-			 log.debug("user {}", user.getRole().getRoleName());
-			 session.setAttribute("user", user);
-			 session.setAttribute("userInfo", user.getUserInformation());
+	    String username = authentication.getName();
+		User user = userservice.getUserByUsername(username);
+		 
+		log.debug("user {}", user.getRole().getRoleName());
+		session.setAttribute("user", user);
+		session.setAttribute("userInfo", user.getUserInformation());
 		return "redirect:/dashboard/profile";
 	}
 	

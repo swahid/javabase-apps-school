@@ -18,12 +18,12 @@
     <div class="col-md-12">
 	    <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-		    <div class="widget-user-header bg-black" style="background: url('<c:url value="/resources/images/user/banner.jpg"/>') center center;">
+		    <div class="widget-user-header bg-black" style="background: url('<c:url value="/resources/images/user/${userInfo.userBanner}"/>') center center;">
 		      <h3 class="widget-user-username"><span>${userInfo.firstName} ${userInfo.lastName}</span></h3>
 		      <h5 class="widget-user-desc">${user.role.roleName}</h5>
 		    </div>
 		    <div class="widget-user-image">
-		      <img class="img-circle" src='<c:url value="/resources/images/user/avatar.png"/>' alt="User Avatar">
+		      <img class="img-circle" src='<c:url value="/resources/images/user/${userInfo.userLogo}"/>' alt="User Avatar">
 		    </div>
 	    </div>
 	    <div class="clearfix"></div>
@@ -169,7 +169,7 @@
                       <div class="box-body">
                         <div class="form-group col-sm-2 ">
                           <label for="username" class="control-label"></label>
-                            <input type="file" name="avaterLogo" class="btn btn-info">
+                            <input type="file" name="avaterLogo">
                             <input type="hidden" name="userId" value="${user.userId}">
                             <button type="submit" class="btn btn-info">Upload Logo</button>
                         </div>
@@ -183,6 +183,7 @@
                         <div class="form-group col-sm-2 ">
                           <label for="username" class="control-label"></label>
                             <input type="file" name="userbanner">
+                            <input type="hidden" name="userId" value="${user.userId}">
                             <button type="submit" class="btn btn-info">Upload Banner</button>
                         </div>
                       </div>
