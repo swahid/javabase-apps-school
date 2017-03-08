@@ -41,6 +41,7 @@ $(document).ready(function($) {
             contentType: "application/json; charset=utf-8",
             success  : function(resonse) {
                 success(resonse.message);
+                location.href=window.location;
             },
             error    : function(e) {
                 console.log("ERROR: ",e);

@@ -70,14 +70,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src='<c:url value="/resources/images/avatar.png"/>' class="user-image" alt="User Image">
+                  <img src='<c:url value="/resources/images/user/${userInfo.userLogo}"/>' class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">${user.username}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="<c:url value="/resources/images/avatar.png"/>" class="img-circle" alt="User Image">
+                    <img src='<c:url value="/resources/images/user/${userInfo.userLogo}"/>' class="img-circle" alt="User Image">
                     <p>
                       ${user.firstName} ${user.lastName} - ${user.role.roleName}
                       <small>Member since ${user.createDate}</small>

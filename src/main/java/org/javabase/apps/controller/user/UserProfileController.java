@@ -57,7 +57,27 @@ public class UserProfileController {
         Map<String, Object> response = new HashMap<>();
         session.removeAttribute("userInfo");
         try {
-            boolean update = service.update(userInformation);
+            
+            UserInformation entity = service.getUserInfoById(userInformation.getUserId());
+            
+            entity.setFirstName(userInformation.getFirstName());
+            entity.setLastName(userInformation.getLastName());
+            entity.setFatherName(userInformation.getFatherName());
+            entity.setMotherName(userInformation.getMotherName());
+            entity.setBirthdate(userInformation.getBirthdate());
+            entity.setPhoneHome(userInformation.getPhoneHome());
+            entity.setPhoneMobile(userInformation.getPhoneMobile());
+            entity.setEmailPrimary(userInformation.getEmailPrimary());
+            entity.setAddressLine1(userInformation.getAddressLine1());
+            entity.setAddressLine2(userInformation.getAddressLine2());
+            entity.setCity(userInformation.getCity());
+            entity.setState(userInformation.getState());
+            entity.setDistrict(userInformation.getDistrict());
+            entity.setZipCode(userInformation.getZipCode());
+            entity.setCountry(userInformation.getCountry());
+            
+            
+            boolean update = service.update(entity);
             if (update) {
                 
                 session.setAttribute("userInfo", service.getUserInfoById(userInformation.getUserId()));

@@ -18,7 +18,7 @@
     <div class="col-md-12">
 	    <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-		    <div class="widget-user-header bg-black" style="background: url('<c:url value="/resources/images/user/${userInfo.userBanner}"/>') center center;">
+		    <div class="widget-user-header bg-yellow" style="background: url('<c:url value="/resources/images/user/${userInfo.userBanner}"/>') center center;">
 		      <h3 class="widget-user-username"><span>${userInfo.firstName} ${userInfo.lastName}</span></h3>
 		      <h5 class="widget-user-desc">${user.role.roleName}</h5>
 		    </div>
@@ -142,7 +142,7 @@
                         <div class="form-group col-md-6">
                           <label for="Country" class="col-sm-6 control-label">Country</label>
                           <div class="col-sm-6">
-                              <input type="text" class="form-control" id="Country" value="${userInfo.country}">
+                              <input type="text" class="form-control" id="country" value="${userInfo.country}">
                           </div>
                           <input type="hidden" id="userId" value="${user.userId}">
                         </div>

@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SelectBeforeUpdate;
+
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
  * @version 1.0.0
@@ -21,6 +24,8 @@ import javax.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = "role_name"))
+@DynamicUpdate(value=true)
+@SelectBeforeUpdate(value=true)
 public class Role implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4954661468737034393L;

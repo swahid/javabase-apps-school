@@ -16,6 +16,9 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
  * @version 1.0.0
@@ -23,6 +26,7 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 @Table(name = "user_information")
+@JsonInclude(Include.NON_NULL)
 public class UserInformation implements java.io.Serializable {
 
     private static final long serialVersionUID = -7772090218042970865L;

@@ -49,7 +49,7 @@ public class UserInformationMapperImpl implements UserInformationMapper{
     @Override
     public Boolean update(UserInformation userInformation) {
         try {
-            session.getCurrentSession().update(userInformation);
+            session.getCurrentSession().merge(userInformation);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

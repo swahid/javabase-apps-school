@@ -10,7 +10,7 @@ INSERT INTO role(role_name, display_name, description) VALUES ('admin', 'Admin',
 -- ==========================
 
 INSERT INTO user(role_id,is_active, create_date, email, is_acc_non_expired,is_pass_non_expired, is_non_locked, password, username)VALUES (1,true, now(), 'admin@jschool.com', true,true, true, '123456', 'admin');
-
+INSERT INTO user_information(user_id)VALUES (1);
 
 -- ==========================
 -- === Permission Insert ====
