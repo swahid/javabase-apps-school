@@ -32,7 +32,7 @@
 	<ul class="treeview-menu">
 	    <li><a href='<c:url value="/dashboard/role"/>'><i class="fa fa-link"></i> <span>User Role</span></a></li>
 	    <li><a href='<c:url value="/dashboard/user"/>'><i class="fa fa-plus"></i> <span>Add User</span></a></li>
-	    <li><a href='<c:url value="/dashboard/permission"/>'><i class="fa fa-link"></i> <span>Permission</span></a></li>
+	    <li><a href='<c:url value="/dashboard/permssion"/>'><i class="fa fa-link"></i> <span>Permission</span></a></li>
 	</ul>
 </li>
 <li class="treeview">

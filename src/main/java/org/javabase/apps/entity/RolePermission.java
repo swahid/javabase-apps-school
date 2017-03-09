@@ -46,7 +46,6 @@ public class RolePermission implements java.io.Serializable {
 		this.rolePermId = rolePermId;
 	}
 
-//	@JsonManagedReference
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_id", nullable = false)
 	public Role getRole() {
