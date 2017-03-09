@@ -20,8 +20,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  * @author  Saurav Wahid<swahidfx@gmail.com>
@@ -30,7 +28,6 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @Entity
 @Table(name = "user")
-@JsonInclude(Include.NON_NULL)
 public class User implements java.io.Serializable {
 
 	private static final long serialVersionUID = -5182659307195189767L;

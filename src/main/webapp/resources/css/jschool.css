@@ -1,15 +1,4 @@
  /* Here declare our custom design css */
- .panel-group .panel-heading,.panel-group .panel-heading .panel-title>a{font-size:14px}.panel-group .panel-heading .panel-title>a{text-decoration:none}.panel-group .panel-heading{border-bottom:0!important}.panel>.panel-heading+.panel-collapse>.panel-body{border-top-color:transparent}.panel-group .panel-heading .panel-title{position:relative;width:100%}
-.panel-group .panel-heading .panel-title>a:after{font-family:FontAwesome;content:"\f068";position:absolute;right:0;color:#777;height:15px;top:50%;margin-top:-7.5px}
-.panel-group .panel-heading .panel-title>a.collapsed:after{content:"\f067"}
-
-.panel-group .panel-danger .panel-heading .panel-title>a:after,
-	.panel-group .panel-info .panel-heading .panel-title>a:after,
-	.panel-group .panel-primary .panel-heading .panel-title>a:after,
-	.panel-group .panel-success .panel-heading .panel-title>a:after,
-	.panel-group .panel-warning .panel-heading .panel-title>a:after {
-	color: #fff
-}
 
 .info-box.student {
 	background: url(./../images/student.png);
