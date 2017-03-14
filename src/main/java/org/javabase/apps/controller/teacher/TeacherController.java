@@ -1,9 +1,11 @@
 package org.javabase.apps.controller.teacher;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.TeacherDetails;
+import org.javabase.apps.entity.TeacherPost;
 import org.javabase.apps.service.TeacherDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,19 @@ public class TeacherController {
     public String studentPage() {
         return "teacher/teacher";
     }
+	
+	@ResponseBody
+	@RequestMapping(value = "load",method = RequestMethod.GET)
+	public Map<String, Object> allTeacher() {
+		Map<String, Object> response= new HashMap<String, Object>();
+		
+		List<TeacherDetails> teacherList = teacherDetailsService.getAllTeacherDetailss();
+			
+		response.put("success", true);
+		response.put("data", teacherList);
+		return response;
+		
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="add", method = RequestMethod.POST)

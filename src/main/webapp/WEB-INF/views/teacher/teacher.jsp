@@ -22,34 +22,34 @@
 				<input type="hidden" id="csrfHeader" value="${_csrf.headerName}"/>
 				<!-- Get User information like userid or user name -->
 				<input type="hidden" id="userId" value="${user.userId}"/>
-	<!-- 	<div class="form-group">
-			<label class="col-sm-2 control-label" for="buildingCombo">Select Class <span class="require-field">*</span></label>
+		<div class="form-group">
+			<label class="col-sm-2 control-label" for="teacherPostCombo">Select Teacher Post <span class="require-field">*</span></label>
 			<div class="col-sm-8">
-            <select name="classCombo" class="form-control select2 text-input" id="classCombo" style="width: 100%">
-            	Option data will come from js file
+            <select name="teacherPostCombo" class="form-control select2 text-input" id="teacherPostCombo" style="width: 100%">
+            <!-- 	Option data will come from js file -->
             </select>
 			</div>
-		</div> -->
+		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="email">Subject Title<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="email">Email Address<span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<input id="email" class="form-control" type="text" value="" name="email">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="firstname">Subject Code</label>
+			<label class="col-sm-2 control-label" for="firstname">First Name</label>
 			<div class="col-sm-8">
 				<input id="firstname" class="form-control " type="text" value="" name="firstname">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="lastname">Subject Name</label>
+			<label class="col-sm-2 control-label" for="lastname">Last Name</label>
 			<div class="col-sm-8">
 				<input id="lastname" class="form-control " type="text" value="" name="lastname">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="phoneno">Construction<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="phoneno">Phone Number</label>
 			<div class="col-sm-8">
 				<input id="phoneno" class="form-control " type="text" value="" name="phoneno">
 			</div>
@@ -66,7 +66,7 @@
         <!-- =========================== Search Datatable Start ======================== -->
 	<div class="box-body">
 		<div class="box-body table-responsive">
-            <table id="subjectTable" class="table table-bordered table-striped">
+            <table id="teacherTable" class="table table-bordered table-striped">
             </table>
         </div><!-- /.box-body -->
 	</div>

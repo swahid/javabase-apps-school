@@ -3,12 +3,12 @@
  * registration function with jquery ajax 
  */
 $(document).ready(function($) {
-	//call class initialized
-	jbf.combo.loadClass('#classCombo','insClass/load');
+	//call teacher's Post initialized
+	jbf.combo.teacherPostCombo('#teacherPostCombo','teachersPost/load');
 	
 	
 //	datatable load at page load
-	subjectDatatable();
+	teacherDatatable();
 	
 	$("#addTeacherForm").submit(function(event) {
 		
@@ -22,7 +22,7 @@ $(document).ready(function($) {
 		}
 		// get form data
 		var data = {}
-//		data["classId"]  = $("#classCombo").val(),
+		data["designation"]  = $("#teacherPostCombo").val(),
 		data["email"]    		= $("#email").val(),
 		data["firstname"]       = $("#firstname").val(),
 		data["lastname"]	    = $("#lastname").val(),
@@ -55,7 +55,7 @@ $(document).ready(function($) {
 				var message = resonse.message;
 				//success notification
 				success(message);
-				subjectDatatable();
+				teacherDatatable();
 				document.getElementById("addTeacherForm").reset()
 			},
 			error 	 : function(e) {
@@ -70,26 +70,26 @@ $(document).ready(function($) {
 	
 
 	
-	function subjectDatatable(param) {
-		var url = 'subject/load';
-		$('#subjectTable').dataTable({
+	function teacherDatatable(param) {
+		var url = 'teacher/load';
+		$('#teacherTable').dataTable({
 			destroy	: true,
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Class Name',
-		        	data	: 'classId'
+		        	title	: 'Designation',
+		        	data	: 'designation'
 				},{
-					title	: 'Subject Title',
-					data	: 'subTitle'
+					title	: 'E-mail Address',
+					data	: 'email'
 				},{
-					title	: 'Subject Code',
-					data	: 'subCode'
+					title	: 'First Name',
+					data	: 'firstname'
 				},{
-					title	: 'Subject Name',
-					data	: 'subName'
+					title	: 'Last Name',
+					data	: 'lastname'
 		    	},{
-		    		title	: 'Status',
-		    		data	: 'active'
+		    		title	: 'Contact No',
+		    		data	: 'phoneno'
 		    	},{
 		    		title	: 'Since',
 		    		data	: 'entryDate',
