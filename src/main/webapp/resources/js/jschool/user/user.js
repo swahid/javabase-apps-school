@@ -100,12 +100,37 @@ $(document).ready(function($) {
 							return "";
 						}
 		    		}
-		    	}
+		    	},{
+	                data: null,
+	                className: "center",
+	                defaultContent: '<a href="" class="editor_edit">Edit</a> &nbsp; <a href="" class="editor_remove">Delete</a>'
+	            }
 	        ],
 	        columnDefs	: [
                {"className": "dt-center", "targets": "_all"}
             ]
 	    });
 	};
+	
+	/*// Edit record
+    $('#example').on( 'click', 'a.editor_edit', function (e) {
+        e.preventDefault();
+ 
+        editor
+            .title( 'Edit record' )
+            .buttons( { "label": "Update", "fn": function () { editor.submit() } } )
+            .edit( $(this).closest('tr') );
+    } );
+ 
+    // Delete a record
+    $('#example').on( 'click', 'a.editor_remove', function (e) {
+        e.preventDefault();
+ 
+        editor
+            .title( 'Edit record' )
+            .message( "Are you sure you wish to delete this row?" )
+            .buttons( { "label": "Delete", "fn": function () { editor.submit() } } )
+            .remove( $(this).closest('tr') );
+    } );*/
 	
 });
