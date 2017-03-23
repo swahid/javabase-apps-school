@@ -6,8 +6,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,12 +26,10 @@ public class TeacherDetails implements java.io.Serializable {
 
 	private static final long serialVersionUID = -7947438187750407254L;
 	private int userId;
+	private User    user;
 	private Date createdate;
+	private Date promotionDate;
 	private String designation;
-	private String email;
-	private String firstname;
-	private String lastname;
-	private String phoneno;
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -41,6 +42,16 @@ public class TeacherDetails implements java.io.Serializable {
 		this.userId = userId;
 	}
 
+    @OneToOne(fetch=FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "createdate", length = 19)
 	public Date getCreatedate() {
@@ -50,6 +61,16 @@ public class TeacherDetails implements java.io.Serializable {
 	public void setCreatedate(Date createdate) {
 		this.createdate = createdate;
 	}
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "promotionDate", length = 19)
+	public Date getPromotionDate() {
+		return this.promotionDate;
+	}
+	
+	public void setPromotionDate(Date promotionDate) {
+		this.promotionDate = promotionDate;
+	}
 
 	@Column(name = "designation", length = 45)
 	public String getDesignation() {
@@ -58,42 +79,6 @@ public class TeacherDetails implements java.io.Serializable {
 
 	public void setDesignation(String designation) {
 		this.designation = designation;
-	}
-
-	@Column(name = "email", length = 45)
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Column(name = "firstname", length = 45)
-	public String getFirstname() {
-		return this.firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	@Column(name = "lastname", length = 45)
-	public String getLastname() {
-		return this.lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	@Column(name = "phoneno", length = 45)
-	public String getPhoneno() {
-		return this.phoneno;
-	}
-
-	public void setPhoneno(String phoneno) {
-		this.phoneno = phoneno;
 	}
 
 }

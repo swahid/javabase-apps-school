@@ -61,7 +61,7 @@ public class UserController {
 		String email      = entity.get("email");
 		String firstName  = entity.get("firstName");
 		String lastName   = entity.get("lastName");
-		String gender   = entity.get("gender");
+		String gender     = entity.get("gender");
 		String createUser = entity.get("createUser");
 		Date createDate   = new Date();
 		String roleId     = entity.get("roleId");

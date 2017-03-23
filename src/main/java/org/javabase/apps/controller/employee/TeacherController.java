@@ -1,12 +1,13 @@
-package org.javabase.apps.controller.teacher;
+package org.javabase.apps.controller.employee;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.TeacherDetails;
-import org.javabase.apps.entity.TeacherPost;
 import org.javabase.apps.service.TeacherDetailsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +19,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "dashboard/teacher")
 public class TeacherController {
 	
+	private static final Logger log=LoggerFactory.getLogger(TeacherController.class);
+	
 	@Autowired
 	TeacherDetailsService teacherDetailsService;
 	
 	@RequestMapping(method = RequestMethod.GET)
     public String studentPage() {
-        return "teacher/teacher";
+        return "employee/teacher";
     }
 	
 	@ResponseBody
@@ -41,11 +44,19 @@ public class TeacherController {
 	
 	@ResponseBody
 	@RequestMapping(value="add", method = RequestMethod.POST)
-	public Map<String, Object> registration(@RequestBody TeacherDetails teacherDetails) {
+	public Map<String, Object> registration(@RequestBody Map<String, String> entity) {
 		Map<String, Object> response= new HashMap<String, Object>();
+		
+		String email   = entity.get("email");
+		log.info(email);
+		TeacherDetails teacherDetails=new TeacherDetails();
+		teacherDetails.setDesignation(entity.get("email"));
+		/*teacherDetails.setFirstname(firstname);
+		teacherDetails.setLastname(lastname);
+		teacherDetails.setPhoneno(phoneno);*/
 		Boolean save = teacherDetailsService.addTeacherDetails(teacherDetails);
 		
-		if (save) {
+	/*	if (save) {
 			response.put("suceess", true);
 	        response.put("message", "Add Teacher Sucess");
 			return response;
@@ -53,8 +64,8 @@ public class TeacherController {
 			response.put("error", true);
 	        response.put("message", "Add Teacher Failed");
 			return response;
-		}
-		
+		}*/
+		return null;
 	}
 	
 	

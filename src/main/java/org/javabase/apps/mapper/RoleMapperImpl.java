@@ -22,11 +22,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 @SuppressWarnings("unchecked")
 public class RoleMapperImpl implements RoleMapper{
-    
-    private static final Logger log = LoggerFactory.getLogger(RoleMapperImpl.class);
 
 	@Autowired
 	private SessionFactory session;
+	private static final Logger log = LoggerFactory.getLogger(RoleMapperImpl.class);
 	
 	@Override
 	public List<Role> getAllRoles() {
@@ -80,7 +79,7 @@ public class RoleMapperImpl implements RoleMapper{
 	@Override
 	public boolean isRoleExist(String roleName) {
 		try {
-		    String hql = "From Role where roleName = :roleName";
+		    String hql = "From Role where roleName = :  roleName";
 			Query query = session.getCurrentSession().createQuery(hql);
 			
 			query.setParameter("roleName", roleName);

@@ -17,7 +17,13 @@
 	  <li><a href="#">Student Promotion</a></li>
 	</ul>
 </li>
-<li><a href='<c:url value="/dashboard/teacher"/>'><i class="fa fa-link"></i> <span>Teacher</span></a></li>
+<li class="treeview">
+    <a href="#"><i class="fa fa-link"></i> <span>Employee</span> <i class="fa fa-angle-left pull-right"></i></a>
+    <ul class="treeview-menu">
+	    <li><a href='<c:url value="/dashboard/employee"/>'><i class="fa fa-link"></i>Employee</a></li>
+	    <li><a href='<c:url value="/dashboard/teacher"/>'><i class="fa fa-link"></i>Teacher</a></li>
+	</ul>
+</li>
 <li><a href='<c:url value="/dashboard/parents"/>'><i class="fa fa-link"></i> <span>Parents</span></a></li>
 <li class="treeview">
     <a href="#"><i class="fa fa-link"></i> <span>Class</span> <i class="fa fa-angle-left pull-right"></i></a>
