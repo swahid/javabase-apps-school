@@ -25,13 +25,13 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="teacherPostCombo">Select Teacher <span class="require-field">*</span></label>
 			<div class="col-sm-8">
-            <select name="teacherPostCombo" class="form-control select2 text-input" id="teacherPostCombo" style="width: 100%">
+            <select name="teacherEmpCombo" class="form-control select2 text-input" id="teacherEmpCombo" style="width: 100%">
             <!-- 	Option data will come from js file -->
             </select>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="teacherPostCombo">Select  Post <span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="teacherEmpCombo">Select  Post <span class="require-field">*</span></label>
 			<div class="col-sm-8">
             <select name="teacherPostCombo" class="form-control select2 text-input" id="teacherPostCombo" style="width: 100%">
             <!-- 	Option data will come from js file -->

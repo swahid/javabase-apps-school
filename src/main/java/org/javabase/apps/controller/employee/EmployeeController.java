@@ -57,6 +57,20 @@ public class EmployeeController {
 		return response;
 		
 	}
+	@ResponseBody
+	@RequestMapping(value = "tload",method = RequestMethod.GET)
+	public Map<String, Object> allTeacherEmp() {
+		Map<String, Object> param= new HashMap<String, Object>();
+		
+		param.put("teacher", "1");
+		List<Employees> employeeListByParam = employeesService.getAllEmployeessByParam(param);
+		param.remove("teacher");
+		
+		param.put("success", true);
+		param.put("data", employeeListByParam);
+		return param;
+		
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="add", method = RequestMethod.POST)

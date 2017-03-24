@@ -68,7 +68,17 @@ jbf.combo||(function(e){
 	    		$(id).append("<option value=''></option>")
 	    		$(id).append("<option value="+ data[i].empPostId +">"+data[i].postName+"</option>")
 	    	}
-	    }
+	    },
+	    
+//	    this combo rerive data from employee table who are only teacher
+		teacherEmpCombo: function(id, url, param) {
+			var data = jbf.ajax.load(url, param);
+			$(id).empty();
+			for (var i = 0; i < data.length; i++) {
+				$(id).append("<option value=''></option>")
+				$(id).append("<option value="+ data[i].userId +">"+data[i].user.firstName +" "+ data[i].user.lastName +" ("+data[i].employeeID+")"+"</option>")
+			}
+		}
     };
     e.combo = combo;
 }(jbf));
