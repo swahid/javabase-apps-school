@@ -25,11 +25,13 @@ import javax.persistence.TemporalType;
 public class TeacherDetails implements java.io.Serializable {
 
 	private static final long serialVersionUID = -7947438187750407254L;
-	private int userId;
+	private int 	userId;
 	private User    user;
-	private Date createdate;
-	private Date promotionDate;
-	private String designation;
+	private Date 	createdate;
+	private Date 	promotionDate;
+	private String 	designation;
+	private String 	joinPosition;
+	private String 	status;
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -79,6 +81,24 @@ public class TeacherDetails implements java.io.Serializable {
 
 	public void setDesignation(String designation) {
 		this.designation = designation;
+	}
+	
+	@Column(name = "joinPosition", length = 45)
+	public String getJoinPosition() {
+		return this.joinPosition;
+	}
+	
+	public void setJoinPosition(String joinPosition) {
+		this.joinPosition = joinPosition;
+	}
+	
+	@Column(name = "status", length = 45)
+	public String getStatus() {
+		return this.status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

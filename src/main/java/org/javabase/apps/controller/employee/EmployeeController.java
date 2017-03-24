@@ -45,13 +45,15 @@ public class EmployeeController {
 	
 	@ResponseBody
 	@RequestMapping(value = "load",method = RequestMethod.GET)
-	public Map<String, Object> allTeacher() {
+	public Map<String, Object> allEmployee() {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
-		List<Employees> teacherList = employeesService.getAllEmployeess();
-			
+		List<Employees> employeeList = employeesService.getAllEmployeess();
+		
+		List<Employees> employeeListByParam = employeesService.getAllEmployeessByParam(response);
+			log.info(employeeListByParam.get(0).getEmployeeID());
 		response.put("success", true);
-		response.put("data", teacherList);
+		response.put("data", employeeList);
 		return response;
 		
 	}
@@ -61,7 +63,6 @@ public class EmployeeController {
 	public Map<String, Object> registration(@RequestBody Map<String, String> entity) {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
-		 
 		String userName    = entity.get("username");
 		String password    = entity.get("password");
 		String email       = entity.get("email");

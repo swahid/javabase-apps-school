@@ -9,7 +9,7 @@ $(document).ready(function($) {
 	
 	
 //	datatable load at page load
-	teacherDatatable();
+	employeesDatatable();
 	
 	$("#addEmployeeForm").submit(function(event) {
 		
@@ -62,7 +62,7 @@ $(document).ready(function($) {
 				var message = resonse.message;
 				//success notification
 				success(message);
-				teacherDatatable();
+				employeesDatatable();
 				document.getElementById("addEmployeeForm").reset()
 			},
 			error 	 : function(e) {
@@ -77,29 +77,32 @@ $(document).ready(function($) {
 	
 
 	
-	function teacherDatatable(param) {
-		var url = 'teacher/load';
-		$('#teacherTable').dataTable({
+	function employeesDatatable(param) {
+		var url = 'employee/load';
+		$('#EmployeesTable').dataTable({
 			destroy	: true,
 	        data	: jbf.ajax.load(url, param),
 	        columns	: [{
-		        	title	: 'Designation',
-		        	data	: 'designation'
-				},{
-					title	: 'E-mail Address',
-					data	: 'email'
+		        	title	: 'Employee ID',
+		        	data	: 'employeeID'
 				},{
 					title	: 'First Name',
-					data	: 'firstname'
+					data	: 'user.firstName'
 				},{
 					title	: 'Last Name',
-					data	: 'lastname'
+					data	: 'user.lastName'
 		    	},{
-		    		title	: 'Contact No',
-		    		data	: 'phoneno'
+		    		title	: 'Role',
+		    		data	: 'user.role.roleName'
+		    	},{
+		    		title	: 'User Name',
+		    		data	: 'user.username'
+		    	},{
+		    		title	: 'E-mail Address',
+		    		data	: 'user.email'
 		    	},{
 		    		title	: 'Since',
-		    		data	: 'entryDate',
+		    		data	: 'user.createDate',
 		    		render  : function (date) {
 		    			if (date) {
 		    				return moment(date).format("DD MMM YYYY");

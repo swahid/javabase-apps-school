@@ -58,7 +58,7 @@ jbf.combo||(function(e){
 			$(id).empty();
 			for (var i = 0; i < data.length; i++) {
 				$(id).append("<option value=''></option>")
-				$(id).append("<option value="+ data[i].teaPostId +">"+data[i].degignation+"</option>")
+				$(id).append("<option value="+ data[i].teaPostId +">"+data[i].degignation+" ("+data[i].subName+")"+"</option>")
 			}
 		},
     employeePostCombo: function(id, url, param) {

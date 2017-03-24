@@ -37,7 +37,7 @@ public class EmployeesMapperImpl implements EmployeesMapper{
 	@Override
 	@Transactional(readOnly=true)
 	public List<Employees> getAllEmployeessByParam(Map<String, Object> params) {
-		String hql = "FROM Employees";
+		String hql = "FROM Employees WHERE employeePost = 1";
 		return (List<Employees>) hibernateTemplate.find(hql);
 	}
 

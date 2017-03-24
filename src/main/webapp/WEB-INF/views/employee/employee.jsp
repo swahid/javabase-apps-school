@@ -100,11 +100,11 @@
     </div>
     </div>
         <!-- =========================== Search Datatable Start ======================== -->
-	<!-- <div class="box-body">
+	<div class="box-body">
 		<div class="box-body table-responsive">
-            <table id="teacherTable" class="table table-bordered table-striped">
+            <table id="EmployeesTable" class="table table-bordered table-striped">
             </table>
         </div>/.box-body
-	</div> -->
+	</div>
 	</jsp:body>
 </t:dashboard>
