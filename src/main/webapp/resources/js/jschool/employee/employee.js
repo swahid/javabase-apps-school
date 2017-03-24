@@ -5,6 +5,7 @@
 $(document).ready(function($) {
 	//call teacher's Post initialized
 	jbf.combo.employeePostCombo('#employeePostCombo','empPost/load');
+	jbf.combo.loadRole('#rollCombo','role/load');
 	
 	
 //	datatable load at page load

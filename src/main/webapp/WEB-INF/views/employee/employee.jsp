@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="gender">Gender<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="gender">Gender</label>
 			<div class="col-sm-8">
 				<input id="gender" name="gender" class="validate[required]" type="radio" value="M"> Male&nbsp;&nbsp;
 				<input id="gender" name="gender" class="validate[required]" type="radio" value="M"> Female
@@ -65,7 +65,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="rollCombo">Select Roll<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-            <select name="rollCombo" class="form-control select2 text-input" id="roleCombo" style="width: 100%">
+            <select name="rollCombo" class="form-control select2 text-input" id="rollCombo" style="width: 100%">
             </select>
 			</div>
 		</div>
