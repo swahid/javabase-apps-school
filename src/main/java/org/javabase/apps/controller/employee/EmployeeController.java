@@ -82,7 +82,6 @@ public class EmployeeController {
 		
 		
 		role.setRoleId(Integer.valueOf(1));
-//		role.setRoleId(1);
 		user.setUsername(userName);
 		user.setPassword(password);
 		user.setEmail(email);
@@ -96,8 +95,6 @@ public class EmployeeController {
 		user.setUserInformation(userInfo);
 		user.setRole(role);
 		
-		log.info(entity.get("empPost"));
-		
 		userInfo.setEmailPrimary(email);
         userInfo.setFirstName(firstName);
         userInfo.setLastName(lastName);
@@ -105,27 +102,20 @@ public class EmployeeController {
         userInfo.setEntryUser(createUser);
         
         employees.setEmployeeID(employeeID);
-//        employees.setEpmloyeePost FIX ME
+        employees.setEmployeePost(empPsot);
         
-        log.info("all  variable initialized");
         
 		boolean save = userservice.addUser(user);
 		
 		if (save) {
 		    
-			 log.info("user saved");
-			 
 		    user = userservice.getUserByUsername(userName);
 		    userInfo.setUser(user);
-		    
 		    userInformationService.save(userInfo);
-		   
-		    log.info("userinfo saved");
 		    
 		    employees.setUser(user);
 		    employeesService.addEmployees(employees);
 		    
-		    log.info("user added as a employee");
 		    response.put("success", true);
 		    response.put("message", "save success");
         }else {

@@ -32,6 +32,7 @@ public class Employees implements java.io.Serializable {
 	private Integer userId;
 	private User    user;
 	private String 	employeeID;
+	private String 	employeePost;
 	private Date 	joinDate;
 	private Date 	registerDate;
 	private Date 	updateDate;
@@ -66,6 +67,15 @@ public class Employees implements java.io.Serializable {
 
     public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
+    }
+    
+    @Column(name = "employee_post", length = 45)
+    public String getEmployeePost() {
+    	return this.employeePost;
+    }
+    
+    public void setEmployeePost(String employeePost) {
+    	this.employeePost = employeePost;
     }
 
 	@Temporal(TemporalType.TIMESTAMP)
