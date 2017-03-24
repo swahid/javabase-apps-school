@@ -6,7 +6,7 @@ $(document).ready(function($) {
 //	call empPost info initialized method
 	teachersPostDatatable();
 
-	$("#addTeachersForm").submit(function(event) {
+	$("#addTeacherPostForm").submit(function(event) {
 		
 		event.preventDefault();
 		var data = {}
@@ -44,7 +44,7 @@ $(document).ready(function($) {
 				//success notification
 				success(message);
 				teachersPostDatatable();
-				document.getElementById("addempPostForm").reset()
+				document.getElementById("addTeacherPostForm").reset()
 			},
 			error 	 : function(e) {
 				console.log("ERROR: ",e);
