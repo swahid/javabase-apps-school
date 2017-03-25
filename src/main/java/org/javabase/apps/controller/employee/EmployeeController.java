@@ -49,9 +49,7 @@ public class EmployeeController {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
 		List<Employees> employeeList = employeesService.getAllEmployeess();
-		
-		List<Employees> employeeListByParam = employeesService.getAllEmployeessByParam(response);
-			log.info(employeeListByParam.get(0).getEmployeeID());
+
 		response.put("success", true);
 		response.put("data", employeeList);
 		return response;
@@ -96,7 +94,7 @@ public class EmployeeController {
 		
 		
 		
-		role.setRoleId(Integer.valueOf(1));
+		role.setRoleId(Integer.valueOf(roleId));
 		user.setUsername(userName);
 		user.setPassword(password);
 		user.setEmail(email);

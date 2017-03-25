@@ -23,7 +23,7 @@
 				<!-- Get User information like userid or user name -->
 				<input type="hidden" id="userId" value="${user.userId}"/>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="buildingCombo">Select Class <span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="classCombo">Select Class <span class="require-field">*</span></label>
 			<div class="col-sm-8">
             <select name="classCombo" class="form-control select2 text-input" id="classCombo" style="width: 100%">
             	<!-- Option data will come from js file -->
@@ -31,27 +31,27 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="roll_id">Subject Title<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="subTitle">Subject Title<span class="require-field">*</span></label>
 			<div class="col-sm-8">
 				<input id="subTitle" class="form-control validate[required]" type="text" value="" name="subTitle">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="middle_name">Subject Code</label>
+			<label class="col-sm-2 control-label" for="subCode">Subject Code</label>
 			<div class="col-sm-8">
-				<input id="subName" class="form-control " type="text" value="" name="subCode">
+				<input id="subCode" class="form-control " type="text" value="" name="subCode">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="middle_name">Subject Name</label>
+			<label class="col-sm-2 control-label" for="subName">Subject Name</label>
 			<div class="col-sm-8">
 				<input id="subName" class="form-control " type="text" value="" name="subName">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="last_name">Construction<span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="last_name">Description</label>
 			<div class="col-sm-8">
-				<input id="active" class="form-control validate[required] text-input" type="text" value="" name="active">
+				<input id="active" class="form-control type="text" value="" name="active">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">

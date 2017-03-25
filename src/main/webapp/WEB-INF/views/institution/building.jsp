@@ -31,7 +31,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="first_name"> Total Room<span class="require-field">*</span></label>
 			<div class="col-sm-8">
-				<input id="totalRoom" class="form-control validate[required]" type="number" value="" name="totalRoom">
+				<input id="totalRoom" class="form-control validate[required]" type="text" value="" name="totalRoom">
 			</div>
 		</div>
 		<div class="form-group">

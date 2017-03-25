@@ -25,10 +25,7 @@ $(document).ready(function($) {
 		// get form data
 		var data = {}
 		data["designation"]  = $("#teacherPostCombo").val(),
-		data["email"]    		= $("#email").val(),
-		data["firstname"]       = $("#firstname").val(),
-		data["lastname"]	    = $("#lastname").val(),
-		data["phoneno"] 	    = $("#phoneno").val(),
+		data["userID"] 	    = $("#teacherEmpCombo").val(),// userId is identifer as teacher
 		url = "teacher/add";
 		
 		/*
@@ -80,18 +77,21 @@ $(document).ready(function($) {
 	        columns	: [{
 		        	title	: 'Designation',
 		        	data	: 'designation'
-				},{
-					title	: 'E-mail Address',
-					data	: 'email'
+		    	},{
+		    		title	: 'Subject',
+					data	: 'designation'
 				},{
 					title	: 'First Name',
-					data	: 'firstname'
+					data	: 'user.firstName'
 				},{
 					title	: 'Last Name',
-					data	: 'lastname'
+					data	: 'user.lastName'
 		    	},{
-		    		title	: 'Contact No',
-		    		data	: 'phoneno'
+		    		title	: 'User Name',
+		    		data	: 'user.username'
+		    	},{
+		    		title	: 'E-mail Address',
+		    		data	: 'user.email'
 		    	},{
 		    		title	: 'Since',
 		    		data	: 'entryDate',

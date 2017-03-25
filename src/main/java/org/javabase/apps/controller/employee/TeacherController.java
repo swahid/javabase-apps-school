@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.javabase.apps.entity.TeacherDetails;
+import org.javabase.apps.entity.User;
 import org.javabase.apps.service.TeacherDetailsService;
+import org.javabase.apps.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TeacherController {
 	
 	private static final Logger log=LoggerFactory.getLogger(TeacherController.class);
+	
+	@Autowired
+	UserService userservice;
 	
 	@Autowired
 	TeacherDetailsService teacherDetailsService;
@@ -47,16 +52,17 @@ public class TeacherController {
 	public Map<String, Object> registration(@RequestBody Map<String, String> entity) {
 		Map<String, Object> response= new HashMap<String, Object>();
 		
-		String email   = entity.get("email");
-		log.info(email);
+		int userID   = Integer.parseInt(entity.get("userID"));
+		String designation   = entity.get("designation");
+		
 		TeacherDetails teacherDetails=new TeacherDetails();
-		teacherDetails.setDesignation(entity.get("email"));
-		/*teacherDetails.setFirstname(firstname);
-		teacherDetails.setLastname(lastname);
-		teacherDetails.setPhoneno(phoneno);*/
+		User user=userservice.getUserById(userID);
+		teacherDetails.setUser(user);
+		teacherDetails.setDesignation(designation);
+		
 		Boolean save = teacherDetailsService.addTeacherDetails(teacherDetails);
 		
-	/*	if (save) {
+		if (save) {
 			response.put("suceess", true);
 	        response.put("message", "Add Teacher Sucess");
 			return response;
@@ -64,8 +70,7 @@ public class TeacherController {
 			response.put("error", true);
 	        response.put("message", "Add Teacher Failed");
 			return response;
-		}*/
-		return null;
+		}
 	}
 	
 	

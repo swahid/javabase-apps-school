@@ -29,9 +29,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="first_name">Description <span class="require-field">*</span></label>
+			<label class="col-sm-2 control-label" for="first_name">Description</label>
 			<div class="col-sm-8">
-				<input id="details" class="form-control validate[required]" type="number" value="" name="details">
+				<input id="details" class="form-control  type="text" value="" name="details">
 			</div>
 		</div>
 		<div class="col-sm-offset-2 col-sm-8">
